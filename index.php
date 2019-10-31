@@ -23,6 +23,9 @@ $con = openConn();
 </head>
 
 <body>
+<img src="./assets/imgs/preloader.gif" id="preloader" alt="your browser does not support gifs!" width="100%" height="50%" style="margin: 0 auto">
+<div class="main-container" style="display: none;">
+
 
     <div class='top-bar row justify-content-md-center'>
 
@@ -66,6 +69,7 @@ $con = openConn();
             </div>
         </div>
     </div>
+    </div>
 </body>
 
 <!-- Javascript -->
@@ -80,7 +84,16 @@ $con = openConn();
 
 <script>
 $(document).ready(function() {
-    //alert('hello');
+    function pageLoaded(){
+        $('#preloader').hide();
+        
+        let showPage = document.querySelector(".main-container");
+        showPage.style.display="block";
+
+    }
+
+    pageLoaded();
+
 });
 </script>
 
