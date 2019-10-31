@@ -35,18 +35,25 @@ $conn = openConn();
     <img src="../assets/imgs/table-task-loader.gif" id="preloader" alt="your browser does not support gifs!"
         width="100%" height="50%" style="margin: 0 auto">
     <div class="main-container" style="display: none;">
-        <h1>hello there</h1>
-        <!-- add a task bar goes here -->
+        <div class="row justify-content-sm-center">
+            <div class="col-sm-12 col-md-8">
+                <h1>hello there</h1>
+                <!-- add a task bar goes here -->
+            </div>
+        </div>
+
+
         <div class="row justify-content-md-center">
             <div id="task-loading" class="col-sm-12 col-md-8">
 
             </div>
-            <div class="table-tasks col-sm-12 col-md-8" style="display: none;width:100%;height:100%;border: 2px solid yellow;">
-            <!-- below task will be displayed -->
-            hello
+            <div class="table-tasks col-sm-12 col-md-8"
+                style="display: none;width:100%;height:100%;border: 2px solid yellow;">
+                <!-- below task will be displayed -->
+                hello
+            </div>
         </div>
-        </div>
-        
+
     </div>
 
 </body>
@@ -67,6 +74,7 @@ $conn = openConn();
 <script>
 $(document).ready(function() {
     loadUserData();
+
     function pageLoaded() {
         $('#preloader').hide();
         let showPage = document.querySelector(".main-container");
