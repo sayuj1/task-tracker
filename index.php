@@ -1,12 +1,11 @@
 <?php
-
+session_start();
 include_once './dbconfig/dbconfig.php';
 
+// opening database connection
 $con = openConn();
 
 // echo 'Connected Successfully';
-
-// closeConn( $con );
 
 ?>
 
@@ -23,56 +22,57 @@ $con = openConn();
 </head>
 
 <body>
-<img src="./assets/imgs/preloader.gif" id="preloader" alt="your browser does not support gifs!" width="100%" height="50%" style="margin: 0 auto">
-<div class="main-container" style="display: none;">
+    <img src="./assets/imgs/preloader.gif" id="preloader" alt="your browser does not support gifs!" width="100%"
+        height="50%" style="margin: 0 auto">
+    <div class="main-container" style="display: none;">
 
 
-    <div class='top-bar row justify-content-md-center'>
+        <div class='top-bar row justify-content-md-center'>
 
-        <div class="col align-self-center">
-            Task Tracker
+            <div class="col align-self-center">
+                Task Tracker
+            </div>
+
         </div>
-
-    </div>
-    <div class='container'>
-        <div class="row justify-content-md-center">
-            <div class="login-box col-sm-12 col-md-8 shadow-sm p-3 mb-5 rounded">
-                <form action="" method="POST">
-                    <div class="row justify-content-md-center">
-                        <div class="form-group col-sm-12 col-md-8">
-                            <label for="username">Username</label>
-                            <input type="text" name="username" class="form-control" id="username"
-                                placeholder="Enter your username">
+        <div class='container'>
+            <div class="row justify-content-md-center">
+                <div class="login-box col-sm-12 col-md-8 shadow-sm p-3 mb-5 rounded">
+                    <form action="/views/MainPage.php" method="POST">
+                        <div class="row justify-content-md-center">
+                            <div class="form-group col-sm-12 col-md-8">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" class="form-control" id="username"
+                                    placeholder="Enter your username" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-md-center">
-                        <div class="form-group col-sm-12 col-md-8">
-                            <label for="password">Password</label>
-                            <input type="text" name="password" id="password" class="form-control"
-                                placeholder="Enter your password">
+                        <div class="row justify-content-md-center">
+                            <div class="form-group col-sm-12 col-md-8">
+                                <label for="password">Password</label>
+                                <input type="password" name="password" id="password" class="form-control"
+                                    placeholder="Enter your password" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-md-center">
-                        <div class="form-group col-sm-12 col-md-8">
-                            <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+                        <div class="row justify-content-md-center">
+                            <div class="form-group col-sm-12 col-md-8">
+                                <button name="login" type="submit" class="btn btn-primary btn-lg btn-block" id="login-btn">Login</button>
+                            </div>
                         </div>
-                    </div>
-                </form>
-                <div class="row justify-content-md-center">
-                    <div class="col-sm-12 col-md-8 new-user">
-                        Are You New Here?
-                    </div>
-                    <div class="col-sm-12 col-md-8">
-                        <button type="button" class="btn btn-secondary btn-lg btn-block">Create an account</button>
+                    </form>
+                    <div class="row justify-content-md-center">
+                        <div class="col-sm-12 col-md-8 new-user">
+                            Are You New Here?
+                        </div>
+                        <div class="col-sm-12 col-md-8">
+                            <button type="button" class="btn btn-secondary btn-lg btn-block">Create an account</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
 </body>
 
-<!-- Javascript -->
+<!-- Required JS files -->
 
 <script src='https://code.jquery.com/jquery-3.3.1.slim.min.js'
     integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous'>
@@ -81,20 +81,30 @@ $con = openConn();
     integrity='sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1' crossorigin='anonymous'>
 </script>
 <script src='./assets/js/bootstrap.min.js'></script>
+<script src='./assets/js/jquery.min.js'></script>
+<script src='./assets/js/login.js'></script>
 
+ <!-- This script is for preloading the page -->
 <script>
+
 $(document).ready(function() {
-    function pageLoaded(){
+
+    function pageLoaded() {
         $('#preloader').hide();
-        
+
         let showPage = document.querySelector(".main-container");
-        showPage.style.display="block";
-
+        showPage.style.display = "block";
     }
-
     pageLoaded();
 
 });
 </script>
 
 </html>
+
+<?php
+
+//closing database connection
+closeConn( $con );
+
+?>

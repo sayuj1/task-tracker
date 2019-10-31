@@ -13,7 +13,7 @@ function openConn() {
 
 function closeConn( $current_connection ) {
     mysqli_close( $current_connection );
-    echo 'connection closed';
+    // echo 'connection closed';
 }
 
 ?>

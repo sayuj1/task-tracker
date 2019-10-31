@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+}
+
+.top-bar {
+  background-color: #1a1a1d;
+  height: 8vh;
+}
+
+.top-bar > div {
+  color: white;
+  /* border: 2px solid yellow; */
+  font-size: 35px;
+}
+
+.login-box {
+  /* border: 2px solid red; */
+  background-color: #1f2833;
+  height: 60vh;
+  margin-top: 5%;
+}
+
+@media screen and (max-width: 400px) {
+  .login-box {
+    height: 70vh;
+    margin-top: 10%;
+    margin-left: 5%;
+  }
+
+  .top-bar > div {
+    color: white;
+    font-size: 15px;
+    /* border: 2px solid yellow; */
+  }
+}
