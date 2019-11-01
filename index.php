@@ -22,8 +22,10 @@ $con = openConn();
 </head>
 
 <body>
+
     <img src="./assets/imgs/preloader.gif" id="preloader" alt="your browser does not support gifs!" width="100%"
-        height="50%" style="margin: 0 auto">
+        height="auto" style="display: block; margin: 0 auto;">
+</div>
     <div class="main-container" style="display: none;">
 
 
@@ -35,37 +37,10 @@ $con = openConn();
 
         </div>
         <div class='container'>
-            <div class="row justify-content-md-center">
+            <div class="row justify-content-md-center" style="width: 100%;">
                 <div class="login-box col-sm-12 col-md-8 shadow-sm p-3 mb-5 rounded">
-                    <form action="/views/MainPage.php" method="POST">
-                        <div class="row justify-content-md-center">
-                            <div class="form-group col-sm-12 col-md-8">
-                                <label for="username">Username</label>
-                                <input type="text" name="username" class="form-control" id="username"
-                                    placeholder="Enter your username" required>
-                            </div>
-                        </div>
-                        <div class="row justify-content-md-center">
-                            <div class="form-group col-sm-12 col-md-8">
-                                <label for="password">Password</label>
-                                <input type="password" name="password" id="password" class="form-control"
-                                    placeholder="Enter your password" required>
-                            </div>
-                        </div>
-                        <div class="row justify-content-md-center">
-                            <div class="form-group col-sm-12 col-md-8">
-                                <button name="login" type="submit" class="btn btn-primary btn-lg btn-block" id="login-btn">Login</button>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="row justify-content-md-center">
-                        <div class="col-sm-12 col-md-8 new-user">
-                            Are You New Here?
-                        </div>
-                        <div class="col-sm-12 col-md-8">
-                            <button type="button" class="btn btn-secondary btn-lg btn-block">Create an account</button>
-                        </div>
-                    </div>
+                    <!-- dynamically loading the login/register page -->
+                    
                 </div>
             </div>
         </div>
@@ -82,12 +57,35 @@ $con = openConn();
 </script>
 <script src='./assets/js/bootstrap.min.js'></script>
 <script src='./assets/js/jquery.min.js'></script>
-<script src='./assets/js/login.js'></script>
 
  <!-- This script is for preloading the page -->
 <script>
 
 $(document).ready(function() {
+
+    $.ajax({
+        async: true,
+        type: "GET",
+        url: "./views/login.php",
+        dataType: 'html',
+        before: function () {
+            //show the loading image
+        },
+        complete: function () {
+            //hide the loading image
+        },
+        success: function (data) {
+            // console.log(data);
+            
+            $('.login-box').html(data);
+            $.getScript("./assets/js/login.js");
+            // console.log(document.querySelector('#new-account'));
+            
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
 
     function pageLoaded() {
         $('#preloader').hide();
@@ -99,6 +97,8 @@ $(document).ready(function() {
 
 });
 </script>
+
+
 
 </html>
 

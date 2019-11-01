@@ -3,13 +3,13 @@ $("form").on("submit", function (e) {
 
     $.ajax({
         type: "post",
-        url: "./loginRegister/login.php",
+        url: "./loginRegister/register.php",
         data: $('form').serialize(),
         beforeSend: function () {
-            $('#login-btn').html("Logging In").append('<img src="./assets/imgs/login_loader.gif" width="50px" height="50px"></img>');
+            $('#Register-btn').html("Registering User").append('<img src="./assets/imgs/login_loader.gif" width="50px" height="50px"></img>');
         },
         complete: function () {
-            $('#login-btn').html('Login');
+            $('#Register-btn').html('Register');
         },
         success: function (data) {
             console.log('data received');
@@ -30,12 +30,12 @@ $("form").on("submit", function (e) {
     });
 });
 
-$('#new-account').on('click', function () {
+$('#old-account').on('click', function () {
     // alert("hi");
     $.ajax({
         type: "GET",
-        url: "./views/register.php",
-        dataType: 'html',
+        url: "./views/login.php",
+        dataType: "html",
         before: function () {
             //show the loading image
         },
@@ -43,9 +43,8 @@ $('#new-account').on('click', function () {
             //hide the loading image
         },
         success: function (data) {
-            // $('#login-box').load('./views/register.php');
             $('.login-box').html(data);
-            $.getScript("./assets/js/register.js");
+            $.getScript("./assets/js/login.js");
         },
         error: function (err) {
             console.log(err);

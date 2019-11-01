@@ -23,7 +23,7 @@ body {
 .login-box {
   /* border: 2px solid red; */
   background-color: #1f2833;
-  height: 60vh;
+  min-height: 60vh;
   margin-top: 5%;
 }
 
@@ -41,7 +41,7 @@ label {
 
 @media screen and (max-width: 400px) {
   .login-box {
-    height: 70vh;
+    min-height: 60vh;
     margin-top: 10%;
     margin-left: 5%;
   }
