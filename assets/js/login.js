@@ -2,7 +2,7 @@ $("form").on("submit", function (e) {
     e.preventDefault();
 
     $.ajax({
-        type: "post",
+        type: "POST",
         url: "./loginRegister/login.php",
         data: $('form').serialize(),
         beforeSend: function () {
@@ -12,6 +12,7 @@ $("form").on("submit", function (e) {
             $('#login-btn').html('Login');
         },
         success: function (data) {
+            // console.log(data);
             console.log('data received');
             if (data == "ValidCredentials") {
                 console.log(data);

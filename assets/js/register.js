@@ -2,7 +2,7 @@ $("form").on("submit", function (e) {
     e.preventDefault();
 
     $.ajax({
-        type: "post",
+        type: "POST",
         url: "./loginRegister/register.php",
         data: $('form').serialize(),
         beforeSend: function () {
@@ -12,16 +12,21 @@ $("form").on("submit", function (e) {
             $('#Register-btn').html('Register');
         },
         success: function (data) {
+            console.log(data);
             console.log('data received');
-            if (data == "ValidCredentials") {
-                console.log(data);
-                window.location.href = "./views/MainPage.php";
-            } else if (data == "InvalidUsername") {
-                console.log("Invalid Username");
-            } else if (data == "InvalidPassword") {
-                console.log("Invalid Password");
-            } else {
-                console.log("Something went wrong! Sorry :(");
+            if (data == "emptyFields") {
+                console.log("Empty Field are not allowed");
+                // window.location.href = "./views/MainPage.php";
+            } else if (data == "nameIncorrect") {
+                console.log("Special Characters are not allowed in names");
+            } else if (data == "passwordLessThan8") {
+                console.log("Password length cannot be less than 8");
+            } else if (data == "userExists") {
+                console.log("This username already exists, please use another one");
+            } else if (data == "tryAgain") {
+                console.log("Something went wrong!");
+            } else if (data == "successful") {
+                console.log("User Registered Successfully!");
             }
         },
         error: function () {
