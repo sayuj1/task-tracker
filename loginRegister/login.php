@@ -19,7 +19,7 @@ if ( mysqli_num_rows( $result )>0 ) {
             // echo 'reached';
 
             $_SESSION['username'] = $row['username'];
-            $_SESSION['firstnam'] = $row['firstname'];
+            $_SESSION['firstname'] = $row['firstname'];
             $_SESSION['lastname'] = $row['lastname'];
             echo 'ValidCredentials';
             closeConn( $conn );

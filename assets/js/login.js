@@ -18,7 +18,9 @@ $("form").on("submit", function (e) {
                 console.log(data);
                 window.location.href = "./views/MainPage.php";
             } else if (data == "InvalidUsername") {
+
                 console.log("Invalid Username");
+
             } else if (data == "InvalidPassword") {
                 console.log("Invalid Password");
             } else {

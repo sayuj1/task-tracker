@@ -11,7 +11,7 @@ function loadUserData() {
         },
         complete: function () {
             $("#task-loading").hide();
-            document.querySelector(".table-tasks").style.display = "block";
+            document.querySelector(".card-tasks").style.display = "block";
         },
         success: function (data) {
             console.log('data received');
