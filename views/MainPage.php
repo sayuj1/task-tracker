@@ -155,7 +155,7 @@ $conn = openConn();
                                         </div>
                                         <div class="col s12">
                                             <input type="text" name="title" id="card-title-sm" data-length="50"
-                                                placeholder="Task Title" autofocus>
+                                                placeholder="Task Title" autofocus required>
                                         </div>
                                     </div>
                                     <div class="row left-align">
@@ -166,7 +166,7 @@ $conn = openConn();
                                         </div>
                                         <div class="col s12">
                                             <textarea name="tasks" id="card-body" placeholder="Your Tasks goes here...."
-                                                style="max-width:100%;height:200px;resize:none"></textarea>
+                                                style="max-width:100%;height:200px;resize:none" required></textarea>
                                         </div>
                                     </div>
                                     <div class="row left-align">
@@ -194,7 +194,7 @@ $conn = openConn();
                                         </div>
                                         <div class="col s12">
                                             <input type="text" name="assignedby" id="card-assigned"
-                                                placeholder="Assigned By" autofocus>
+                                                placeholder="Assigned By" required>
                                         </div>
                                     </div>
                                 </div>
@@ -215,7 +215,6 @@ $conn = openConn();
                 </div>
             </div>
         </div>
-
 
         <div class="container">
             <div id="task-loading" class="">

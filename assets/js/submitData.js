@@ -17,7 +17,6 @@ function clearLargeDeviceFields() {
 // large device card create
 $(".large-device").on("submit", function (e) {
   e.preventDefault();
-  // alert("reached here");
   $.ajax({
     type: "post",
     url: "../submitUserData/submitTaskData.php",
