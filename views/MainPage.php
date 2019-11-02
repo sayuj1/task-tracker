@@ -88,12 +88,12 @@ $conn = openConn();
                                     </div>
                                     <div class="row left-align">
                                         <div class="col s6 m4">
-                                            <label for="card-status" class="label">
+                                            <label for="status" class="label">
                                                 Task-Status:
                                             </label>
                                         </div>
                                         <div class="col s6 m6 push-m2">
-                                            <select name="status" style="display: block;">
+                                            <select name="status" style="display: block;" id="status">
                                                 <option value="Ongoing">Ongoing</option>
                                                 <option value="Pause">Pause</option>
                                                 <option value="Delayed">Delayed</option>
@@ -145,11 +145,11 @@ $conn = openConn();
                     <!-- Modal Structure -->
                     <div id="modal2" class="modal" style="overflow-x: unset;">
                         <div class="row">
-                            <form method="POST" class="col s10 push-s1">
+                            <form method="POST" class="col s10 push-s1 small-device">
                                 <div class="modal-content">
                                     <div class="row left-align">
                                         <div class="col s12">
-                                            <label for="card-title" class="label">
+                                            <label for="card-title-sm" class="label">
                                                 Task-Title:
                                             </label>
                                         </div>
@@ -171,12 +171,12 @@ $conn = openConn();
                                     </div>
                                     <div class="row left-align">
                                         <div class="col s12">
-                                            <label for="card-status" class="label">
+                                            <label for="status" class="label">
                                                 Task-Status:
                                             </label>
                                         </div>
                                         <div class="col s12">
-                                            <select name="status" style="display: block;">
+                                            <select name="status" style="display: block;" id="status">
                                                 <option value="Ongoing">Ongoing</option>
                                                 <option value="Pause">Pause</option>
                                                 <option value="Delayed">Delayed</option>
