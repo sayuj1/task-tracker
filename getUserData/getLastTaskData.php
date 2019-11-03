@@ -1,5 +1,7 @@
 <?php
 
+// Retrieve the last card added by the user
+
 session_start();
 include_once '../dbconfig/dbconfig.php';
 

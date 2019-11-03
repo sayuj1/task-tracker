@@ -1,6 +1,5 @@
 function loadUserData() {
-    // write here
-    //about the user's tasks
+    // display all the cards of the user on page load
     $.ajax({
         async: true,
         type: "get",

@@ -14,6 +14,7 @@ function clearLargeDeviceFields() {
   $('#card-title').characterCounter();
 }
 
+// display the last inserted card of the user
 function loadTheLatestCard() {
   // alert('reach here');
   $.ajax({
@@ -165,6 +166,7 @@ $(".small-device").on("submit", function (e) {
           instance2.close();
         });
       } else if (data == "failed") {
+        // add a modal error here
         console.log("Failed to create card! Try again :(");
       } else {
         console.log("error from server side!");
