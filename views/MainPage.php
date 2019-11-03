@@ -220,10 +220,12 @@ $conn = openConn();
             <div id="task-loading" class="">
 
             </div>
-            <div class="card-tasks col-sm-12 col-md-8"
-                style="display: none;width:100%;height:100%;border: 2px solid yellow;">
-                <!-- below cards will be displayed -->
-                hello
+            <div class="card-tasks" style="display: none;">
+                <span id="total-cards">Total Cards: <span class="total-card-value-holder"></span></span>
+                <div class="row" id="all-cards">
+                    <!-- below cards will be displayed -->
+                </div>
+
             </div>
         </div>
 
@@ -235,6 +237,7 @@ $conn = openConn();
 
 <script src="../assets/js/jquery3.3.1.min.js"></script>
 <script src='../assets/js/jquery.min.js'></script>
+
 <script src='../assets/js/showData.js'></script>
 <script src="../assets/js/submitData.js"></script>
 <script type="text/javascript" src="../assets/js/materialize.min.js"></script>
@@ -249,7 +252,10 @@ $(document).ready(function() {
         let showPage = document.querySelector(".main-container");
         showPage.style.display = "block";
 
+        // initializing modal 
         $('.modal').modal();
+
+        // attaching character counter on title
         $('#card-title').characterCounter();
         $('#card-title-sm').characterCounter();
     }

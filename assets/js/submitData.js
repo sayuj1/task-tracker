@@ -14,6 +14,74 @@ function clearLargeDeviceFields() {
   $('#card-title').characterCounter();
 }
 
+function loadTheLatestCard() {
+  // alert('reach here');
+  $.ajax({
+    type: "get",
+    url: "../getUserData/getLastTaskData.php",
+    dataType: "json",
+    beforeSend: function () {
+      // $("#task-loading").html('<img src="../assets/imgs/tasks-loading.gif" width="100%" height="100%"></img>');
+    },
+    complete: function () {
+      // $("#task-loading").hide();
+      // document.querySelector(".card-tasks").style.display = "block";
+    },
+    success: function (data) {
+      // alert('hi');
+
+      let count = $('#total-cards-value').val();
+      // alert(count);
+      if (count % 2 == 0) {
+        // alert('first one');
+        $('#all-cards').append(`<div class="col s12 m5">
+        <div class="card blue darken-1">
+            <div class="card-content white-text">
+            <input type="hidden" value=` + data[0]['id'] + `>
+                <span class="card-title">` + data[0]['title'] + `</span>
+                <p>` + data[0]['datestarted'] + `</p>
+                <p>` + data[0]['status'] + `</p>
+                <p>` + data[0]['task'] + `</p>
+            </div>
+            <div class="card-action">
+                <a href="#">This is a link</a>
+                <a href="#">This is a link</a>
+            </div>
+            </div>
+    </div>`);
+        count = Number(count) + 1;
+        // alert(count);
+        $('.total-card-value-holder').html(count);
+        $(".total-card-value-holder").append(`<input type="hidden" value=` + count + ` id="total-cards-value">`);
+      } else {
+        $('#all-cards').append(`<div class="col s12 m5 push-m2">
+        <div class="card blue darken-1">
+            <div class="card-content white-text">
+            <input type="hidden" value=` + data[0]['id'] + `>
+                <span class="card-title">` + data[0]['title'] + `</span>
+                <p>` + data[0]['datestarted'] + `</p>
+                <p>` + data[0]['status'] + `</p>
+                <p>` + data[0]['task'] + `</p>
+            </div>
+            <div class="card-action">
+                <a href="#">This is a link</a>
+                <a href="#">This is a link</a>
+            </div>
+        </div>
+    </div>`);
+        count = Number(count) + 1;
+        // alert(count);
+        $('.total-card-value-holder').html(count);
+        $(".total-card-value-holder").append(`<input type="hidden" value=` + count + ` id="total-cards-value">`);
+      }
+    },
+    error: function (err) {
+      // console.log(err);
+      console.log("something not right");
+    }
+  });
+}
+
 // large device card create
 $(".large-device").on("submit", function (e) {
   e.preventDefault();
@@ -39,12 +107,16 @@ $(".large-device").on("submit", function (e) {
         var elem3 = document.querySelector("#modal3");
         var instance3 = M.Modal.getInstance(elem3);
 
+        loadTheLatestCard();
         instance3.open();
 
         $(".ok").on("click", function () {
           // alert("button is pressed");
+
           clearLargeDeviceFields();
           instance1.close();
+
+
         });
       } else if (data == "failed") {
         console.log("Failed to create card! Try again :(");
@@ -84,6 +156,7 @@ $(".small-device").on("submit", function (e) {
         var elem3 = document.querySelector("#modal3");
         var instance3 = M.Modal.getInstance(elem3);
 
+        loadTheLatestCard();
         instance3.open();
 
         $(".ok").on("click", function () {
