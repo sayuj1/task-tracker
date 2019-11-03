@@ -19,13 +19,20 @@ function loadUserData() {
             for (var i = 0; i < data.length; i++) {
                 // console.log(data[i]);
                 if (i % 2 == 0) {
-                    $('#all-cards').append(`<div class="col s12 m5">
-                        <div class="card blue darken-1">
-                            <div class="card-content white-text">
+                    $('#all-cards').append(`<div class="col s12 m6">
+                        <div class="card white darken-1">
+                        <div class="card-title row">
+                        <div class="col s12 m7">` + data[i]['title'] + `
+                        </div>
+                        <div class="col s12 m5">
+                        <div class="chip">` + data[i]['status'] + `
+                      </div>
+                      </div>
+                      <p class="col s12" style="font-size: medium;font-weight: 400;"><i class="material-icons left" style="margin-right: 2px;">date_range</i>` + data[i]['datestarted'] + `</p>
+                      </div>
+                        <div class="divider"></div>
+                            <div class="card-content black-text">
                             <input type="hidden" value=` + data[i]['id'] + `>
-                                <span class="card-title">` + data[i]['title'] + `</span>
-                                <p>` + data[i]['datestarted'] + `</p>
-                                <p>` + data[i]['status'] + `</p>
                                 <p>` + data[i]['task'] + `</p>
                             </div>
                             <div class="card-action">
@@ -35,13 +42,19 @@ function loadUserData() {
                             </div>
                     </div>`);
                 } else {
-                    $('#all-cards').append(`<div class="col s12 m5 push-m2">
-                        <div class="card blue darken-1">
-                            <div class="card-content white-text">
+                    $('#all-cards').append(`<div class="col s12 m6">
+                        <div class="card white darken-1">
+                        <div class="card-title row"><div class="col s12 m7">` + data[i]['title'] + `
+                        </div>
+                        <div class="col s12 m5">
+                        <div class="chip">` + data[i]['status'] + `
+                        </div>
+                        </div>
+                        <p class="col s12" style="font-size: medium;font-weight: 400;"><i class="material-icons left" style="margin-right: 2px;">date_range</i>` + data[i]['datestarted'] + `</p>
+                        </div>
+                        <div class="divider"></div>
+                            <div class="card-content black-text">
                             <input type="hidden" value=` + data[i]['id'] + `>
-                                <span class="card-title">` + data[i]['title'] + `</span>
-                                <p>` + data[i]['datestarted'] + `</p>
-                                <p>` + data[i]['status'] + `</p>
                                 <p>` + data[i]['task'] + `</p>
                             </div>
                             <div class="card-action">

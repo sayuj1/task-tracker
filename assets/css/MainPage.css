@@ -46,6 +46,18 @@ textarea:focus {
   top: 30% !important;
 }
 
+.card-title {
+  padding: 24px !important;
+  font-weight: 800 !important;
+  text-transform: capitalize !important;
+}
+
+.chip {
+  min-height: 32px !important;
+  height: auto !important;
+  float: right;
+}
+
 @media screen and (max-width: 400px) {
   .login-box {
     height: 70vh;
@@ -62,6 +74,12 @@ textarea:focus {
 @media screen and (max-width: 640px) {
   .label {
     font-size: 20px;
+  }
+  .chip {
+    min-height: 32px !important;
+    height: auto !important;
+    float: left;
+    margin-top: 10px;
   }
 }
 
