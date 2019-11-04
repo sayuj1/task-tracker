@@ -37,7 +37,7 @@ function loadTheLatestCard() {
         // alert('first one');
         $("#all-cards").prepend(
           `<div class="col s12 m6">
-        <div class="card white darken-1">
+        <div class="card blue-grey lighten-5">
         <div class="card-title row">
                         <div class="col s12 m7">` +
           data[0]["title"] +
@@ -53,7 +53,7 @@ function loadTheLatestCard() {
           data[0]["datestarted"] +
           `</p>
                       </div>
-                        <div class="divider"></div>
+                        <div class="divider pink darken-4" style="height: 2px;"></div>
             <div class="card-content black-text flow-text">
             <input type="hidden" value=` +
           data[0]["id"] +
@@ -62,7 +62,7 @@ function loadTheLatestCard() {
           data[0]["task"] +
           `</p>
             </div>
-            <div class="card-action">
+            <div class="card-action" style="border-top: 2px solid #880e4f">
                 <a href="#">This is a link</a>
                 <a href="#">This is a link</a>
             </div>
@@ -78,7 +78,7 @@ function loadTheLatestCard() {
       } else {
         $("#all-cards").prepend(
           `<div class="col s12 m6">
-        <div class="card white darken-1">
+        <div class="card blue-grey lighten-5">
         <div class="card-title row">
                         <div class="col s12 m7">` +
           data[0]["title"] +
@@ -94,7 +94,7 @@ function loadTheLatestCard() {
           data[0]["datestarted"] +
           `</p>
                       </div>
-                        <div class="divider"></div>
+                        <div class="divider pink darken-4" style="height: 2px;"></div>
             <div class="card-content black-text flow-text">
             <input type="hidden" value=` +
           data[0]["id"] +
@@ -103,7 +103,7 @@ function loadTheLatestCard() {
           data[0]["task"] +
           `</p>
             </div>
-            <div class="card-action">
+            <div class="card-action" style="border-top: 2px solid #880e4f">
                 <a href="#">This is a link</a>
                 <a href="#">This is a link</a>
             </div>

@@ -28,7 +28,7 @@ function loadUserData() {
                 if (i % 2 == 0) {
                     $("#all-cards").append(
                         `<div class="col s12 m6">
-                        <div class="card white darken-1">
+                        <div class="card blue-grey lighten-5">
                         <div class="card-title row">
                         <div class="col s12 m7">` +
                         data[i]["title"] +
@@ -44,7 +44,7 @@ function loadUserData() {
                         data[i]["datestarted"] +
                         `</p>
                       </div>
-                        <div class="divider"></div>
+                        <div class="divider pink darken-4" style="height: 2px;"></div>
                             <div class="card-content black-text flow-text">
                             <input type="hidden" value=` +
                         data[i]["id"] +
@@ -53,7 +53,7 @@ function loadUserData() {
                         data[i]["task"] +
                         `</p>
                             </div>
-                            <div class="card-action">
+                            <div class="card-action" style="border-top: 2px solid #880e4f">
                                 <a href="#">This is a link</a>
                                 <a href="#">This is a link</a>
                             </div>
@@ -63,7 +63,7 @@ function loadUserData() {
                 } else {
                     $("#all-cards").append(
                         `<div class="col s12 m6">
-                        <div class="card white darken-1">
+                        <div class="card blue-grey lighten-5">
                         <div class="card-title row"><div class="col s12 m7">` +
                         data[i]["title"] +
                         `
@@ -78,7 +78,7 @@ function loadUserData() {
                         data[i]["datestarted"] +
                         `</p>
                         </div>
-                        <div class="divider"></div>
+                        <div class="divider pink darken-4" style="height: 2px;"></div>
                             <div class="card-content black-text flow-text">
                             <input type="hidden" value=` +
                         data[i]["id"] +
@@ -87,7 +87,7 @@ function loadUserData() {
                         data[i]["task"] +
                         `</p>
                             </div>
-                            <div class="card-action">
+                            <div class="card-action" style="border-top: 2px solid #880e4f">
                                 <a href="#">This is a link</a>
                                 <a href="#">This is a link</a>
                             </div>
