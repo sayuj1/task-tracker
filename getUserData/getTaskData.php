@@ -6,7 +6,7 @@ include_once '../dbconfig/dbconfig.php';
 $conn = openConn();
 
 $username = $_SESSION['username'];
-$q = "SELECT * FROM `cardtask` WHERE username = '".$username."'";
+$q = "SELECT * FROM `cardtask` WHERE username = '".$username."' ORDER BY datestarted DESC";
 $r = mysqli_query( $conn, $q );
 if ( mysqli_num_rows( $r ) === 0 ) {
     echo 'zeroRow';

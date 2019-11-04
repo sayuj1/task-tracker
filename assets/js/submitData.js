@@ -35,7 +35,7 @@ function loadTheLatestCard() {
       // alert(count);
       if (count % 2 == 0) {
         // alert('first one');
-        $('#all-cards').append(`<div class="col s12 m6">
+        $('#all-cards').prepend(`<div class="col s12 m6">
         <div class="card white darken-1">
         <div class="card-title row">
                         <div class="col s12 m7">` + data[0]['title'] + `
@@ -47,7 +47,7 @@ function loadTheLatestCard() {
                       <p class="col s12" style="font-size: medium;font-weight: 400;"><i class="material-icons left" style="margin-right: 2px;">date_range</i>` + data[0]['datestarted'] + `</p>
                       </div>
                         <div class="divider"></div>
-            <div class="card-content black-text">
+            <div class="card-content black-text flow-text">
             <input type="hidden" value=` + data[0]['id'] + `>
                 <p>` + data[0]['task'] + `</p>
             </div>
@@ -62,7 +62,7 @@ function loadTheLatestCard() {
         $('.total-card-value-holder').html(count);
         $(".total-card-value-holder").append(`<input type="hidden" value=` + count + ` id="total-cards-value">`);
       } else {
-        $('#all-cards').append(`<div class="col s12 m6">
+        $('#all-cards').prepend(`<div class="col s12 m6">
         <div class="card white darken-1">
         <div class="card-title row">
                         <div class="col s12 m7">` + data[0]['title'] + `
@@ -74,7 +74,7 @@ function loadTheLatestCard() {
                       <p class="col s12" style="font-size: medium;font-weight: 400;"><i class="material-icons left" style="margin-right: 2px;">date_range</i>` + data[0]['datestarted'] + `</p>
                       </div>
                         <div class="divider"></div>
-            <div class="card-content black-text">
+            <div class="card-content black-text flow-text">
             <input type="hidden" value=` + data[0]['id'] + `>
                 <p>` + data[0]['task'] + `</p>
             </div>

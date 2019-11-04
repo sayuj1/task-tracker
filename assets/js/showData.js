@@ -31,7 +31,7 @@ function loadUserData() {
                       <p class="col s12" style="font-size: medium;font-weight: 400;"><i class="material-icons left" style="margin-right: 2px;">date_range</i>` + data[i]['datestarted'] + `</p>
                       </div>
                         <div class="divider"></div>
-                            <div class="card-content black-text">
+                            <div class="card-content black-text flow-text">
                             <input type="hidden" value=` + data[i]['id'] + `>
                                 <p>` + data[i]['task'] + `</p>
                             </div>
@@ -53,7 +53,7 @@ function loadUserData() {
                         <p class="col s12" style="font-size: medium;font-weight: 400;"><i class="material-icons left" style="margin-right: 2px;">date_range</i>` + data[i]['datestarted'] + `</p>
                         </div>
                         <div class="divider"></div>
-                            <div class="card-content black-text">
+                            <div class="card-content black-text flow-text">
                             <input type="hidden" value=` + data[i]['id'] + `>
                                 <p>` + data[i]['task'] + `</p>
                             </div>

@@ -58,6 +58,12 @@ textarea:focus {
   float: right;
 }
 
+.card-content {
+  max-height: 250px !important;
+  overflow-y: auto;
+  text-align: justify;
+}
+
 @media screen and (max-width: 400px) {
   .login-box {
     height: 70vh;
