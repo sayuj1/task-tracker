@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 include_once './dbconfig/dbconfig.php';
 
@@ -95,8 +96,6 @@ $(document).ready(function() {
     
 });
 </script>
-
-
 
 </html>
 
