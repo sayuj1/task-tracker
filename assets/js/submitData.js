@@ -1,17 +1,17 @@
 function clearSmallDeviceFields() {
-  $('.small-device #card-title-sm').val('');
-  $('.small-device #card-body').val('');
+  $(".small-device #card-title-sm").val("");
+  $(".small-device #card-body").val("");
   $(".small-device #status").val($(".small-device #status option:first").val());
-  $('.small-device #card-assigned').val('');
-  $('#card-title-sm').characterCounter();
+  $(".small-device #card-assigned").val("");
+  $("#card-title-sm").characterCounter();
 }
 
 function clearLargeDeviceFields() {
-  $('.large-device #card-title').val('');
-  $('.large-device #card-body').val('');
+  $(".large-device #card-title").val("");
+  $(".large-device #card-body").val("");
   $(".large-device #status").val($(".large-device #status option:first").val());
-  $('.large-device #card-assigned').val('');
-  $('#card-title').characterCounter();
+  $(".large-device #card-assigned").val("");
+  $("#card-title").characterCounter();
 }
 
 // display the last inserted card of the user
@@ -31,63 +31,91 @@ function loadTheLatestCard() {
     success: function (data) {
       // alert('hi');
 
-      let count = $('#total-cards-value').val();
+      let count = $("#total-cards-value").val();
       // alert(count);
       if (count % 2 == 0) {
         // alert('first one');
-        $('#all-cards').prepend(`<div class="col s12 m6">
+        $("#all-cards").prepend(
+          `<div class="col s12 m6">
         <div class="card white darken-1">
         <div class="card-title row">
-                        <div class="col s12 m7">` + data[0]['title'] + `
+                        <div class="col s12 m7">` +
+          data[0]["title"] +
+          `
                         </div>
                         <div class="col s12 m5">
-                        <div class="chip">` + data[0]['status'] + `
+                        <div class="chip">` +
+          data[0]["status"] +
+          `
                       </div>
                       </div>
-                      <p class="col s12" style="font-size: medium;font-weight: 400;"><i class="material-icons left" style="margin-right: 2px;">date_range</i>` + data[0]['datestarted'] + `</p>
+                      <p class="col s12" style="font-size: medium;font-weight: 400;"><i class="material-icons left" style="margin-right: 2px;">date_range</i>` +
+          data[0]["datestarted"] +
+          `</p>
                       </div>
                         <div class="divider"></div>
             <div class="card-content black-text flow-text">
-            <input type="hidden" value=` + data[0]['id'] + `>
-                <p>` + data[0]['task'] + `</p>
+            <input type="hidden" value=` +
+          data[0]["id"] +
+          `>
+                <p>` +
+          data[0]["task"] +
+          `</p>
             </div>
             <div class="card-action">
                 <a href="#">This is a link</a>
                 <a href="#">This is a link</a>
             </div>
             </div>
-    </div>`);
+    </div>`
+        );
         count = Number(count) + 1;
         // alert(count);
-        $('.total-card-value-holder').html(count);
-        $(".total-card-value-holder").append(`<input type="hidden" value=` + count + ` id="total-cards-value">`);
+        $(".total-card-value-holder").html(count);
+        $(".total-card-value-holder").append(
+          `<input type="hidden" value=` + count + ` id="total-cards-value">`
+        );
       } else {
-        $('#all-cards').prepend(`<div class="col s12 m6">
+        $("#all-cards").prepend(
+          `<div class="col s12 m6">
         <div class="card white darken-1">
         <div class="card-title row">
-                        <div class="col s12 m7">` + data[0]['title'] + `
+                        <div class="col s12 m7">` +
+          data[0]["title"] +
+          `
                         </div>
                         <div class="col s12 m5">
-                        <div class="chip">` + data[0]['status'] + `
+                        <div class="chip">` +
+          data[0]["status"] +
+          `
                       </div>
                       </div>
-                      <p class="col s12" style="font-size: medium;font-weight: 400;"><i class="material-icons left" style="margin-right: 2px;">date_range</i>` + data[0]['datestarted'] + `</p>
+                      <p class="col s12" style="font-size: medium;font-weight: 400;"><i class="material-icons left" style="margin-right: 2px;">date_range</i>` +
+          data[0]["datestarted"] +
+          `</p>
                       </div>
                         <div class="divider"></div>
             <div class="card-content black-text flow-text">
-            <input type="hidden" value=` + data[0]['id'] + `>
-                <p>` + data[0]['task'] + `</p>
+            <input type="hidden" value=` +
+          data[0]["id"] +
+          `>
+                <p>` +
+          data[0]["task"] +
+          `</p>
             </div>
             <div class="card-action">
                 <a href="#">This is a link</a>
                 <a href="#">This is a link</a>
             </div>
         </div>
-    </div>`);
+    </div>`
+        );
         count = Number(count) + 1;
         // alert(count);
-        $('.total-card-value-holder').html(count);
-        $(".total-card-value-holder").append(`<input type="hidden" value=` + count + ` id="total-cards-value">`);
+        $(".total-card-value-holder").html(count);
+        $(".total-card-value-holder").append(
+          `<input type="hidden" value=` + count + ` id="total-cards-value">`
+        );
       }
     },
     error: function (err) {
@@ -130,8 +158,6 @@ $(".large-device").on("submit", function (e) {
 
           clearLargeDeviceFields();
           instance1.close();
-
-
         });
       } else if (data == "failed") {
         console.log("Failed to create card! Try again :(");
