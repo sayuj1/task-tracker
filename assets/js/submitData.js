@@ -38,7 +38,7 @@ function loadTheLatestCard() {
       if (count % 2 == 0) {
         // alert('first one');
         $("#all-cards").prepend(
-          `<div class="col s12 m6">
+          `<div class="col s12 m6" id=` + data[0]["id"] + `>
         <div class="card blue-grey lighten-5">
         <div class="card-title row">
                         <div class="col s12 m7">` +
@@ -79,7 +79,7 @@ function loadTheLatestCard() {
         );
       } else {
         $("#all-cards").prepend(
-          `<div class="col s12 m6">
+          `<div class="col s12 m6" id=` + data[0]["id"] + `>
         <div class="card blue-grey lighten-5">
         <div class="card-title row">
                         <div class="col s12 m7">` +

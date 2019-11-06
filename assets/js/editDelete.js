@@ -12,6 +12,17 @@ function editCard(card_id) {
     // add functionality below
 }
 
+// for updating the total card values
+function updateTotalCardValues() {
+    let count = $("#total-cards-value").val();
+    count = Number(count) - 1;
+    // alert(count);
+    $(".total-card-value-holder").html(count);
+    $(".total-card-value-holder").append(
+        `<input type="hidden" value=` + count + ` id="total-cards-value">`
+    );
+}
+
 // for deleting the card
 function deleteCard(card_id) {
     console.log("id received" + card_id);
@@ -28,6 +39,7 @@ function deleteCard(card_id) {
             // add the loader later
         },
         success: function (data) {
+
             console.log('it is working');
             console.log(data);
             if (data == 'successful') {
@@ -40,6 +52,9 @@ function deleteCard(card_id) {
                 var deleteInstance = M.Modal.getInstance(deleteModal);
 
                 deleteInstance.open();
+
+                // updating the total count value
+                updateTotalCardValues();
 
             } else if (data == 'failed') {
                 // add a modal to show the message
