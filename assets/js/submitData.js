@@ -41,12 +41,12 @@ function loadTheLatestCard() {
           `<div class="col s12 m6" id=` + data[0]["id"] + `>
         <div class="card blue-grey lighten-5">
         <div class="card-title row">
-                        <div class="col s12 m7">` +
+                        <div class="col s12 m7 card_title">` +
           data[0]["title"] +
           `
                         </div>
                         <div class="col s12 m5">
-                        <div class="chip">` +
+                        <div class="chip card_status">` +
           data[0]["status"] +
           `
                       </div>
@@ -60,12 +60,12 @@ function loadTheLatestCard() {
             <input type="hidden" value=` +
           data[0]["id"] +
           `>
-                <p>` +
+                <p class="card_task">` +
           data[0]["task"] +
           `</p>
             </div>
             <div class="card-action" style="border-top: 2px solid #880e4f">
-            <a class="waves-effect waves-light btn" id=` + data[0]["id"] + ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal5" id=` + data[0]["id"] + ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
             <a class="waves-effect waves-light btn" id=` + data[0]["id"] + ` onclick=deleteCard(this.id)><i class="material-icons right">delete_forever</i>Delete</a>
             </div>
             </div>
@@ -82,12 +82,12 @@ function loadTheLatestCard() {
           `<div class="col s12 m6" id=` + data[0]["id"] + `>
         <div class="card blue-grey lighten-5">
         <div class="card-title row">
-                        <div class="col s12 m7">` +
+                        <div class="col s12 m7 card_title">` +
           data[0]["title"] +
           `
                         </div>
                         <div class="col s12 m5">
-                        <div class="chip">` +
+                        <div class="chip card_status">` +
           data[0]["status"] +
           `
                       </div>
@@ -101,12 +101,12 @@ function loadTheLatestCard() {
             <input type="hidden" value=` +
           data[0]["id"] +
           `>
-                <p>` +
+                <p class="card_task">` +
           data[0]["task"] +
           `</p>
             </div>
             <div class="card-action" style="border-top: 2px solid #880e4f">
-            <a class="waves-effect waves-light btn" id=` + data[0]["id"] + ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal5" id=` + data[0]["id"] + ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
             <a class="waves-effect waves-light btn" id=` + data[0]["id"] + ` onclick=deleteCard(this.id)><i class="material-icons right">delete_forever</i>Delete</a>
             </div>
         </div>

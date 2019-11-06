@@ -16,7 +16,7 @@ function loadUserData() {
             document.querySelector(".card-tasks").style.display = "block";
         },
         success: function (data) {
-            console.log("data received");
+            // console.log("data received");
             // console.log(data);
             $(".total-card-value-holder").html(
                 data.length +
@@ -32,12 +32,12 @@ function loadUserData() {
                         <div class="col s12 m6" id=` + data[i]["id"] + `>
                         <div class="card blue-grey lighten-5">
                         <div class="card-title row">
-                        <div class="col s12 m7">` +
+                        <div class="col s12 m7 card_title">` +
                         data[i]["title"] +
                         `
                         </div>
                         <div class="col s12 m5">
-                        <div class="chip">` +
+                        <div class="chip card_status">` +
                         data[i]["status"] +
                         `
                       </div>
@@ -51,12 +51,12 @@ function loadUserData() {
                             <input type="hidden" value=` +
                         data[i]["id"] +
                         `>
-                           <p>` +
+                           <p class="card_task">` +
                         data[i]["task"] +
                         `</p>
                             </div>
                             <div class="card-action" style="border-top: 2px solid #880e4f">
-                            <a class="waves-effect waves-light btn" id=` +
+                            <a class="waves-effect waves-light btn modal-trigger" href="#modal5" id=` +
                         data[i]["id"] +
                         ` onclick="editCard(this.id)"><i class="material-icons right">edit</i>Edit</a>
                             <a class="waves-effect waves-light btn" id=` +
@@ -71,12 +71,12 @@ function loadUserData() {
                         `
                         <div class="col s12 m6" id=` + data[i]["id"] + `>
                         <div class="card blue-grey lighten-5">
-                        <div class="card-title row"><div class="col s12 m7">` +
+                        <div class="card-title row"><div class="col s12 m7 card_title">` +
                         data[i]["title"] +
                         `
                         </div>
                         <div class="col s12 m5">
-                        <div class="chip">` +
+                        <div class="chip card_status">` +
                         data[i]["status"] +
                         `
                         </div>
@@ -90,12 +90,12 @@ function loadUserData() {
                             <input type="hidden" value=` +
                         data[i]["id"] +
                         `>
-                                <p>` +
+                                <p class="card_task">` +
                         data[i]["task"] +
                         `</p>
                             </div>
                             <div class="card-action" style="border-top: 2px solid #880e4f">
-                            <a class="waves-effect waves-light btn" id=` +
+                            <a class="waves-effect waves-light btn modal-trigger" href="#modal5" id=` +
                         data[i]["id"] +
                         ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
                             <a class="waves-effect waves-light btn" id=` +

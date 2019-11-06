@@ -4,14 +4,6 @@ function removeCard(card_id) {
     $('div[id=' + card_id + ']').remove();
 }
 
-
-// for editing the card
-function editCard(card_id) {
-    console.log("id received" + card_id);
-
-    // add functionality below
-}
-
 // for updating the total card values
 function updateTotalCardValues() {
     let count = $("#total-cards-value").val();
@@ -23,9 +15,122 @@ function updateTotalCardValues() {
     );
 }
 
+// for loading the card values for updation
+function loadValues(card_id) {
+    $.ajax({
+        type: "get",
+        url: "../getUserData/getTaskDataByID.php",
+        dataType: "json",
+        data: {
+            cardID: card_id
+        },
+        success: function (data) {
+            // console.log(data);
+            if (data == "zeroRow") {
+                console.log("Invalid card");
+            } else if (data == "something wrong") {
+                console.log("server error! sorry");
+            } else {
+                // console.log(data);
+                $(".edit-form #card-id").val(data[0]['id']);
+                $(".edit-form #card-title").val(data[0]['title']);
+                $(".edit-form #card-body").val(data[0]['task']);
+                $(".edit-form #status").val(data[0]['status']);
+                $(".edit-form #card-assigned").val(data[0]['assignedby']);
+            }
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+}
+
+// clearing edit form fields after successful submission
+function clearEditFormFields() {
+    $(".edit-form #card-id").val("");
+    $(".edit-form #card-title").val("");
+    $(".edit-form #card-body").val("");
+    $(".edit-form #status").val($(".edit-form #status option:first").val());
+    $(".edit-form #card-assigned").val("");
+    $("#card-title").characterCounter();
+}
+
+// for editing the card
+function editCard(card_id) {
+    // console.log("id received" + card_id);
+    loadValues(card_id);
+}
+
+// updating the card after the successful edited in the database
+function updateCard(updatedData) {
+
+    let card_id = updatedData[0]['value'];
+    let card_title = updatedData[1]['value'];
+    let card_task = updatedData[2]['value'];
+    let card_status = updatedData[3]['value'];
+    // let card_assignedBy = updatedCard[4]['value'];
+
+    $('div[id=' + card_id + '] .card_title')[0].innerHTML = card_title;
+    $('div[id=' + card_id + '] .card_task')[0].innerHTML = card_task;
+    $('div[id=' + card_id + '] .card_status')[0].innerHTML = card_status;
+    // $('div[id=' + card_id + '] .card_assignedBy')[0].innerHTML = card_assignedBy;
+}
+
+// edit card submission
+$(".edit-form").on("submit", function (e) {
+    e.preventDefault();
+    let editDataArray = $(".edit-form").serializeArray();
+    // console.log(editDataArray);
+    $.ajax({
+        type: "post",
+        url: "../editDelete/editCard.php",
+        data: $(".edit-form").serialize(),
+        beforeSend: function () {
+            // show the loader
+        },
+        complete: function () {
+            // hide the loader
+        },
+        success: function (data) {
+            // console.log(data);
+            if (data == "updationSuccessful") {
+                // add a toast message later
+
+                // card create modal
+                var editModal = document.querySelector("#modal5");
+                var editModalInstance = M.Modal.getInstance(editModal);
+
+                // display info message
+                var editMessageModal = document.querySelector("#modal6");
+                var editMessageModalInstance = M.Modal.getInstance(editMessageModal);
+
+                editMessageModalInstance.open();
+
+                // update the real time card
+                updateCard(editDataArray);
+
+                $(".editOk").on("click", function () {
+                    // alert("button is pressed");
+
+                    clearEditFormFields();
+                    editModalInstance.close();
+                });
+            } else if (data == "failed") {
+                console.log("Failed to create card! Try again :(");
+            } else {
+                console.log("error from server side!");
+            }
+        },
+        error: function (err) {
+            console.log(err);
+        }
+    });
+});
+
+
 // for deleting the card
 function deleteCard(card_id) {
-    console.log("id received" + card_id);
+    // console.log("id received" + card_id);
     $.ajax({
         type: "post",
         url: "../editDelete/deleteCard.php",
@@ -40,12 +145,12 @@ function deleteCard(card_id) {
         },
         success: function (data) {
 
-            console.log('it is working');
-            console.log(data);
+            // console.log('it is working');
+            // console.log(data);
             if (data == 'successful') {
                 // call a function to remove the card from the page
                 removeCard(card_id);
-                console.log('deleted');
+                // console.log('deleted');
                 // call a modal to show the deletion information
                 // display info message
                 var deleteModal = document.querySelector("#modal4");
@@ -65,5 +170,5 @@ function deleteCard(card_id) {
             console.log("Not successful");
         }
     });
-    // add functionality below
+
 }

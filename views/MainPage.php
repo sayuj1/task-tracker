@@ -45,7 +45,7 @@ $conn = openConn();
         <!-- Showing the confirmation of card creation -->
         <div id="modal3" class="modal">
             <div class="modal-content center-align">
-                <h4>Card Created Successfully!</h4>
+                <h4>Task Created Successfully!</h4>
             </div>
 
             <div class="modal-footer" style="text-align: center">
@@ -56,13 +56,91 @@ $conn = openConn();
         <!-- Showing the confirmation of card deletion -->
         <div id="modal4" class="modal">
             <div class="modal-content center-align">
-                <h4>Card Deleted Successfully!</h4>
+                <h4>Task Deleted Successfully!</h4>
             </div>
 
             <div class="modal-footer" style="text-align: center">
                 <button type="button" class="modal-close waves-effect waves-teal btn blue darken-1">OK</button>
             </div>
         </div>
+
+        <!-- Showing the updation message for the card -->
+        <div id="modal6" class="modal">
+            <div class="modal-content center-align">
+                <h4>Task Updated Successfully!</h4>
+            </div>
+
+            <div class="modal-footer" style="text-align: center">
+                <button type="button" class="modal-close waves-effect waves-teal btn blue darken-1 editOk">OK</button>
+            </div>
+        </div>
+
+        <!-- showing the edit modal card -->
+        <!-- Modal Structure -->
+        <div id="modal5" class="modal" style="overflow-x: unset;">
+            <div class="row">
+                <div class="modal-content">
+                    <form method="POST" class="col m10 push-m1 edit-form">
+                    <input type='hidden' id="card-id" name="card-id">
+                        <div class="row left-align">
+                            <div class="col s6 m4">
+                                <label for="card-title" class="label">
+                                    Task-Title:
+                                </label>
+                            </div>
+                            <div class="col s6 m6 push-m2">
+                                <input type="text" name="title" id="card-title" data-length="50"
+                                    placeholder="Task Title" maxlength="50" autofocus required>
+                            </div>
+                        </div>
+                        <div class="row left-align">
+                            <div class="col s6 m4">
+                                <label for="card-body" class="label">
+                                    Task-Details:
+                                </label>
+                            </div>
+                            <div class="col s6 m6 push-m2 flow-text">
+                                <textarea name="tasks" id="card-body" placeholder="Your Tasks goes here...."
+                                    style="max-width:100%;height:200px;resize:none;padding: 14px" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row left-align">
+                            <div class="col s6 m4">
+                                <label for="status" class="label">
+                                    Task-Status:
+                                </label>
+                            </div>
+                            <div class="col s6 m6 push-m2">
+                                <select name="status" style="display: block;" id="status">
+                                    <option value="Ongoing">Ongoing</option>
+                                    <option value="Pause">Pause</option>
+                                    <option value="Delayed">Delayed</option>
+                                    <option value="Stopped">Stopped</option>
+                                    <option value="Completed">Completed</option>
+                                    <option value="Not Started Yet">Not Started Yet</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row left-align">
+                            <div class="col s6 m4">
+                                <label for="card-assigned" class="label">
+                                    Assigned-By:
+                                </label>
+                            </div>
+                            <div class="col s6 m6 push-m2">
+                                <input type="text" name="assignedby" id="card-assigned" placeholder="Assigned By" required>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="modal-footer col" style="text-align: center">
+                    <button type="submit" name="createCard" class="btn btn-large blue darken-1">Edit</button>
+                    <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
+                </div>
+                </form>
+            </div>
+        </div>
+
 
         <!-- For medium and large devices  -->
         <div class="container hide-on-small-only">
@@ -96,7 +174,8 @@ $conn = openConn();
                                         </div>
                                         <div class="col s6 m6 push-m2 flow-text">
                                             <textarea name="tasks" id="card-body" placeholder="Your Tasks goes here...."
-                                                style="max-width:100%;height:200px;resize:none;padding: 14px" required></textarea>
+                                                style="max-width:100%;height:200px;resize:none;padding: 14px"
+                                                required></textarea>
                                         </div>
                                     </div>
                                     <div class="row left-align">
@@ -124,7 +203,7 @@ $conn = openConn();
                                         </div>
                                         <div class="col s6 m6 push-m2">
                                             <input type="text" name="assignedby" id="card-assigned"
-                                                placeholder="Assigned By" autofocus required>
+                                                placeholder="Assigned By" required>
                                         </div>
                                     </div>
                             </div>
@@ -179,7 +258,8 @@ $conn = openConn();
                                         </div>
                                         <div class="col s12 flow-text">
                                             <textarea name="tasks" id="card-body" placeholder="Your Tasks goes here...."
-                                                style="max-width:100%;height:200px;resize:none;padding: 14px;" required></textarea>
+                                                style="max-width:100%;height:200px;resize:none;padding: 14px;"
+                                                required></textarea>
                                         </div>
                                     </div>
                                     <div class="row left-align">
@@ -277,8 +357,6 @@ $(document).ready(function() {
     pageLoaded();
 
 });
-
-
 </script>
 
 </html>
