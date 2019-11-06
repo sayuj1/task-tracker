@@ -63,8 +63,8 @@ function loadTheLatestCard() {
           `</p>
             </div>
             <div class="card-action" style="border-top: 2px solid #880e4f">
-                <a href="#">This is a link</a>
-                <a href="#">This is a link</a>
+            <button type="button" class="waves-effect waves-light btn" id=` + data[i]["id"] + `><i class="material-icons right">edit</i>Edit</button>
+            <button type="button" class="waves-effect waves-light btn" id=` + data[i]["id"] + `><i class="material-icons right">delete_forever</i>Delete</button>
             </div>
             </div>
     </div>`
@@ -104,8 +104,8 @@ function loadTheLatestCard() {
           `</p>
             </div>
             <div class="card-action" style="border-top: 2px solid #880e4f">
-                <a href="#">This is a link</a>
-                <a href="#">This is a link</a>
+            <button type="button" class="waves-effect waves-light btn" id=` + data[i]["id"] + `><i class="material-icons right">edit</i>Edit</button>
+            <button type="button" class="waves-effect waves-light btn" id=` + data[i]["id"] + `><i class="material-icons right">delete_forever</i>Delete</button>
             </div>
         </div>
     </div>`

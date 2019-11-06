@@ -1,5 +1,6 @@
+// display all the cards of the user on page load
+
 function loadUserData() {
-    // display all the cards of the user on page load
     $.ajax({
         async: true,
         type: "get",
@@ -27,7 +28,12 @@ function loadUserData() {
                 // console.log(data[i]);
                 if (i % 2 == 0) {
                     $("#all-cards").append(
-                        `<div class="col s12 m6">
+                        `<input type="hidden" value=` +
+                        data[i]["id"] +
+                        ` id=` +
+                        data[i]["id"] +
+                        `>
+                        <div class="col s12 m6">
                         <div class="card blue-grey lighten-5">
                         <div class="card-title row">
                         <div class="col s12 m7">` +
@@ -49,20 +55,25 @@ function loadUserData() {
                             <input type="hidden" value=` +
                         data[i]["id"] +
                         `>
-                                <p>` +
+                           <p>` +
                         data[i]["task"] +
                         `</p>
                             </div>
                             <div class="card-action" style="border-top: 2px solid #880e4f">
-                                <a href="#">This is a link</a>
-                                <a href="#">This is a link</a>
+                            <button type="button" class="waves-effect waves-light btn" id=` +
+                        data[i]["id"] +
+                        `><i class="material-icons right">edit</i>Edit</button>
+                            <button type="button" class="waves-effect waves-light btn" id=` +
+                        data[i]["id"] +
+                        `><i class="material-icons right">delete_forever</i>Delete</button>
                             </div>
                             </div>
                     </div>`
                     );
                 } else {
                     $("#all-cards").append(
-                        `<div class="col s12 m6">
+                        `
+                        <div class="col s12 m6">
                         <div class="card blue-grey lighten-5">
                         <div class="card-title row"><div class="col s12 m7">` +
                         data[i]["title"] +
@@ -88,8 +99,12 @@ function loadUserData() {
                         `</p>
                             </div>
                             <div class="card-action" style="border-top: 2px solid #880e4f">
-                                <a href="#">This is a link</a>
-                                <a href="#">This is a link</a>
+                            <button type="button" class="waves-effect waves-light btn" id=` +
+                        data[i]["id"] +
+                        `><i class="material-icons right">edit</i>Edit</button>
+                            <button type="button" class="waves-effect waves-light btn" id=` +
+                        data[i]["id"] +
+                        `><i class="material-icons right">delete_forever</i>Delete</button>
                             </div>
                         </div>
                     </div>`
