@@ -53,6 +53,17 @@ $conn = openConn();
             </div>
         </div>
 
+        <!-- Showing the confirmation of card deletion -->
+        <div id="modal4" class="modal">
+            <div class="modal-content center-align">
+                <h4>Card Deleted Successfully!</h4>
+            </div>
+
+            <div class="modal-footer" style="text-align: center">
+                <button type="button" class="modal-close waves-effect waves-teal btn blue darken-1">OK</button>
+            </div>
+        </div>
+
         <!-- For medium and large devices  -->
         <div class="container hide-on-small-only">
             <div class="row">
@@ -242,6 +253,7 @@ $conn = openConn();
 
 <script src='../assets/js/showData.js'></script>
 <script src="../assets/js/submitData.js"></script>
+<script src="../assets/js/editDelete.js"></script>
 <script type="text/javascript" src="../assets/js/materialize.min.js"></script>
 
 <!-- This script is for preloading the page -->
@@ -260,10 +272,13 @@ $(document).ready(function() {
         // attaching character counter on title
         $('#card-title').characterCounter();
         $('#card-title-sm').characterCounter();
+
     }
     pageLoaded();
 
 });
+
+
 </script>
 
 </html>

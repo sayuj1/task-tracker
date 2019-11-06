@@ -1,3 +1,4 @@
+// clearing the card fields after successful submission
 function clearSmallDeviceFields() {
   $(".small-device #card-title-sm").val("");
   $(".small-device #card-body").val("");
@@ -6,6 +7,7 @@ function clearSmallDeviceFields() {
   $("#card-title-sm").characterCounter();
 }
 
+// clearing the card fields after successful submission
 function clearLargeDeviceFields() {
   $(".large-device #card-title").val("");
   $(".large-device #card-body").val("");
@@ -63,8 +65,8 @@ function loadTheLatestCard() {
           `</p>
             </div>
             <div class="card-action" style="border-top: 2px solid #880e4f">
-            <button type="button" class="waves-effect waves-light btn" id=` + data[i]["id"] + `><i class="material-icons right">edit</i>Edit</button>
-            <button type="button" class="waves-effect waves-light btn" id=` + data[i]["id"] + `><i class="material-icons right">delete_forever</i>Delete</button>
+            <a class="waves-effect waves-light btn" id=` + data[0]["id"] + ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
+            <a class="waves-effect waves-light btn" id=` + data[0]["id"] + ` onclick=deleteCard(this.id)><i class="material-icons right">delete_forever</i>Delete</a>
             </div>
             </div>
     </div>`
@@ -104,8 +106,8 @@ function loadTheLatestCard() {
           `</p>
             </div>
             <div class="card-action" style="border-top: 2px solid #880e4f">
-            <button type="button" class="waves-effect waves-light btn" id=` + data[i]["id"] + `><i class="material-icons right">edit</i>Edit</button>
-            <button type="button" class="waves-effect waves-light btn" id=` + data[i]["id"] + `><i class="material-icons right">delete_forever</i>Delete</button>
+            <a class="waves-effect waves-light btn" id=` + data[0]["id"] + ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
+            <a class="waves-effect waves-light btn" id=` + data[0]["id"] + ` onclick=deleteCard(this.id)><i class="material-icons right">delete_forever</i>Delete</a>
             </div>
         </div>
     </div>`
