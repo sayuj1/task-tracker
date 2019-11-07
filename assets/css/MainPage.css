@@ -59,6 +59,7 @@ textarea:focus {
 }
 
 .card-content {
+  height: 250px !important;
   max-height: 250px !important;
   overflow-y: auto;
   text-align: justify;
