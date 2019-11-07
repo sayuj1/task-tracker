@@ -35,6 +35,7 @@ $conn = openConn();
         <div class="valign-wrapper">
             <div class="left-align" style="width:50%;margin-left: 5px;">Task Tracker</div>
             <div class="right-align" style="width:50%;margin-right: 5px;">
+            
             <!-- Dropdown Trigger -->
             <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Howdy, <?php echo $_SESSION['username'] ?></a>
 
@@ -43,7 +44,7 @@ $conn = openConn();
             <li><a href="#!"><a href="#!"><i class="material-icons left">person</i>View Profile</a></li>
             <li><a href="#!"><a href="#!"><i class="material-icons left">settings</i>Settings</a></li>
             <li class="divider" tabindex="-1"></li>
-            <li><a href="#!"><a href="#!"><i class="material-icons left">account_circle</i>Logout</a></li>
+            <li><a href="#!"><a href="../logout/logout.php"><i class="material-icons left">account_circle</i>Logout</a></li>
             </ul>
             </div>
         </div>

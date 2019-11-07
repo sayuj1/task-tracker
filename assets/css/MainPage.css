@@ -42,7 +42,9 @@ textarea:focus {
   border: 2px solid teal;
 }
 
-#modal3 {
+#modal3,
+#modal4,
+#modal6 {
   top: 30% !important;
 }
 

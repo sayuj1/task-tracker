@@ -61,10 +61,10 @@ function loadUserData() {
                         `</p>
                             </div>
                             <div class="card-action" style="border-top: 2px solid #880e4f">
-                            <a class="waves-effect waves-light btn modal-trigger" href="#modal5" id=` +
+                            <a class="waves-effect waves-light btn modal-trigger blue darken-1" href="#modal5" id=` +
                         data[i]["id"] +
                         ` onclick="editCard(this.id)"><i class="material-icons right">edit</i>Edit</a>
-                            <a class="waves-effect waves-light btn" id=` +
+                            <a class="waves-effect waves-light btn red darken-1" id=` +
                         data[i]["id"] +
                         ` onclick="deleteCard(this.id)"><i class="material-icons right">delete_forever</i>Delete</a>
                             </div>
@@ -105,10 +105,10 @@ function loadUserData() {
                         `</p>
                             </div>
                             <div class="card-action" style="border-top: 2px solid #880e4f">
-                            <a class="waves-effect waves-light btn modal-trigger" href="#modal5" id=` +
+                            <a class="waves-effect waves-light btn modal-trigger blue darken-1" href="#modal5" id=` +
                         data[i]["id"] +
                         ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
-                            <a class="waves-effect waves-light btn" id=` +
+                            <a class="waves-effect waves-light btn red darken-1" id=` +
                         data[i]["id"] +
                         ` onclick=deleteCard(this.id)><i class="material-icons right">delete_forever</i>Delete</a>
                             </div>
