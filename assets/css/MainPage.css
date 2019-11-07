@@ -65,6 +65,9 @@ textarea:focus {
   text-align: justify;
 }
 
+#dropdown1[style] {
+  width: 165.031px !important;
+}
 @media screen and (max-width: 400px) {
   .login-box {
     height: 70vh;

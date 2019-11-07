@@ -33,8 +33,19 @@ $conn = openConn();
     <!-- top bar -->
     <div class='top-bar'>
         <div class="valign-wrapper">
-            <div class="left-align" style="width:50%;">Task Tracker</div>
-            <div class="right-align" style="width:50%;">Howdy, <?php echo $_SESSION['username'] ?></div>
+            <div class="left-align" style="width:50%;margin-left: 5px;">Task Tracker</div>
+            <div class="right-align" style="width:50%;margin-right: 5px;">
+            <!-- Dropdown Trigger -->
+            <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Howdy, <?php echo $_SESSION['username'] ?></a>
+
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class='dropdown-content'>
+            <li><a href="#!"><a href="#!"><i class="material-icons left">person</i>View Profile</a></li>
+            <li><a href="#!"><a href="#!"><i class="material-icons left">settings</i>Settings</a></li>
+            <li class="divider" tabindex="-1"></li>
+            <li><a href="#!"><a href="#!"><i class="material-icons left">account_circle</i>Logout</a></li>
+            </ul>
+            </div>
         </div>
     </div>
     <!-- for loading the -->
@@ -309,10 +320,15 @@ $conn = openConn();
             </div>
         </div>
 
+        <!-- Main Task container -->
         <div class="container">
+
+        <!-- for showing while loading the page -->
             <div id="task-loading" class="">
 
             </div>
+            
+            <!-- contain all tasks -->
             <div class="card-tasks" style="display: none;">
                 <span id="total-cards">Total Cards: <span class="total-card-value-holder"></span></span>
                 <div class="row" id="all-cards">
@@ -345,6 +361,15 @@ $(document).ready(function() {
         $('#preloader').hide();
         let showPage = document.querySelector(".main-container");
         showPage.style.display = "block";
+
+        // initializing dropdown
+        $('.dropdown-trigger').dropdown();
+
+        // setting up the dropdown menu
+        var elems = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(elems, {
+            hover: false,
+        });
 
         // initializing modal 
         $('.modal').modal();
