@@ -95,12 +95,6 @@ function loadTheLatestCard() {
       $(".total-card-value-holder").append(
         `<input type="hidden" value=` + count + ` id="total-cards-value">`
       );
-      count = Number(count) + 1;
-      // alert(count);
-      $(".total-card-value-holder").html(count);
-      $(".total-card-value-holder").append(
-        `<input type="hidden" value=` + count + ` id="total-cards-value">`
-      );
     },
     error: function (err) {
       // console.log(err);

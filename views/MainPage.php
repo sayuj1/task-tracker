@@ -35,7 +35,7 @@ $conn = openConn();
         <div class="valign-wrapper">
             <div class="left-align" style="width:50%;margin-left: 5px;">Task Tracker</div>
             <div class="right-align" style="width:50%;margin-right: 5px;">
-            
+
             <!-- Dropdown Trigger -->
             <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Howdy, <?php echo $_SESSION['username'] ?></a>
 
@@ -96,12 +96,12 @@ $conn = openConn();
                     <input type='hidden' id="card-id" name="card-id">
                         <div class="row left-align">
                             <div class="col s6 m4">
-                                <label for="card-title" class="label">
+                                <label for="card-title-edit" class="label">
                                     Task-Title:
                                 </label>
                             </div>
                             <div class="col s6 m6 push-m2">
-                                <input type="text" name="title" id="card-title" data-length="50"
+                                <input type="text" name="title" id="card-title-edit" data-length="50"
                                     placeholder="Task Title" maxlength="50" autofocus required>
                             </div>
                         </div>
@@ -376,6 +376,7 @@ $(document).ready(function() {
         $('.modal').modal();
 
         // attaching character counter on title
+        
         $('#card-title').characterCounter();
         $('#card-title-sm').characterCounter();
 

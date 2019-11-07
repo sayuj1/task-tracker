@@ -32,10 +32,11 @@ function loadValues(card_id) {
             } else {
                 // console.log(data);
                 $(".edit-form #card-id").val(data[0]["id"]);
-                $(".edit-form #card-title").val(data[0]["title"]);
+                $(".edit-form #card-title-edit").val(data[0]["title"]);
                 $(".edit-form #card-body").val(data[0]["task"]);
                 $(".edit-form #status").val(data[0]["status"]);
                 $(".edit-form #card-assigned").val(data[0]["assignedby"]);
+                $("#card-title-edit").characterCounter();
             }
         },
         error: function (err) {
@@ -51,7 +52,7 @@ function clearEditFormFields() {
     $(".edit-form #card-body").val("");
     $(".edit-form #status").val($(".edit-form #status option:first").val());
     $(".edit-form #card-assigned").val("");
-    $("#card-title").characterCounter();
+    $("#card-title-edit").characterCounter();
 }
 
 // for editing the card

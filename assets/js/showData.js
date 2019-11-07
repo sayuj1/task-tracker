@@ -36,9 +36,10 @@ function loadUserData() {
                     "Not Started Yet": "pink accent-1"
                 };
                 // console.log(data[i]);
-
+                // if (i % 2 == 0) {
                 $("#all-cards").append(
-                    ` <div class="col s12 m6" id=` +
+                    `
+                        <div class="col s12 m6" id=` +
                     data[i]["id"] +
                     `>
                         <div class="card yellow accent-1">
@@ -81,7 +82,6 @@ function loadUserData() {
                     </div>
                     `
                 );
-
             }
         },
         error: function (err) {
