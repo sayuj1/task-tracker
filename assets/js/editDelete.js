@@ -62,16 +62,34 @@ function editCard(card_id) {
 
 // updating the card after the successful edited in the database
 function updateCard(updatedData) {
+
+    // getting the updated values 
     let card_id = updatedData[0]["value"];
     let card_title = updatedData[1]["value"];
     let card_task = updatedData[2]["value"];
     let card_status = updatedData[3]["value"];
     let card_assignedBy = updatedData[4]["value"];
 
+    // setting the updated values to the card
     $("div[id=" + card_id + "] .card_title")[0].innerHTML = card_title;
     $("div[id=" + card_id + "] .card_task")[0].innerHTML = card_task;
     $("div[id=" + card_id + "] .card_status")[0].innerHTML = card_status;
     $("div[id=" + card_id + "] .card_assignedBy")[0].innerHTML = `<i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned By: ` + card_assignedBy;
+
+    // For status color
+    let statusArr = {
+        "Ongoing": "light-blue accent-2",
+        "Pause": "deep-purple lighten-3",
+        "Delayed": "deep-orange accent-2",
+        "Stopped": "red accent-1",
+        "Completed": "green accent-2",
+        "Not Started Yet": "pink accent-1"
+    };
+
+    // updating the status color
+    let className = $("div[id=" + card_id + "] .card_status").attr('class').split(' ');
+    // console.log(className[2], className[3]);
+    $("div[id=" + card_id + "] .card_status").removeClass(className[2] + ' ' + className[3]).addClass(statusArr[card_status]);
 }
 
 // edit card submission

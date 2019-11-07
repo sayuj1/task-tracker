@@ -58,6 +58,9 @@ textarea:focus {
   min-height: 32px !important;
   height: auto !important;
   float: right;
+  font-size: 15px !important;
+  font-weight: lighter !important;
+  color: rgba(0, 0, 0, 0.7) !important;
 }
 
 .card-content {

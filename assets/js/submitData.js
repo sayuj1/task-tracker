@@ -35,20 +35,30 @@ function loadTheLatestCard() {
 
       let count = $("#total-cards-value").val();
       // alert(count);
+
+      // For status color
+      let statusArr = {
+        "Ongoing": "light-blue accent-2",
+        "Pause": "deep-purple lighten-3",
+        "Delayed": "deep-orange accent-2",
+        "Stopped": "red accent-1",
+        "Completed": "green accent-2",
+        "Not Started Yet": "pink accent-1"
+      };
       if (count % 2 == 0) {
         // alert('first one');
         $("#all-cards").prepend(
           `<div class="col s12 m6" id=` +
           data[0]["id"] +
           `>
-        <div class="card blue-grey lighten-5">
+        <div class="card yellow accent-1">
         <div class="card-title row">
                         <div class="col s12 m7 card_title">` +
           data[0]["title"] +
           `
                         </div>
                         <div class="col s12 m5">
-                        <div class="chip card_status">` +
+                        <div class="chip card_status ` + statusArr[data[0]["status"]] + `">` +
           data[0]["status"] +
           `
                       </div>
@@ -91,14 +101,14 @@ function loadTheLatestCard() {
           `<div class="col s12 m6" id=` +
           data[0]["id"] +
           `>
-        <div class="card blue-grey lighten-5">
+        <div class="card yellow accent-1">
         <div class="card-title row">
                         <div class="col s12 m7 card_title">` +
           data[0]["title"] +
           `
                         </div>
                         <div class="col s12 m5">
-                        <div class="chip card_status">` +
+                        <div class="chip card_status ` + statusArr[data[0]["status"]] + `">` +
           data[0]["status"] +
           `
                       </div>

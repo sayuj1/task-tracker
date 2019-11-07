@@ -25,6 +25,16 @@ function loadUserData() {
                 ` id="total-cards-value">`
             );
             for (var i = 0; i < data.length; i++) {
+
+                // For status color
+                let statusArr = {
+                    "Ongoing": "light-blue accent-2",
+                    "Pause": "deep-purple lighten-3",
+                    "Delayed": "deep-orange accent-2",
+                    "Stopped": "red accent-1",
+                    "Completed": "green accent-2",
+                    "Not Started Yet": "pink accent-1"
+                };
                 // console.log(data[i]);
                 if (i % 2 == 0) {
                     $("#all-cards").append(
@@ -32,14 +42,14 @@ function loadUserData() {
                         <div class="col s12 m6" id=` +
                         data[i]["id"] +
                         `>
-                        <div class="card blue-grey lighten-5">
+                        <div class="card yellow accent-1">
                         <div class="card-title row">
                         <div class="col s12 m7 card_title">` +
                         data[i]["title"] +
                         `
                         </div>
                         <div class="col s12 m5">
-                        <div class="chip card_status">` +
+                        <div class="chip card_status ` + statusArr[data[i]["status"]] + `">` +
                         data[i]["status"] +
                         `
                       </div>
@@ -77,13 +87,13 @@ function loadUserData() {
                         <div class="col s12 m6" id=` +
                         data[i]["id"] +
                         `>
-                        <div class="card blue-grey lighten-5">
+                        <div class="card yellow accent-1">
                         <div class="card-title row"><div class="col s12 m7 card_title">` +
                         data[i]["title"] +
                         `
                         </div>
                         <div class="col s12 m5">
-                        <div class="chip card_status">` +
+                        <div class="chip card_status ` + statusArr[data[i]["status"]] + `">` +
                         data[i]["status"] +
                         `
                         </div>
