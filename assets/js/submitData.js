@@ -38,7 +38,9 @@ function loadTheLatestCard() {
       if (count % 2 == 0) {
         // alert('first one');
         $("#all-cards").prepend(
-          `<div class="col s12 m6" id=` + data[0]["id"] + `>
+          `<div class="col s12 m6" id=` +
+          data[0]["id"] +
+          `>
         <div class="card blue-grey lighten-5">
         <div class="card-title row">
                         <div class="col s12 m7 card_title">` +
@@ -51,8 +53,11 @@ function loadTheLatestCard() {
           `
                       </div>
                       </div>
-                      <p class="col s12" style="font-size: medium;font-weight: 400;"><i class="material-icons left" style="margin-right: 2px;">date_range</i>` +
+                      <p class="col s12" style="font-size: medium;font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;">date_range</i>` +
           data[0]["datestarted"] +
+          `</p>
+                        <p class="col s12 card_assignedBy" style="font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned ` +
+          data[0]["assignedby"] +
           `</p>
                       </div>
                         <div class="divider pink darken-4" style="height: 2px;"></div>
@@ -65,8 +70,12 @@ function loadTheLatestCard() {
           `</p>
             </div>
             <div class="card-action" style="border-top: 2px solid #880e4f">
-            <a class="waves-effect waves-light btn modal-trigger" href="#modal5" id=` + data[0]["id"] + ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
-            <a class="waves-effect waves-light btn" id=` + data[0]["id"] + ` onclick=deleteCard(this.id)><i class="material-icons right">delete_forever</i>Delete</a>
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal5" id=` +
+          data[0]["id"] +
+          ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
+            <a class="waves-effect waves-light btn" id=` +
+          data[0]["id"] +
+          ` onclick=deleteCard(this.id)><i class="material-icons right">delete_forever</i>Delete</a>
             </div>
             </div>
     </div>`
@@ -79,7 +88,9 @@ function loadTheLatestCard() {
         );
       } else {
         $("#all-cards").prepend(
-          `<div class="col s12 m6" id=` + data[0]["id"] + `>
+          `<div class="col s12 m6" id=` +
+          data[0]["id"] +
+          `>
         <div class="card blue-grey lighten-5">
         <div class="card-title row">
                         <div class="col s12 m7 card_title">` +
@@ -92,8 +103,11 @@ function loadTheLatestCard() {
           `
                       </div>
                       </div>
-                      <p class="col s12" style="font-size: medium;font-weight: 400;"><i class="material-icons left" style="margin-right: 2px;">date_range</i>` +
+                      <p class="col s12" style="font-size: medium;font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;">date_range</i>` +
           data[0]["datestarted"] +
+          `</p>
+                        <p class="col s12 card_assignedBy" style="font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned ` +
+          data[0]["assignedby"] +
           `</p>
                       </div>
                         <div class="divider pink darken-4" style="height: 2px;"></div>
@@ -106,8 +120,12 @@ function loadTheLatestCard() {
           `</p>
             </div>
             <div class="card-action" style="border-top: 2px solid #880e4f">
-            <a class="waves-effect waves-light btn modal-trigger" href="#modal5" id=` + data[0]["id"] + ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
-            <a class="waves-effect waves-light btn" id=` + data[0]["id"] + ` onclick=deleteCard(this.id)><i class="material-icons right">delete_forever</i>Delete</a>
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal5" id=` +
+          data[0]["id"] +
+          ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
+            <a class="waves-effect waves-light btn" id=` +
+          data[0]["id"] +
+          ` onclick=deleteCard(this.id)><i class="material-icons right">delete_forever</i>Delete</a>
             </div>
         </div>
     </div>`

@@ -68,12 +68,12 @@ function updateCard(updatedData) {
     let card_title = updatedData[1]['value'];
     let card_task = updatedData[2]['value'];
     let card_status = updatedData[3]['value'];
-    // let card_assignedBy = updatedCard[4]['value'];
+    let card_assignedBy = updatedData[4]['value'];
 
     $('div[id=' + card_id + '] .card_title')[0].innerHTML = card_title;
     $('div[id=' + card_id + '] .card_task')[0].innerHTML = card_task;
     $('div[id=' + card_id + '] .card_status')[0].innerHTML = card_status;
-    // $('div[id=' + card_id + '] .card_assignedBy')[0].innerHTML = card_assignedBy;
+    $('div[id=' + card_id + '] .card_assignedBy')[0].innerHTML = card_assignedBy;
 }
 
 // edit card submission

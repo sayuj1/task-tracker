@@ -5,6 +5,8 @@ include_once '../dbconfig/dbconfig.php';
 
 $conn = openConn();
 
+// for editing the card data
+
 $username = $_SESSION['username'];
 $cardID = $_GET['cardID'];
 $q = "SELECT * FROM `cardtask` WHERE username = '".$username."' AND id = '".$cardID."'";

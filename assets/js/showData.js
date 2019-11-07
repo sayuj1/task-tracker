@@ -29,7 +29,9 @@ function loadUserData() {
                 if (i % 2 == 0) {
                     $("#all-cards").append(
                         `
-                        <div class="col s12 m6" id=` + data[i]["id"] + `>
+                        <div class="col s12 m6" id=` +
+                        data[i]["id"] +
+                        `>
                         <div class="card blue-grey lighten-5">
                         <div class="card-title row">
                         <div class="col s12 m7 card_title">` +
@@ -42,8 +44,11 @@ function loadUserData() {
                         `
                       </div>
                       </div>
-                      <p class="col s12" style="font-size: medium;font-weight: 400;"><i class="material-icons left" style="margin-right: 2px;">date_range</i>` +
+                      <p class="col s12" style="font-size: medium;font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;">date_range</i>` +
                         data[i]["datestarted"] +
+                        `</p>
+                        <p class="col s12 card_assignedBy" style="font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned ` +
+                        data[i]["assignedby"] +
                         `</p>
                       </div>
                         <div class="divider pink darken-4" style="height: 2px;"></div>
@@ -69,7 +74,9 @@ function loadUserData() {
                 } else {
                     $("#all-cards").append(
                         `
-                        <div class="col s12 m6" id=` + data[i]["id"] + `>
+                        <div class="col s12 m6" id=` +
+                        data[i]["id"] +
+                        `>
                         <div class="card blue-grey lighten-5">
                         <div class="card-title row"><div class="col s12 m7 card_title">` +
                         data[i]["title"] +
@@ -81,8 +88,11 @@ function loadUserData() {
                         `
                         </div>
                         </div>
-                        <p class="col s12" style="font-size: medium;font-weight: 400;"><i class="material-icons left" style="margin-right: 2px;">date_range</i>` +
+                        <p class="col s12" style="font-size: medium;font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;">date_range</i>` +
                         data[i]["datestarted"] +
+                        `</p>
+                        <p class="col s12 card_assignedBy" style="font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned ` +
+                        data[i]["assignedby"] +
                         `</p>
                         </div>
                         <div class="divider pink darken-4" style="height: 2px;"></div>
