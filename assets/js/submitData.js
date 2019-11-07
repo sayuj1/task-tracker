@@ -45,108 +45,62 @@ function loadTheLatestCard() {
         "Completed": "green accent-2",
         "Not Started Yet": "pink accent-1"
       };
-      if (count % 2 == 0) {
-        // alert('first one');
-        $("#all-cards").prepend(
-          `<div class="col s12 m6" id=` +
-          data[0]["id"] +
-          `>
+      // alert('first one');
+      $("#all-cards").prepend(
+        `<div class="col s12 m6" id=` +
+        data[0]["id"] +
+        `>
         <div class="card yellow accent-1">
         <div class="card-title row">
                         <div class="col s12 m7 card_title">` +
-          data[0]["title"] +
-          `
+        data[0]["title"] +
+        `
                         </div>
                         <div class="col s12 m5">
                         <div class="chip card_status ` + statusArr[data[0]["status"]] + `">` +
-          data[0]["status"] +
-          `
+        data[0]["status"] +
+        `
                       </div>
                       </div>
                       <p class="col s12" style="font-size: medium;font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;">date_range</i>` +
-          data[0]["datestarted"] +
-          `</p>
+        data[0]["datestarted"] +
+        `</p>
                         <p class="col s12 card_assignedBy" style="font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned By: ` +
-          data[0]["assignedby"] +
-          `</p>
+        data[0]["assignedby"] +
+        `</p>
                       </div>
                         <div class="divider pink darken-4" style="height: 2px;"></div>
             <div class="card-content black-text flow-text">
             <input type="hidden" value=` +
-          data[0]["id"] +
-          `>
+        data[0]["id"] +
+        `>
                 <p class="card_task">` +
-          data[0]["task"] +
-          `</p>
+        data[0]["task"] +
+        `</p>
             </div>
             <div class="card-footer" style="border-top: 2px solid #880e4f; padding: 16px;">
             <a class="waves-effect waves-light btn modal-trigger blue darken-1" href="#modal5" id=` +
-          data[0]["id"] +
-          ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
+        data[0]["id"] +
+        ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
             <a class="waves-effect waves-light btn red darken-1" id=` +
-          data[0]["id"] +
-          ` onclick=deleteCard(this.id) style="float: right;"><i class="material-icons right">delete_forever</i>Delete</a>
+        data[0]["id"] +
+        ` onclick=deleteCard(this.id) style="float: right;"><i class="material-icons right">delete_forever</i>Delete</a>
             </div>
             </div>
     </div>`
-        );
-        count = Number(count) + 1;
-        // alert(count);
-        $(".total-card-value-holder").html(count);
-        $(".total-card-value-holder").append(
-          `<input type="hidden" value=` + count + ` id="total-cards-value">`
-        );
-      } else {
-        $("#all-cards").prepend(
-          `<div class="col s12 m6" id=` +
-          data[0]["id"] +
-          `>
-        <div class="card yellow accent-1">
-        <div class="card-title row">
-                        <div class="col s12 m7 card_title">` +
-          data[0]["title"] +
-          `
-                        </div>
-                        <div class="col s12 m5">
-                        <div class="chip card_status ` + statusArr[data[0]["status"]] + `">` +
-          data[0]["status"] +
-          `
-                      </div>
-                      </div>
-                      <p class="col s12" style="font-size: medium;font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;">date_range</i>` +
-          data[0]["datestarted"] +
-          `</p>
-                        <p class="col s12 card_assignedBy" style="font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned By: ` +
-          data[0]["assignedby"] +
-          `</p>
-                      </div>
-                        <div class="divider pink darken-4" style="height: 2px;"></div>
-            <div class="card-content black-text flow-text">
-            <input type="hidden" value=` +
-          data[0]["id"] +
-          `>
-                <p class="card_task">` +
-          data[0]["task"] +
-          `</p>
-            </div>
-            <div class="card-footer" style="border-top: 2px solid #880e4f;padding: 16px;">
-            <a class="waves-effect waves-light btn modal-trigger blue darken-1" href="#modal5" id=` +
-          data[0]["id"] +
-          ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
-            <a class="waves-effect waves-light btn red darken-1" id=` +
-          data[0]["id"] +
-          ` onclick=deleteCard(this.id) style="float: right;"><i class="material-icons right">delete_forever</i>Delete</a>
-            </div>
-        </div>
-    </div>`
-        );
-        count = Number(count) + 1;
-        // alert(count);
-        $(".total-card-value-holder").html(count);
-        $(".total-card-value-holder").append(
-          `<input type="hidden" value=` + count + ` id="total-cards-value">`
-        );
-      }
+      );
+      count = Number(count) + 1;
+      // alert(count);
+      $(".total-card-value-holder").html(count);
+      $(".total-card-value-holder").append(
+        `<input type="hidden" value=` + count + ` id="total-cards-value">`
+      );
+      count = Number(count) + 1;
+      // alert(count);
+      $(".total-card-value-holder").html(count);
+      $(".total-card-value-holder").append(
+        `<input type="hidden" value=` + count + ` id="total-cards-value">`
+      );
     },
     error: function (err) {
       // console.log(err);
