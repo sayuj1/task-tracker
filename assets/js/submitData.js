@@ -56,7 +56,7 @@ function loadTheLatestCard() {
                       <p class="col s12" style="font-size: medium;font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;">date_range</i>` +
           data[0]["datestarted"] +
           `</p>
-                        <p class="col s12 card_assignedBy" style="font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned ` +
+                        <p class="col s12 card_assignedBy" style="font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned By: ` +
           data[0]["assignedby"] +
           `</p>
                       </div>
@@ -106,7 +106,7 @@ function loadTheLatestCard() {
                       <p class="col s12" style="font-size: medium;font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;">date_range</i>` +
           data[0]["datestarted"] +
           `</p>
-                        <p class="col s12 card_assignedBy" style="font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned ` +
+                        <p class="col s12 card_assignedBy" style="font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned By: ` +
           data[0]["assignedby"] +
           `</p>
                       </div>

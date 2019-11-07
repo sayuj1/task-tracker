@@ -1,7 +1,6 @@
 // for removing the card from the DOM
 function removeCard(card_id) {
-
-    $('div[id=' + card_id + ']').remove();
+    $("div[id=" + card_id + "]").remove();
 }
 
 // for updating the total card values
@@ -32,11 +31,11 @@ function loadValues(card_id) {
                 console.log("server error! sorry");
             } else {
                 // console.log(data);
-                $(".edit-form #card-id").val(data[0]['id']);
-                $(".edit-form #card-title").val(data[0]['title']);
-                $(".edit-form #card-body").val(data[0]['task']);
-                $(".edit-form #status").val(data[0]['status']);
-                $(".edit-form #card-assigned").val(data[0]['assignedby']);
+                $(".edit-form #card-id").val(data[0]["id"]);
+                $(".edit-form #card-title").val(data[0]["title"]);
+                $(".edit-form #card-body").val(data[0]["task"]);
+                $(".edit-form #status").val(data[0]["status"]);
+                $(".edit-form #card-assigned").val(data[0]["assignedby"]);
             }
         },
         error: function (err) {
@@ -63,17 +62,16 @@ function editCard(card_id) {
 
 // updating the card after the successful edited in the database
 function updateCard(updatedData) {
+    let card_id = updatedData[0]["value"];
+    let card_title = updatedData[1]["value"];
+    let card_task = updatedData[2]["value"];
+    let card_status = updatedData[3]["value"];
+    let card_assignedBy = updatedData[4]["value"];
 
-    let card_id = updatedData[0]['value'];
-    let card_title = updatedData[1]['value'];
-    let card_task = updatedData[2]['value'];
-    let card_status = updatedData[3]['value'];
-    let card_assignedBy = updatedData[4]['value'];
-
-    $('div[id=' + card_id + '] .card_title')[0].innerHTML = card_title;
-    $('div[id=' + card_id + '] .card_task')[0].innerHTML = card_task;
-    $('div[id=' + card_id + '] .card_status')[0].innerHTML = card_status;
-    $('div[id=' + card_id + '] .card_assignedBy')[0].innerHTML = card_assignedBy;
+    $("div[id=" + card_id + "] .card_title")[0].innerHTML = card_title;
+    $("div[id=" + card_id + "] .card_task")[0].innerHTML = card_task;
+    $("div[id=" + card_id + "] .card_status")[0].innerHTML = card_status;
+    $("div[id=" + card_id + "] .card_assignedBy")[0].innerHTML = `<i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned By: ` + card_assignedBy;
 }
 
 // edit card submission
@@ -127,7 +125,6 @@ $(".edit-form").on("submit", function (e) {
     });
 });
 
-
 // for deleting the card
 function deleteCard(card_id) {
     // console.log("id received" + card_id);
@@ -144,10 +141,9 @@ function deleteCard(card_id) {
             // add the loader later
         },
         success: function (data) {
-
             // console.log('it is working');
             // console.log(data);
-            if (data == 'successful') {
+            if (data == "successful") {
                 // call a function to remove the card from the page
                 removeCard(card_id);
                 // console.log('deleted');
@@ -160,15 +156,13 @@ function deleteCard(card_id) {
 
                 // updating the total count value
                 updateTotalCardValues();
-
-            } else if (data == 'failed') {
+            } else if (data == "failed") {
                 // add a modal to show the message
-                console.log('fail to delete the card! Please try again');
+                console.log("fail to delete the card! Please try again");
             }
         },
         error: function (err) {
             console.log("Not successful");
         }
     });
-
 }
