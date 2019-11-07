@@ -137,7 +137,7 @@ function loadUserData() {
                 count +
                 ` id="total-cards-value">`
             );
-            console.log("something went wrong :(");
+            // console.log("something went wrong :(");
         }
     });
 }
