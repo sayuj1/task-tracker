@@ -79,13 +79,13 @@ function loadTheLatestCard() {
           data[0]["task"] +
           `</p>
             </div>
-            <div class="card-action" style="border-top: 2px solid #880e4f">
+            <div class="card-footer" style="border-top: 2px solid #880e4f; padding: 16px;">
             <a class="waves-effect waves-light btn modal-trigger blue darken-1" href="#modal5" id=` +
           data[0]["id"] +
           ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
             <a class="waves-effect waves-light btn red darken-1" id=` +
           data[0]["id"] +
-          ` onclick=deleteCard(this.id)><i class="material-icons right">delete_forever</i>Delete</a>
+          ` onclick=deleteCard(this.id) style="float: right;"><i class="material-icons right">delete_forever</i>Delete</a>
             </div>
             </div>
     </div>`
@@ -129,13 +129,13 @@ function loadTheLatestCard() {
           data[0]["task"] +
           `</p>
             </div>
-            <div class="card-action" style="border-top: 2px solid #880e4f">
+            <div class="card-footer" style="border-top: 2px solid #880e4f;padding: 16px;">
             <a class="waves-effect waves-light btn modal-trigger blue darken-1" href="#modal5" id=` +
           data[0]["id"] +
           ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
             <a class="waves-effect waves-light btn red darken-1" id=` +
           data[0]["id"] +
-          ` onclick=deleteCard(this.id)><i class="material-icons right">delete_forever</i>Delete</a>
+          ` onclick=deleteCard(this.id) style="float: right;"><i class="material-icons right">delete_forever</i>Delete</a>
             </div>
         </div>
     </div>`
