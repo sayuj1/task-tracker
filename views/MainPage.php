@@ -36,16 +36,18 @@ $conn = openConn();
             <div class="left-align" style="width:50%;margin-left: 5px;">Task Tracker</div>
             <div class="right-align" style="width:50%;margin-right: 5px;">
 
-            <!-- Dropdown Trigger -->
-            <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Howdy, <?php echo $_SESSION['username'] ?></a>
+                <!-- Dropdown Trigger -->
+                <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Howdy,
+                    <?php echo $_SESSION['username'] ?></a>
 
-            <!-- Dropdown Structure -->
-            <ul id='dropdown1' class='dropdown-content'>
-            <li><a href="#!"><a href="#!"><i class="material-icons left">person</i>View Profile</a></li>
-            <li><a href="#!"><a href="#!"><i class="material-icons left">settings</i>Settings</a></li>
-            <li class="divider" tabindex="-1"></li>
-            <li><a href="#!"><a href="../logout/logout.php"><i class="material-icons left">account_circle</i>Logout</a></li>
-            </ul>
+                <!-- Dropdown Structure -->
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li><a href="#!" id="view-profile-btn"><i class="material-icons left">person</i>View Profile</a>
+                    </li>
+                    <li><a href="#!" id="settings-btn"><i class="material-icons left">settings</i>Settings</a></li>
+                    <li class="divider" tabindex="-1"></li>
+                    <li><a href="../logout/logout.php"><i class="material-icons left">account_circle</i>Logout</a></li>
+                </ul>
             </div>
         </div>
     </div>
@@ -93,7 +95,7 @@ $conn = openConn();
             <div class="row">
                 <div class="modal-content">
                     <form method="POST" class="col m10 push-m1 edit-form">
-                    <input type='hidden' id="card-id" name="card-id">
+                        <input type='hidden' id="card-id" name="card-id">
                         <div class="row left-align">
                             <div class="col s6 m4">
                                 <label for="card-title-edit" class="label">
@@ -140,7 +142,8 @@ $conn = openConn();
                                 </label>
                             </div>
                             <div class="col s6 m6 push-m2">
-                                <input type="text" name="assignedby" id="card-assigned" placeholder="Assigned By" required>
+                                <input type="text" name="assignedby" id="card-assigned" placeholder="Assigned By"
+                                    required>
                             </div>
                         </div>
                 </div>
@@ -155,7 +158,7 @@ $conn = openConn();
 
 
         <!-- For medium and large devices  -->
-        <div class="container hide-on-small-only">
+        <div class="container hide-on-small-only create-filter">
             <div class="row">
                 <div class="col m5">
                     <!-- Modal Trigger -->
@@ -238,7 +241,7 @@ $conn = openConn();
         </div>
 
         <!-- for small devices  -->
-        <div class="container hide-on-med-and-up">
+        <div class="container hide-on-med-and-up create-filter">
             <div class="row">
                 <div class="col s12 center-align">
                     <!-- Modal Trigger -->
@@ -322,13 +325,13 @@ $conn = openConn();
         </div>
 
         <!-- Main Task container -->
-        <div class="container">
+        <div class="container task-container">
 
-        <!-- for showing while loading the page -->
-            <div id="task-loading" class="">
+            <!-- for showing while loading the tasks -->
+            <div id="task-loading">
 
             </div>
-            
+
             <!-- contain all tasks -->
             <div class="card-tasks" style="display: none;">
                 <span id="total-cards">Total Cards: <span class="total-card-value-holder"></span></span>
@@ -341,6 +344,11 @@ $conn = openConn();
 
     </div>
 
+    <!-- view profile loaded here -->
+    <div class="container view-profile" style="display: none;">
+    
+    </div>
+
 </body>
 
 <!-- Required JS files -->
@@ -348,9 +356,10 @@ $conn = openConn();
 <script src="../assets/js/jquery3.3.1.min.js"></script>
 <script src='../assets/js/jquery.min.js'></script>
 
-<script src='../assets/js/showData.js'></script>
-<script src="../assets/js/submitData.js"></script>
-<script src="../assets/js/editDelete.js"></script>
+<script defer src='../assets/js/showData.js'></script>
+<script defer src="../assets/js/submitData.js"></script>
+<script defer src="../assets/js/editDelete.js"></script>
+<script defer src="../assets/js/viewProfile.js"></script>
 <script type="text/javascript" src="../assets/js/materialize.min.js"></script>
 
 <!-- This script is for preloading the page -->
@@ -358,6 +367,7 @@ $conn = openConn();
 $(document).ready(function() {
     loadUserData();
 
+    // loading the content of the page
     function pageLoaded() {
         $('#preloader').hide();
         let showPage = document.querySelector(".main-container");
@@ -376,12 +386,32 @@ $(document).ready(function() {
         $('.modal').modal();
 
         // attaching character counter on title
-        
         $('#card-title').characterCounter();
         $('#card-title-sm').characterCounter();
 
     }
+
+    // calling the page load function
     pageLoaded();
+
+    // for loading the user profile
+    $('#view-profile-btn').on('click', function() {
+        $('.create-filter').hide();
+        $('.task-container').hide();
+
+        let viewProfile = document.querySelector(".view-profile");
+        // loading user profile
+        if (viewProfile.style.display == "none"){
+            $('.view-profile').show();
+            loadProfile();
+        }
+        
+    });
+
+    $("#settings-btn").on('click', function() {
+        // $('.create-filter').show();
+    });
+
 
 });
 </script>
