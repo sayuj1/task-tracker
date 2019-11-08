@@ -346,7 +346,7 @@ $conn = openConn();
 
     <!-- view profile loaded here -->
     <div class="container view-profile" style="display: none;">
-    
+        <!-- User Profile Loaded Here -->
     </div>
 
 </body>
