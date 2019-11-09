@@ -51,7 +51,8 @@ $conn = openConn();
             </div>
         </div>
     </div>
-    <!-- for loading the -->
+
+    <!-- for loading the page-->
     <img src="../assets/imgs/table-task-loader.gif" id="preloader" alt="your browser does not support gifs!"
         width="100%" height="50%" style="margin: 0 auto">
     <div class="main-container" style="display: none;">
@@ -149,7 +150,7 @@ $conn = openConn();
                 </div>
 
                 <div class="modal-footer col" style="text-align: center">
-                    <button type="submit" name="createCard" class="btn btn-large blue darken-1">Edit</button>
+                    <button type="submit" name="editCard" class="btn btn-large blue darken-1">Edit</button>
                     <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
                 </div>
                 </form>
@@ -349,6 +350,8 @@ $conn = openConn();
         <!-- User Profile Loaded Here -->
     </div>
 
+    <div class="page-preview"></div>
+
 </body>
 
 <!-- Required JS files -->
@@ -396,22 +399,24 @@ $(document).ready(function() {
 
     // for loading the user profile
     $('#view-profile-btn').on('click', function() {
+        // alert('clicked');
         $('.create-filter').hide();
         $('.task-container').hide();
 
         let viewProfile = document.querySelector(".view-profile");
         // loading user profile
-        if (viewProfile.style.display == "none"){
-            $('.view-profile').show();
-            loadProfile();
-        }
+        // if (viewProfile.style.display == "none"){
+        //     $('.view-profile').show();
+        //     loadProfile();
+        // }
+        $('.view-profile').show();
+        loadProfile();
         
     });
 
     $("#settings-btn").on('click', function() {
         // $('.create-filter').show();
     });
-
 
 });
 </script>

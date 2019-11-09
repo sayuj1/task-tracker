@@ -18,7 +18,7 @@ if ( mysqli_query( $conn, $query ) ) {
     echo 'insertionSuccessful';
 } else {
     // echo $cardTitle.' '.$cardTask.' '.$dateStarted.' '.$taskStatus.' '.$assignedBy;
-    echo 'failed';
+    echo 'failed'+ $_POST['data'];
 }
 
 closeConn( $conn );
