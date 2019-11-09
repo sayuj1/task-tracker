@@ -38,13 +38,15 @@ $conn = openConn();
 
                 <!-- Dropdown Trigger -->
                 <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Howdy,
-                    <?php echo $_SESSION['username'] ?></a>
+                    <?php echo $_SESSION['username'] ?>
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a>
 
                 <!-- Dropdown Structure -->
                 <ul id='dropdown1' class='dropdown-content'>
                     <li><a href="#!" id="view-profile-btn"><i class="material-icons left">person</i>View Profile</a>
                     </li>
-                    <li><a href="#!" id="settings-btn"><i class="material-icons left">settings</i>Settings</a></li>
+                    <li><a href="#!" id="view-detail-btn"><i class="material-icons left">dashboard</i>View Detail</a></li>
                     <li class="divider" tabindex="-1"></li>
                     <li><a href="../logout/logout.php"><i class="material-icons left">account_circle</i>Logout</a></li>
                 </ul>
@@ -345,12 +347,12 @@ $conn = openConn();
 
     </div>
 
-    <!-- view profile loaded here -->
+    <!-- view profile & view details loaded here -->
     <div class="container view-profile" style="display: none;">
-        <!-- User Profile Loaded Here -->
+        <!-- User Profile & settings Loaded Here -->
     </div>
 
-    <div class="page-preview"></div>
+    
 
 </body>
 
@@ -359,10 +361,14 @@ $conn = openConn();
 <script src="../assets/js/jquery3.3.1.min.js"></script>
 <script src='../assets/js/jquery.min.js'></script>
 
+<!-- for creating graph -->
+<script async src="https://www.gstatic.com/charts/loader.js"></script>
+
 <script defer src='../assets/js/showData.js'></script>
 <script defer src="../assets/js/submitData.js"></script>
 <script defer src="../assets/js/editDelete.js"></script>
 <script defer src="../assets/js/viewProfile.js"></script>
+<script defer src="../assets/js/viewDetails.js"></script>
 <script type="text/javascript" src="../assets/js/materialize.min.js"></script>
 
 <!-- This script is for preloading the page -->
@@ -399,23 +405,27 @@ $(document).ready(function() {
 
     // for loading the user profile
     $('#view-profile-btn').on('click', function() {
+
+        // removing the resize event
+        $(window).off("resize");
+
         // alert('clicked');
         $('.create-filter').hide();
         $('.task-container').hide();
 
-        let viewProfile = document.querySelector(".view-profile");
         // loading user profile
-        // if (viewProfile.style.display == "none"){
-        //     $('.view-profile').show();
-        //     loadProfile();
-        // }
         $('.view-profile').show();
         loadProfile();
         
     });
 
-    $("#settings-btn").on('click', function() {
-        // $('.create-filter').show();
+    $("#view-detail-btn").on('click', function() {
+        
+        $('.create-filter').hide();
+        $('.task-container').hide();
+
+        $('.view-profile').show();
+        loadDetails();
     });
 
 });
