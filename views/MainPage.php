@@ -44,9 +44,9 @@ $conn = openConn();
 
                 <!-- Dropdown Structure -->
                 <ul id='dropdown1' class='dropdown-content'>
-                    <li><a href="#!" id="view-profile-btn"><i class="material-icons left">person</i>View Profile</a>
+                    <li><a id="view-profile-btn"><i class="material-icons left">person</i>View Profile</a>
                     </li>
-                    <li><a href="#!" id="view-detail-btn"><i class="material-icons left">dashboard</i>View Detail</a></li>
+                    <li><a id="view-detail-btn"><i class="material-icons left">dashboard</i>Task Details</a></li>
                     <li class="divider" tabindex="-1"></li>
                     <li><a href="../logout/logout.php"><i class="material-icons left">account_circle</i>Logout</a></li>
                 </ul>
@@ -364,6 +364,7 @@ $conn = openConn();
 <!-- for creating graph -->
 <script async src="https://www.gstatic.com/charts/loader.js"></script>
 
+ <!-- for functionality of the app -->
 <script defer src='../assets/js/showData.js'></script>
 <script defer src="../assets/js/submitData.js"></script>
 <script defer src="../assets/js/editDelete.js"></script>
@@ -419,6 +420,7 @@ $(document).ready(function() {
         
     });
 
+    // for loading the task details
     $("#view-detail-btn").on('click', function() {
         
         $('.create-filter').hide();
@@ -429,6 +431,7 @@ $(document).ready(function() {
     });
 
 });
+
 </script>
 
 </html>

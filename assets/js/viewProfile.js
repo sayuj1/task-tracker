@@ -1,13 +1,18 @@
 // for going back to mainpage
-function goBack() {
+function goToMainpage() {
     $(".view-profile").hide();
     $(".create-filter").show();
     $(".task-container").show();
 }
 
+// for going back to view-profile
+function goToViewProfile() {
+    loadProfile();
+}
+
 // adding event listeners after loading the dom elements
 function submitForm() {
-    // updating user profile sending data to server
+    // updating user profile by sending data to server
     $(".update-profile").on("submit", function (e) {
         // alert('clickced');
         // console.log('here');
@@ -58,9 +63,12 @@ function updateProfile() {
                 `<div class='row'>
                 <div class='col s12 m6 offset-m3'>
                     <div class='card z-depth-3'>
+                    <a onclick=goToViewProfile() class="btn light-blue" style="
+                    margin-left: 10px;
+                    margin-top: 10px;"><i class="material-icons left">arrow_back</i></a>
                         <form method='POST' class='update-profile'>
                             <div class='row'>
-                                <div class='card-title center-align' style='font-size: 32px;'>User Profile</div>
+                                <div class='card-title center-align' style='font-size: 32px;'>Update User's Profile</div>
                             </div>
             
                             <div class='row flow-text black-text center-align card-main-row'>
@@ -91,7 +99,7 @@ function updateProfile() {
                             </div>
                             
                             <div class='card-footer view-profile-card-footer' style='padding: 24px;'>
-                            <a onclick=goBack() class="waves-effect waves-light btn blue darken-1">Go To Mainpage</a>
+                            <a onclick=goToMainpage() class="waves-effect waves-light btn blue darken-1">Go To Mainpage</a>
                                 <button type='submit' name='updateProfile' class='btn orange darken-1' style="float:right;">Submit</button>
                             </div>
                         </form>
@@ -161,7 +169,7 @@ function loadProfile() {
                         </div>
 
                         <div class="card-footer view-profile-card-footer" style="padding: 24px;">
-                            <a onclick=goBack() class="waves-effect waves-light btn blue darken-1">Go Back</a>
+                            <a onclick=goToMainpage() class="waves-effect waves-light btn blue darken-1">Go Back</a>
                             <a onclick=updateProfile() class="waves-effect waves-light btn orange darken-1" style="float: right;">Update
                                 Profile</a>
                         </div>
