@@ -177,7 +177,7 @@ function loadProfile() {
                         </div>
 
                         <div class="card-footer view-profile-card-footer" style="padding: 24px;">
-                            <a onclick=goToMainpage() class="waves-effect waves-light btn blue darken-1">Go To Mainpage</a>
+                            <a onclick=goToMainpage() class="waves-effect waves-light btn blue darken-1">Go Back</a>
                             <a onclick=updateProfile() class="waves-effect waves-light btn orange darken-1" style="float: right;">Update
                                 Profile</a>
                         </div>

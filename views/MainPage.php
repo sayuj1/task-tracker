@@ -427,6 +427,10 @@ $(document).ready(function() {
         $('.create-filter').hide();
         $('.task-container').hide();
 
+        //removing the old previous data 
+        $('.view-profile').html("");
+
+        //loading the task details
         $('.view-profile').show();
         loadDetails();
     });
