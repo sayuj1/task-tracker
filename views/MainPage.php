@@ -19,6 +19,7 @@ $conn = openConn();
     <title>
         <?php 
      echo $_SESSION['firstname'];
+    
     ?>
     </title>
     <link rel='stylesheet' href='../assets/css/MainPage.css'>

@@ -30,8 +30,16 @@ function submitForm() {
             },
             success: function (data) {
                 // console.log(data);
-                if (data == 'updationSuccessful') {
+                var jsonData = JSON.parse(data);
+                // console.log(data.status);
+                if (jsonData.status == 'updationSuccessful') {
+
+                    // need to add a toast message at the top
                     alert('Profile Updated');
+
+                    // need to update title bar value
+                    let titleValue = document.querySelector('title');
+                    titleValue.innerHTML = jsonData.firstname;
 
                 } else if (data == 'failed') {
                     alert('sorry could not update your profile! Please try again')
@@ -169,7 +177,7 @@ function loadProfile() {
                         </div>
 
                         <div class="card-footer view-profile-card-footer" style="padding: 24px;">
-                            <a onclick=goToMainpage() class="waves-effect waves-light btn blue darken-1">Go Back</a>
+                            <a onclick=goToMainpage() class="waves-effect waves-light btn blue darken-1">Go To Mainpage</a>
                             <a onclick=updateProfile() class="waves-effect waves-light btn orange darken-1" style="float: right;">Update
                                 Profile</a>
                         </div>
