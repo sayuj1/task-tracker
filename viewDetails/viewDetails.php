@@ -36,7 +36,11 @@ if ( mysqli_num_rows( $result1 )>0 || mysqli_num_rows( $result2 )>0 || mysqli_nu
     echo $myJSON;
 
 } else {
-    echo 'No task yet';
+    $arr = array( 'Ongoing'=>0, 'Delayed'=>0, 'Pause'=>0, 'Stopped'=>0, 'Completed'=>0, 'NotStartedYet'=>0 );
+    $myJSON = json_encode( $arr );
+
+    echo $myJSON;
+    // echo 'No task yet';
 }
 
 closeConn( $conn );

@@ -32,8 +32,8 @@ function loadCards(data, totalCards, container) {
             `
               </div>
               </div>
-              <p class="col s12" style="font-size: medium;font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;">date_range</i>` +
-            data[i]["datestarted"] +
+              <p class="col s12 valign-wrapper" style="font-size: medium;font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;">date_range</i>` +
+            data[i]["datestarted"].split("::")[0] + `<i class="material-icons small" style="margin-right: 0px;margin-left: 5px;">access_time</i>` + data[i]["datestarted"].split("::")[1] +
             `</p>
                 <p class="col s12 card_assignedBy" style="font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned By: ` +
             data[i]["assignedby"] +
