@@ -1,7 +1,7 @@
 // this file can be more optimized by making function more dynamic by passing the status values
 
 // shows all the tasks
-$('#all-tasks-btn').on('click', function () {
+$('.all-tasks-btn').on('click', function () {
 
     $("#filter-cards").html("");
     $(".filter-card-tasks").hide();
@@ -15,7 +15,7 @@ $('#all-tasks-btn').on('click', function () {
 });
 
 // shows the ongoing tasks
-$('#ongoing-tasks-btn').on('click', function () {
+$('.ongoing-tasks-btn').on('click', function () {
     let allTasks = document.querySelectorAll('.card_status');
     for (i = 0; i < allTasks.length; i++) {
         if (allTasks[i].innerText.trim() == "Ongoing") {
@@ -28,7 +28,7 @@ $('#ongoing-tasks-btn').on('click', function () {
 });
 
 // shows the pause tasks
-$('#pause-tasks-btn').on('click', function () {
+$('.pause-tasks-btn').on('click', function () {
     let allTasks = document.querySelectorAll('.card_status');
     for (i = 0; i < allTasks.length; i++) {
         if (allTasks[i].innerText.trim() == "Pause") {
@@ -41,7 +41,7 @@ $('#pause-tasks-btn').on('click', function () {
 });
 
 // shows the delayed tasks
-$('#delayed-tasks-btn').on('click', function () {
+$('.delayed-tasks-btn').on('click', function () {
     let allTasks = document.querySelectorAll('.card_status');
     for (i = 0; i < allTasks.length; i++) {
         if (allTasks[i].innerText.trim() == "Delayed") {
@@ -54,7 +54,7 @@ $('#delayed-tasks-btn').on('click', function () {
 });
 
 // shows the stopped tasks
-$('#stopped-tasks-btn').on('click', function () {
+$('.stopped-tasks-btn').on('click', function () {
     let allTasks = document.querySelectorAll('.card_status');
     for (i = 0; i < allTasks.length; i++) {
         if (allTasks[i].innerText.trim() == "Stopped") {
@@ -67,7 +67,7 @@ $('#stopped-tasks-btn').on('click', function () {
 });
 
 // shows the completed tasks
-$('#completed-tasks-btn').on('click', function () {
+$('.completed-tasks-btn').on('click', function () {
     let allTasks = document.querySelectorAll('.card_status');
     for (i = 0; i < allTasks.length; i++) {
         if (allTasks[i].innerText.trim() == "Completed") {
@@ -80,7 +80,7 @@ $('#completed-tasks-btn').on('click', function () {
 });
 
 // shows the not started yet tasks
-$('#notstartedyet-tasks-btn').on('click', function () {
+$('.notstartedyet-tasks-btn').on('click', function () {
     let allTasks = document.querySelectorAll('.card_status');
     for (i = 0; i < allTasks.length; i++) {
         if (allTasks[i].innerText.trim() == "Not Started Yet") {
@@ -92,7 +92,7 @@ $('#notstartedyet-tasks-btn').on('click', function () {
     }
 });
 
-$('#latest-tasks').on('click', function () {
+$('.latest-tasks').on('click', function () {
     // console.log('clicked');
 
     $.ajax({
@@ -120,7 +120,7 @@ $('#latest-tasks').on('click', function () {
     });
 });
 
-$('#oldest-tasks').on('click', function () {
+$('.oldest-tasks').on('click', function () {
     // console.log('clicked');
 
     $.ajax({
