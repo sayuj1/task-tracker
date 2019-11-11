@@ -235,11 +235,42 @@ $conn = openConn();
                             </form>
                         </div>
                     </div>
-                    <!-- add a task bar goes here -->
+
                 </div>
                 <div class="col m5 push-m2 right-align">
-                    <a class="waves-effect waves-light btn btn-large"><i
-                            class="material-icons right">filter_list</i>Filter</a>
+
+                    <!-- Dropdown Trigger -->
+                    <a class='dropdown-trigger waves-effect waves-light btn btn-large' href='#' data-target='dropdown2'>
+                        <i class="material-icons right">filter_list</i>Filter
+                    </a>
+
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown2' class='dropdown-content'>
+                        <li><a id="all-tasks-btn"><i class="material-icons left">person</i>All Tasks</a>
+                        </li>
+                        <!-- <li><a id="view-profile-btn"><i class="material-icons left">person</i>Today Tasks</a>
+                        </li>
+                        <li><a id="view-detail-btn"><i class="material-icons left">dashboard</i>Yesterday Tasks</a></li> -->
+                        <li class="divider" tabindex="-1"></li>
+                        <li><a id="latest-tasks"><i class="material-icons left">account_circle</i>Latest Tasks</a>
+                        </li>
+                        <li><a id="oldest-tasks"><i class="material-icons left">account_circle</i>Oldest Tasks</a>
+                        </li>
+                        <li><a id="ongoing-tasks-btn"><i class="material-icons left">person</i>Ongoing Tasks</a>
+                        </li>
+                        <li><a id="pause-tasks-btn"><i class="material-icons left">person</i>Pause Tasks</a>
+                        </li>
+                        <li><a id="delayed-tasks-btn"><i class="material-icons left">person</i>Delayed Tasks</a>
+                        </li>
+                        <li><a id="stopped-tasks-btn"><i class="material-icons left">person</i>Stopped Tasks</a>
+                        </li>
+                        <li><a id="completed-tasks-btn"><i class="material-icons left">person</i>Completed Tasks</a>
+                        </li>
+                        <li><a id="notstartedyet-tasks-btn"><i class="material-icons left">person</i>Not Started Yet
+                                Tasks</a>
+                        </li>
+                    </ul>
+
                 </div>
             </div>
         </div>
@@ -323,7 +354,38 @@ $conn = openConn();
             </div>
             <div class="row">
                 <div class="col s12 center-align">
-                    <a class="waves-effect waves-light btn"><i class="material-icons right">filter_list</i>Filter</a>
+
+                            <!-- Dropdown Trigger -->
+                    <a class='dropdown-trigger waves-effect waves-light btn filter-tasks' href='#' data-target='dropdown3'>
+                        <i class="material-icons right">filter_list</i>Filter
+                    </a>
+
+                    <!-- Dropdown Structure -->
+                    <ul id='dropdown3' class='dropdown-content'>
+                        <li><a id="all-tasks-btn"><i class="material-icons left">person</i>All Tasks</a>
+                        </li>
+                        <!-- <li><a id="view-profile-btn"><i class="material-icons left">person</i>Today Tasks</a>
+                        </li>
+                        <li><a id="view-detail-btn"><i class="material-icons left">dashboard</i>Yesterday Tasks</a></li> -->
+                        <li class="divider" tabindex="-1"></li>
+                        <li><a id="latest-tasks"><i class="material-icons left">account_circle</i>Latest Tasks</a>
+                        </li>
+                        <li><a id="oldest-tasks"><i class="material-icons left">account_circle</i>Oldest Tasks</a>
+                        </li>
+                        <li><a id="ongoing-tasks-btn"><i class="material-icons left">person</i>Ongoing Tasks</a>
+                        </li>
+                        <li><a id="pause-tasks-btn"><i class="material-icons left">person</i>Pause Tasks</a>
+                        </li>
+                        <li><a id="delayed-tasks-btn"><i class="material-icons left">person</i>Delayed Tasks</a>
+                        </li>
+                        <li><a id="stopped-tasks-btn"><i class="material-icons left">person</i>Stopped Tasks</a>
+                        </li>
+                        <li><a id="completed-tasks-btn"><i class="material-icons left">person</i>Completed Tasks</a>
+                        </li>
+                        <li><a id="notstartedyet-tasks-btn"><i class="material-icons left">person</i>Not Started Yet
+                                Tasks</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -344,6 +406,13 @@ $conn = openConn();
                 </div>
 
             </div>
+
+            <!-- contains tasks latest and oldest -->
+            <div class="filter-card-tasks" style="display: none;">
+                <div class="row" id="filter-cards">
+                    <!-- below cards will be displayed -->
+                </div>
+            </div>
         </div>
 
     </div>
@@ -353,7 +422,7 @@ $conn = openConn();
         <!-- User Profile & settings Loaded Here -->
     </div>
 
-    
+
 
 </body>
 
@@ -365,12 +434,13 @@ $conn = openConn();
 <!-- for creating graph -->
 <script async src="https://www.gstatic.com/charts/loader.js"></script>
 
- <!-- for functionality of the app -->
+<!-- for functionality of the app -->
 <script defer src='../assets/js/showData.js'></script>
 <script defer src="../assets/js/submitData.js"></script>
 <script defer src="../assets/js/editDelete.js"></script>
 <script defer src="../assets/js/viewProfile.js"></script>
 <script defer src="../assets/js/viewDetails.js"></script>
+<script defer src="../assets/js/filterCard.js"></script>
 <script type="text/javascript" src="../assets/js/materialize.min.js"></script>
 
 <!-- This script is for preloading the page -->
@@ -418,12 +488,12 @@ $(document).ready(function() {
         // loading user profile
         $('.view-profile').show();
         loadProfile();
-        
+
     });
 
     // for loading the task details
     $("#view-detail-btn").on('click', function() {
-        
+
         $('.create-filter').hide();
         $('.task-container').hide();
 
@@ -436,7 +506,6 @@ $(document).ready(function() {
     });
 
 });
-
 </script>
 
 </html>

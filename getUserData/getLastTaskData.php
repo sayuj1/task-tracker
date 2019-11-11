@@ -11,6 +11,7 @@ $username = $_SESSION['username'];
 $q = "SELECT * FROM `cardtask` WHERE username = '".$username."' ORDER BY datestarted DESC LIMIT 1";
 $r = mysqli_query( $conn, $q );
 if ( mysqli_num_rows( $r )>0 ) {
+    $userInfo = array();
     while( $row = mysqli_fetch_assoc( $r ) ) {
         $userInfo[] = $row;
     }
