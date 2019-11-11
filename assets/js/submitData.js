@@ -45,7 +45,6 @@ function loadTheLatestCard() {
         "Completed": "green accent-2",
         "Not Started Yet": "pink accent-1"
       };
-
       // alert('first one');
       $("#all-cards").prepend(
         `<div class="col s12 m6" id=` +

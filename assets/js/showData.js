@@ -1,6 +1,6 @@
 // display all the cards of the user on page load
 
-function loadCards(data, totalCards, container) {
+function loadCards(data, totalCards, container, operation) {
 
     for (var i = 0; i < totalCards; i++) {
 
