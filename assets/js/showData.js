@@ -1,16 +1,14 @@
-// display all the cards of the user on page load
+// display all the cards of the user received from the server
 
-function loadCards(data, totalCards, container, operation) {
-
+function loadCards(data, totalCards, container) {
     for (var i = 0; i < totalCards; i++) {
-
         // For status color
         let statusArr = {
-            "Ongoing": "light-blue accent-2",
-            "Pause": "deep-purple lighten-3",
-            "Delayed": "deep-orange accent-2",
-            "Stopped": "red accent-1",
-            "Completed": "green accent-2",
+            Ongoing: "light-blue accent-2",
+            Pause: "deep-purple lighten-3",
+            Delayed: "deep-orange accent-2",
+            Stopped: "red accent-1",
+            Completed: "green accent-2",
             "Not Started Yet": "pink accent-1"
         };
         // console.log(data[i]);
@@ -27,13 +25,17 @@ function loadCards(data, totalCards, container, operation) {
             `
                 </div>
                 <div class="col s12 m5">
-                <div class="chip card_status ` + statusArr[data[i]["status"]] + `">` +
+                <div class="chip card_status ` +
+            statusArr[data[i]["status"]] +
+            `">` +
             data[i]["status"] +
             `
               </div>
               </div>
               <p class="col s12 valign-wrapper" style="font-size: medium;font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;">date_range</i>` +
-            data[i]["datestarted"].split("::")[0] + `<i class="material-icons small" style="margin-right: 0px;margin-left: 5px;">access_time</i>` + data[i]["datestarted"].split("::")[1] +
+            data[i]["datestarted"].split("::")[0] +
+            `<i class="material-icons small" style="margin-right: 0px;margin-left: 5px;">access_time</i>` +
+            data[i]["datestarted"].split("::")[1] +
             `</p>
                 <p class="col s12 card_assignedBy" style="font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned By: ` +
             data[i]["assignedby"] +
@@ -63,7 +65,7 @@ function loadCards(data, totalCards, container, operation) {
     }
 }
 
-// requesting from the server for the data
+// requesting from the server for the user tasks data
 function loadUserData() {
     $.ajax({
         async: true,
@@ -71,9 +73,35 @@ function loadUserData() {
         url: "../getUserData/getTaskData.php",
         dataType: "json",
         beforeSend: function () {
-            $("#task-loading").html(
-                '<img src="../assets/imgs/tasks-loading.gif" width="100%" height="100%"></img>'
-            );
+            $("#task-loading").html(`
+            <div class="ui fluid placeholder">
+            <div class="image header">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            </div>
+            `);
         },
         complete: function () {
             $("#task-loading").hide();

@@ -93,7 +93,7 @@ $con = openConn();
 </head>
 
 <body>
-
+    <!-- preloader image -->
     <img src="./assets/imgs/preloader.gif" id="preloader" alt="your browser does not support gifs!" width="100%"
         height="auto" style="display: block; margin: 0 auto;">
     </div>

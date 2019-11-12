@@ -1,28 +1,4 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: white;
-}
-
-.top-bar {
-  background-color: #1a1a1d;
-  height: 50px;
-  color: white;
-  font-size: 2rem;
-}
-
-.login-box {
-  /* border: 2px solid red; */
-  background-color: #1f2833;
-  height: 60vh;
-  margin-top: 5%;
-}
-
-.main-container {
+.middle-container {
   margin-top: 2%;
 }
 
