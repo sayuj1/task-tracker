@@ -125,72 +125,72 @@ $conn = openConn();
             </div>
 
             <!-- showing the edit modal card -->
-            <!-- Modal Structure -->
-            <div id="modal5" class="modal" style="overflow-x: unset;">
-                <div class="row">
-                    <div class="modal-content">
-                        <form method="POST" class="col m10 push-m1 edit-form">
-                            <input type='hidden' id="card-id" name="card-id">
-                            <div class="row left-align">
-                                <div class="col s6 m4">
-                                    <label for="card-title-edit" class="label">
-                                        Task-Title:
-                                    </label>
+                <!-- Modal Structure -->
+                <div id="modal5" class="modal" style="overflow-x: unset;">
+                    <div class="row">
+                        <div class="modal-content edit-modal-container">
+                            <form method="POST" class="col m10 push-m1 edit-form">
+                                <input type='hidden' id="card-id" name="card-id">
+                                <div class="row left-align">
+                                    <div class="col s6 m4">
+                                        <label for="card-title-edit" class="label">
+                                            Task-Title:
+                                        </label>
+                                    </div>
+                                    <div class="col s6 m6 push-m2">
+                                        <input type="text" name="title" id="card-title-edit" data-length="50"
+                                            placeholder="Task Title" maxlength="50" autofocus required>
+                                    </div>
                                 </div>
-                                <div class="col s6 m6 push-m2">
-                                    <input type="text" name="title" id="card-title-edit" data-length="50"
-                                        placeholder="Task Title" maxlength="50" autofocus required>
+                                <div class="row left-align">
+                                    <div class="col s6 m4">
+                                        <label for="card-body" class="label">
+                                            Task-Details:
+                                        </label>
+                                    </div>
+                                    <div class="col s6 m6 push-m2 flow-text">
+                                        <textarea name="tasks" id="card-body" placeholder="Your Tasks goes here...."
+                                            style="max-width:100%;height:200px;resize:none;padding: 14px"
+                                            required></textarea>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row left-align">
-                                <div class="col s6 m4">
-                                    <label for="card-body" class="label">
-                                        Task-Details:
-                                    </label>
+                                <div class="row left-align">
+                                    <div class="col s6 m4">
+                                        <label for="status" class="label">
+                                            Task-Status:
+                                        </label>
+                                    </div>
+                                    <div class="col s6 m6 push-m2">
+                                        <select name="status" style="display: block;" id="status">
+                                            <option value="Ongoing">Ongoing</option>
+                                            <option value="Pause">Pause</option>
+                                            <option value="Delayed">Delayed</option>
+                                            <option value="Stopped">Stopped</option>
+                                            <option value="Completed">Completed</option>
+                                            <option value="Not Started Yet">Not Started Yet</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="col s6 m6 push-m2 flow-text">
-                                    <textarea name="tasks" id="card-body" placeholder="Your Tasks goes here...."
-                                        style="max-width:100%;height:200px;resize:none;padding: 14px"
-                                        required></textarea>
+                                <div class="row left-align">
+                                    <div class="col s6 m4">
+                                        <label for="card-assigned" class="label">
+                                            Assigned-By:
+                                        </label>
+                                    </div>
+                                    <div class="col s6 m6 push-m2">
+                                        <input type="text" name="assignedby" id="card-assigned"
+                                            placeholder="Assigned By" required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row left-align">
-                                <div class="col s6 m4">
-                                    <label for="status" class="label">
-                                        Task-Status:
-                                    </label>
-                                </div>
-                                <div class="col s6 m6 push-m2">
-                                    <select name="status" style="display: block;" id="status">
-                                        <option value="Ongoing">Ongoing</option>
-                                        <option value="Pause">Pause</option>
-                                        <option value="Delayed">Delayed</option>
-                                        <option value="Stopped">Stopped</option>
-                                        <option value="Completed">Completed</option>
-                                        <option value="Not Started Yet">Not Started Yet</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row left-align">
-                                <div class="col s6 m4">
-                                    <label for="card-assigned" class="label">
-                                        Assigned-By:
-                                    </label>
-                                </div>
-                                <div class="col s6 m6 push-m2">
-                                    <input type="text" name="assignedby" id="card-assigned" placeholder="Assigned By"
-                                        required>
-                                </div>
-                            </div>
-                    </div>
+                        </div>
 
-                    <div class="modal-footer col" style="text-align: center">
-                        <button type="submit" name="editCard" class="btn btn-large blue darken-1">Edit</button>
-                        <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
+                        <div class="modal-footer col" style="text-align: center">
+                            <button type="submit" name="editCard" class="btn btn-large blue darken-1">Edit</button>
+                            <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
+                        </div>
+                        </form>
                     </div>
-                    </form>
                 </div>
-            </div>
 
 
             <!-- For medium and large devices  -->

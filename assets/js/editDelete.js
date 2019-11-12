@@ -116,9 +116,22 @@ $(".edit-form").on("submit", function (e) {
         data: $(".edit-form").serialize(),
         beforeSend: function () {
             // show the loader
+            $("#modal5").prepend(`
+            <div id="edit-card-loader" style="margin-left: 30%;
+                      position: sticky;
+                      top: 50%;
+                      z-index: 99999;
+                      font-size: x-large;
+                      font-weight: 700;"><div class="ui active inline loader"></div> Updating Tasks....</div> 
+                      `);
+            let editCardContainer = document.querySelector(".edit-modal-container");
+            editCardContainer.style.setProperty("filter", "blur(3px)");
         },
         complete: function () {
             // hide the loader
+            $("#edit-card-loader").remove();
+            let editCardContainer = document.querySelector(".edit-modal-container");
+            editCardContainer.style.setProperty("filter", "blur(0px)");
         },
         success: function (data) {
             // console.log(data);

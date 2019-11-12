@@ -83,6 +83,18 @@ textarea:focus {
   text-transform: capitalize !important;
 }
 
+@media screen and (min-width: 360px) and (max-width: 650px) {
+  #edit-card-loader {
+    /* left: 30% !important; */
+    margin-left: 15% !important;
+    position: sticky !important;
+    z-index: 99999 !important;
+    top: 40% !important;
+    font-size: large !important;
+    font-weight: 700 !important;
+  }
+}
+
 /* For small devices */
 @media screen and (max-width: 640px) {
   .label {
