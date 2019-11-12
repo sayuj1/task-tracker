@@ -61,7 +61,7 @@ function editCard(card_id) {
     loadValues(card_id);
 }
 
-// updating the card after the successful edited in the database
+// updating the card at the front-end after the successful edited in the database
 function updateCard(updatedData) {
 
     // getting the updated values 
@@ -91,6 +91,17 @@ function updateCard(updatedData) {
     let className = $("div[id=" + card_id + "] .card_status").attr('class').split(' ');
     // console.log(className[2], className[3]);
     $("div[id=" + card_id + "] .card_status").removeClass(className[2] + ' ' + className[3]).addClass(statusArr[card_status]);
+
+    try {
+        // setting the updated values to the filtered cards (oldest & latest tasks)
+        $("div[id=" + card_id + "] .card_title")[1].innerHTML = card_title;
+        $("div[id=" + card_id + "] .card_task")[1].innerHTML = card_task;
+        $("div[id=" + card_id + "] .card_status")[1].innerHTML = card_status;
+        $("div[id=" + card_id + "] .card_assignedBy")[1].innerHTML = `<i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned By: ` + card_assignedBy;
+    } catch (err) {
+        // just ignore it  
+    }
+
 }
 
 // edit card submission

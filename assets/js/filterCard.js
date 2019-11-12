@@ -131,7 +131,7 @@ $('.oldest-tasks').on('click', function () {
         },
         dataType: "json",
         success: function (data) {
-            console.log(data);
+            // console.log(data);
 
             $(".card-tasks").hide();
             $("#filter-cards").html("");

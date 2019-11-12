@@ -27,6 +27,8 @@ $conn = openConn();
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="../assets/css/materialize.min.css" media="screen,projection" />
+    <!--Import Semantic-UI Icon Font-->
+    <link rel="stylesheet" href="../assets/css/icon.min.css">
 
 </head>
 
@@ -246,27 +248,30 @@ $conn = openConn();
 
                     <!-- Dropdown Structure -->
                     <ul id='dropdown2' class='dropdown-content'>
-                        <li><a class="all-tasks-btn"><i class="material-icons left">person</i>All Tasks</a>
+                        <li><a class="all-tasks-btn"><i class="material-icons">
+                                    assignment
+                                </i>All Tasks</a>
                         </li>
                         <!-- <li><a id="view-profile-btn"><i class="material-icons left">person</i>Today Tasks</a>
                         </li>
                         <li><a id="view-detail-btn"><i class="material-icons left">dashboard</i>Yesterday Tasks</a></li> -->
                         <li class="divider" tabindex="-1"></li>
-                        <li><a class="latest-tasks"><i class="material-icons left">account_circle</i>Latest Tasks</a>
+                        <li><a class="latest-tasks"><i class="sort amount down icon"></i>Latest Tasks</a>
                         </li>
-                        <li><a class="oldest-tasks"><i class="material-icons left">account_circle</i>Oldest Tasks</a>
+                        <li><a class="oldest-tasks"><i class="vertically flipped sort amount up icon"></i>Oldest
+                                Tasks</a>
                         </li>
-                        <li><a class="ongoing-tasks-btn"><i class="material-icons left">person</i>Ongoing Tasks</a>
+                        <li><a class="ongoing-tasks-btn"><i class="large play circle icon"></i>Ongoing Tasks</a>
                         </li>
-                        <li><a class="pause-tasks-btn"><i class="material-icons left">person</i>Pause Tasks</a>
+                        <li><a class="pause-tasks-btn"><i class="large pause icon"></i>Pause Tasks</a>
                         </li>
-                        <li><a class="delayed-tasks-btn"><i class="material-icons left">person</i>Delayed Tasks</a>
+                        <li><a class="delayed-tasks-btn"><i class="large ban icon"></i>Delayed Tasks</a>
                         </li>
-                        <li><a class="stopped-tasks-btn"><i class="material-icons left">person</i>Stopped Tasks</a>
+                        <li><a class="stopped-tasks-btn"><i class="large stop icon"></i>Stopped Tasks</a>
                         </li>
-                        <li><a class="completed-tasks-btn"><i class="material-icons left">person</i>Completed Tasks</a>
+                        <li><a class="completed-tasks-btn"><i class="large check circle icon"></i>Completed Tasks</a>
                         </li>
-                        <li><a class="notstartedyet-tasks-btn"><i class="material-icons left">person</i>Not Started Yet
+                        <li><a class="notstartedyet-tasks-btn"><i class="large close icon"></i>Not Started Yet
                                 Tasks</a>
                         </li>
                     </ul>
@@ -355,8 +360,9 @@ $conn = openConn();
             <div class="row">
                 <div class="col s12 center-align">
 
-                            <!-- Dropdown Trigger -->
-                    <a class='dropdown-trigger waves-effect waves-light btn filter-tasks' href='#' data-target='dropdown3'>
+                    <!-- Dropdown Trigger -->
+                    <a class='dropdown-trigger waves-effect waves-light btn filter-tasks' href='#'
+                        data-target='dropdown3'>
                         <i class="material-icons right">filter_list</i>Filter
                     </a>
 
@@ -461,6 +467,8 @@ $(document).ready(function() {
         var elems = document.querySelectorAll('.dropdown-trigger');
         var instances = M.Dropdown.init(elems, {
             hover: false,
+            inDuration: 300,
+            outDuration: 225,
         });
 
         // initializing modal 
