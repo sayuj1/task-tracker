@@ -556,8 +556,9 @@ $(document).ready(function() {
         $('.create-filter').hide();
         $('.task-container').hide();
 
-        //removing the old previous data 
+        //removing the previous data 
         $('.view-profile').html("");
+        $(".view-profile-loader").html("");
 
         //loading the task details
         $('.view-profile').show();
