@@ -7,7 +7,7 @@ function goToMainpage() {
 
 // for going back to view-profile
 function goToViewProfile() {
-    $('.view-profile').html('');
+    $(".view-profile").html("");
     loadProfile();
 }
 
@@ -22,11 +22,11 @@ function submitForm() {
         $.ajax({
             type: "post",
             url: "../viewProfile/updateProfile.php",
-            data: $('.update-profile').serialize(),
+            data: $(".update-profile").serialize(),
             beforeSend: function () {
                 // loader goes here
                 // $('.view-profile-loader').show();
-                $('.view-profile').prepend(`
+                $(".view-profile").prepend(`
                 <span id="update-profile-loader" style="left: 35%;
                 position: absolute;
                 z-index: 99999;
@@ -34,31 +34,33 @@ function submitForm() {
                 font-size: x-large;
                 font-weight: 700;"> Updating Profile...</span> 
                 `);
-                let updateCardContainer = document.querySelector('.update-card-container');
+                let updateCardContainer = document.querySelector(
+                    ".update-card-container"
+                );
                 updateCardContainer.style.setProperty("filter", "blur(3px)");
             },
             complete: function () {
                 // loader goes here
                 // $('.view-profile-loader').hide();
-                $('#update-profile-loader').remove();
-                let updateCardContainer = document.querySelector('.update-card-container');
+                $("#update-profile-loader").remove();
+                let updateCardContainer = document.querySelector(
+                    ".update-card-container"
+                );
                 updateCardContainer.style.setProperty("filter", "blur(0px)");
             },
             success: function (data) {
                 // console.log(data);
                 var jsonData = JSON.parse(data);
                 // console.log(data.status);
-                if (jsonData.status == 'updationSuccessful') {
-
+                if (jsonData.status == "updationSuccessful") {
                     // need to add a toast message at the top
-                    alert('Profile Updated');
+                    alert("Profile Updated");
 
                     // need to update title bar value
-                    let titleValue = document.querySelector('title');
+                    let titleValue = document.querySelector("title");
                     titleValue.innerHTML = jsonData.firstname;
-
-                } else if (data == 'failed') {
-                    alert('sorry could not update your profile! Please try again')
+                } else if (data == "failed") {
+                    alert("sorry could not update your profile! Please try again");
                 }
             },
             error: function (err) {
@@ -76,12 +78,11 @@ function updateProfile() {
         dataType: "json",
         beforeSend: function () {
             // loader goes here
-            $('.view-profile').hide();
-            $('.view-profile-loader').show();
-            $('.view-profile-loader').html(`
-            
-  <div class="row" style="background-color: black; filter: opacity(0.9);height:70vh;width: 70vw;">
-            <div class="col s12 m9 offset-m3">
+            $(".view-profile").hide();
+            $(".view-profile-loader").show();
+            $(".view-profile-loader").html(`
+             <div class="row">
+            <div class="col s12 m9 offset-m3" style="background-color: black; filter: opacity(0.9);height:70vh;">
             <div class="ui active dimmer">
     <div class="ui large text loader">Loading</div>
   </div>
@@ -91,12 +92,11 @@ function updateProfile() {
         },
         complete: function () {
             // loader goes here
-            $('.view-profile-loader').hide();
-
+            $(".view-profile-loader").hide();
         },
         success: function (data) {
             // console.log(data);
-            $('.view-profile').show();
+            $(".view-profile").show();
             $(".view-profile").html(
                 `<div class='row update-card-container'>
                 <div class='col s12 m9'>
@@ -116,7 +116,8 @@ function updateProfile() {
                                 </div>
                                 <div class='col s6 m6'>
                                     <input type='text' name='username' placeholder='Enter your username' value=` +
-                data[0]['username'] + ` required disabled>
+                data[0]["username"] +
+                ` required disabled>
                                 </div>
             
                                 <div class='col s6 m6'>
@@ -124,14 +125,17 @@ function updateProfile() {
                                 </div>
                                 <div class='col s6 m6'>
                                     <input type='text' name='firstname' placeholder='Enter your firstname' value=` +
-                data[0]['firstname'] + ` required>
+                data[0]["firstname"] +
+                ` required>
                                 </div>
             
                                 <div class='col s6 m6'>
                                     <span>Lastname</span>
                                 </div>
                                 <div class='col s6 m6'>
-                                    <input type='text' name='lastname' placeholder='Enter your lastname' value = ` + data[0]['lastname'] + ` required>
+                                    <input type='text' name='lastname' placeholder='Enter your lastname' value = ` +
+                data[0]["lastname"] +
+                ` required>
                                 </div>
             
                             </div>
@@ -144,7 +148,6 @@ function updateProfile() {
                     </div>
                 </div>
             </div>`
-
             );
             submitForm();
         },
@@ -161,9 +164,9 @@ function loadProfile() {
         dataType: "json",
         beforeSend: function () {
             // loader goes here
-            $('.view-profile-loader').show();
+            $(".view-profile-loader").show();
 
-            $('.view-profile-loader').html(`
+            $(".view-profile-loader").html(`
             <div class="row">
             <div class="col s12 m6 offset-m3">
             <div class="ui fluid placeholder">
@@ -198,7 +201,7 @@ function loadProfile() {
         },
         complete: function () {
             // loader goes here
-            $('.view-profile-loader').hide();
+            $(".view-profile-loader").hide();
         },
         success: function (data) {
             // console.log(data);
