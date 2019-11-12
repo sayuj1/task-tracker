@@ -6,7 +6,7 @@ $("form").on("submit", function (e) {
         url: "./loginRegister/login.php",
         data: $('form').serialize(),
         beforeSend: function () {
-            $('#login-btn').html("Logging In").append('<img src="./assets/imgs/login_loader.gif" width="50px" height="50px"></img>');
+            $('#login-btn').html(`Logging In <div class="ui active inline loader"></div>`);
         },
         complete: function () {
             $('#login-btn').html('Login');
@@ -39,11 +39,13 @@ $('#new-account').on('click', function () {
         type: "GET",
         url: "./views/register.php",
         dataType: 'html',
-        before: function () {
+        beforeSend: function () {
             //show the loading image
+            $('.login-box').html('<div class="ui active dimmer login-register-loader" ><div class = "ui huge text loader" > Loading</div></div>');
         },
         complete: function () {
             //hide the loading image
+            $('.login-register-loader').hide();
         },
         success: function (data) {
             // $('#login-box').load('./views/register.php');

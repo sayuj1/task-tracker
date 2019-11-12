@@ -100,6 +100,7 @@ function updateCard(updatedData) {
         $("div[id=" + card_id + "] .card_assignedBy")[1].innerHTML = `<i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned By: ` + card_assignedBy;
     } catch (err) {
         // just ignore it  
+        // console.log(err);
     }
 
 }

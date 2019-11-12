@@ -6,13 +6,13 @@ $("form").on("submit", function (e) {
         url: "./loginRegister/register.php",
         data: $('form').serialize(),
         beforeSend: function () {
-            $('#Register-btn').html("Registering User").append('<img src="./assets/imgs/login_loader.gif" width="50px" height="50px"></img>');
+            $('#Register-btn').html(`Registering User <div class="ui active inline loader"></div>`);
         },
         complete: function () {
             $('#Register-btn').html('Register');
         },
         success: function (data) {
-            console.log(data);
+            // console.log(data);
             console.log('data received');
             if (data == "emptyFields") {
                 console.log("Empty Field are not allowed");
@@ -41,11 +41,13 @@ $('#old-account').on('click', function () {
         type: "GET",
         url: "./views/login.php",
         dataType: "html",
-        before: function () {
+        beforeSend: function () {
             //show the loading image
+            $('.login-box').html('<div class="ui active dimmer login-register-loader" ><div class = "ui huge text loader" > Loading</div></div>');
         },
         complete: function () {
             //hide the loading image
+            $('.login-register-loader').hide();
         },
         success: function (data) {
             $('.login-box').html(data);
