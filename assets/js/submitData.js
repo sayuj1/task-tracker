@@ -24,9 +24,43 @@ function loadTheLatestCard() {
     url: "../getUserData/getLastTaskData.php",
     dataType: "json",
     beforeSend: function () {
+      $("#all-cards").prepend(`
+      <div class="row" id="latest-card-loader">
+      <div class="col s12 m6">
+            <div class="ui fluid placeholder" >
+            <div class="image header">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            </div>
+            </div>
+            </div>
+            `)
       // $("#task-loading").html('<img src="../assets/imgs/tasks-loading.gif" width="100%" height="100%"></img>');
     },
     complete: function () {
+      $('#latest-card-loader').remove();
       // $("#task-loading").hide();
       // document.querySelector(".card-tasks").style.display = "block";
     },
@@ -112,9 +146,22 @@ $(".large-device").on("submit", function (e) {
     data: $(".large-device").serialize(),
     beforeSend: function () {
       // show the loader
+      $(".modal-container-large").prepend(`
+      <span id="create-card-loader-lg" style="left: 42%;
+                position: absolute;
+                z-index: 99999;
+                top: 300px;
+                font-size: x-large;
+                font-weight: 700;"><div class="ui active inline loader"></div> Creating Tasks....</span> 
+                `);
+      let createCardContainer = document.querySelector("#modal1");
+      createCardContainer.style.setProperty("filter", "blur(3px)");
     },
     complete: function () {
       // hide the loader
+      $("#create-card-loader-lg").remove();
+      let createCardContainer = document.querySelector("#modal1");
+      createCardContainer.style.setProperty("filter", "blur(0px)");
     },
     success: function (data) {
       if (data == "insertionSuccessful") {
@@ -159,9 +206,22 @@ $(".small-device").on("submit", function (e) {
     data: $(".small-device").serialize(),
     beforeSend: function () {
       // show the loader
+      $(".modal-container-small").prepend(`
+      <span id="create-card-loader-sm" style="left: 20%;
+                position: absolute;
+                z-index: 99999;
+                top: 300px;
+                font-size: large;
+                font-weight: 700;"><div class="ui active inline loader"></div> Creating Tasks....</span> 
+                `);
+      let createCardContainer = document.querySelector("#modal2");
+      createCardContainer.style.setProperty("filter", "blur(3px)");
     },
     complete: function () {
       // hide the loader
+      $("#create-card-loader-sm").remove();
+      let createCardContainer = document.querySelector("#modal2");
+      createCardContainer.style.setProperty("filter", "blur(0px)");
     },
     success: function (data) {
       if (data == "insertionSuccessful") {

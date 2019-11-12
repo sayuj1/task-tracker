@@ -25,14 +25,14 @@ function submitForm() {
             data: $(".update-profile").serialize(),
             beforeSend: function () {
                 // loader goes here
-                // $('.view-profile-loader').show();
+
                 $(".view-profile").prepend(`
                 <span id="update-profile-loader" style="left: 35%;
                 position: absolute;
                 z-index: 99999;
                 top: 300px;
                 font-size: x-large;
-                font-weight: 700;"> Updating Profile...</span> 
+                font-weight: 700;"><div class="ui active inline loader"></div> Updating Profile...</span> 
                 `);
                 let updateCardContainer = document.querySelector(
                     ".update-card-container"
@@ -41,7 +41,7 @@ function submitForm() {
             },
             complete: function () {
                 // loader goes here
-                // $('.view-profile-loader').hide();
+
                 $("#update-profile-loader").remove();
                 let updateCardContainer = document.querySelector(
                     ".update-card-container"

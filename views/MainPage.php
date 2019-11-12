@@ -202,72 +202,76 @@ $conn = openConn();
                                 class="material-icons right">add_circle</i>Create a Card</a>
 
                         <!-- Modal Structure -->
-                        <div id="modal1" class="modal" style="overflow-x: unset;">
-                            <div class="row">
-                                <div class="modal-content">
-                                    <form method="POST" class="col m10 push-m1 large-device">
-                                        <div class="row left-align">
-                                            <div class="col s6 m4">
-                                                <label for="card-title" class="label">
-                                                    Task-Title:
-                                                </label>
+                        <div class="modal-container-large">
+                            <div id="modal1" class="modal" style="overflow-x: unset;">
+                                <div class="row">
+                                    <div class="modal-content">
+                                        <form method="POST" class="col m10 push-m1 large-device">
+                                            <div class="row left-align">
+                                                <div class="col s6 m4">
+                                                    <label for="card-title" class="label">
+                                                        Task-Title:
+                                                    </label>
+                                                </div>
+                                                <div class="col s6 m6 push-m2">
+                                                    <input type="text" name="title" id="card-title" data-length="50"
+                                                        placeholder="Task Title" maxlength="50" autofocus required>
+                                                </div>
                                             </div>
-                                            <div class="col s6 m6 push-m2">
-                                                <input type="text" name="title" id="card-title" data-length="50"
-                                                    placeholder="Task Title" maxlength="50" autofocus required>
+                                            <div class="row left-align">
+                                                <div class="col s6 m4">
+                                                    <label for="card-body" class="label">
+                                                        Task-Details:
+                                                    </label>
+                                                </div>
+                                                <div class="col s6 m6 push-m2 flow-text">
+                                                    <textarea name="tasks" id="card-body"
+                                                        placeholder="Your Tasks goes here...."
+                                                        style="max-width:100%;height:200px;resize:none;padding: 14px"
+                                                        required></textarea>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row left-align">
-                                            <div class="col s6 m4">
-                                                <label for="card-body" class="label">
-                                                    Task-Details:
-                                                </label>
+                                            <div class="row left-align">
+                                                <div class="col s6 m4">
+                                                    <label for="status" class="label">
+                                                        Task-Status:
+                                                    </label>
+                                                </div>
+                                                <div class="col s6 m6 push-m2">
+                                                    <select name="status" style="display: block;" id="status">
+                                                        <option value="Ongoing">Ongoing</option>
+                                                        <option value="Pause">Pause</option>
+                                                        <option value="Delayed">Delayed</option>
+                                                        <option value="Stopped">Stopped</option>
+                                                        <option value="Completed">Completed</option>
+                                                        <option value="Not Started Yet">Not Started Yet</option>
+                                                    </select>
+                                                </div>
                                             </div>
-                                            <div class="col s6 m6 push-m2 flow-text">
-                                                <textarea name="tasks" id="card-body"
-                                                    placeholder="Your Tasks goes here...."
-                                                    style="max-width:100%;height:200px;resize:none;padding: 14px"
-                                                    required></textarea>
+                                            <div class="row left-align">
+                                                <div class="col s6 m4">
+                                                    <label for="card-assigned" class="label">
+                                                        Assigned-By:
+                                                    </label>
+                                                </div>
+                                                <div class="col s6 m6 push-m2">
+                                                    <input type="text" name="assignedby" id="card-assigned"
+                                                        placeholder="Assigned By" required>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row left-align">
-                                            <div class="col s6 m4">
-                                                <label for="status" class="label">
-                                                    Task-Status:
-                                                </label>
-                                            </div>
-                                            <div class="col s6 m6 push-m2">
-                                                <select name="status" style="display: block;" id="status">
-                                                    <option value="Ongoing">Ongoing</option>
-                                                    <option value="Pause">Pause</option>
-                                                    <option value="Delayed">Delayed</option>
-                                                    <option value="Stopped">Stopped</option>
-                                                    <option value="Completed">Completed</option>
-                                                    <option value="Not Started Yet">Not Started Yet</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row left-align">
-                                            <div class="col s6 m4">
-                                                <label for="card-assigned" class="label">
-                                                    Assigned-By:
-                                                </label>
-                                            </div>
-                                            <div class="col s6 m6 push-m2">
-                                                <input type="text" name="assignedby" id="card-assigned"
-                                                    placeholder="Assigned By" required>
-                                            </div>
-                                        </div>
-                                </div>
+                                    </div>
 
-                                <div class="modal-footer col m6 push-m2 center-align">
-                                    <button type="submit" name="createCard" class="btn btn-large blue darken-1">Create
-                                        Card</button>
-                                    <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
+                                    <div class="modal-footer col m6 push-m2 center-align">
+                                        <button type="submit" name="createCard"
+                                            class="btn btn-large blue darken-1">Create
+                                            Card</button>
+                                        <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
+                                    </div>
+                                    </form>
                                 </div>
-                                </form>
                             </div>
                         </div>
+
 
                     </div>
                     <div class="col m5 push-m2 right-align">
@@ -321,74 +325,76 @@ $conn = openConn();
                         <a class="waves-effect waves-light btn modal-trigger" href="#modal2"><i
                                 class="material-icons right">add_circle</i>Create a Card</a>
 
-
-                        <!-- Modal Structure -->
-                        <div id="modal2" class="modal" style="overflow-x: unset;">
-                            <div class="row">
-                                <form method="POST" class="col s10 push-s1 small-device">
-                                    <div class="modal-content">
-                                        <div class="row left-align">
-                                            <div class="col s12">
-                                                <label for="card-title-sm" class="label">
-                                                    Task-Title:
-                                                </label>
+                        <div class="modal-container-small">
+                            <!-- Modal Structure -->
+                            <div id="modal2" class="modal" style="overflow-x: unset;">
+                                <div class="row">
+                                    <form method="POST" class="col s10 push-s1 small-device">
+                                        <div class="modal-content">
+                                            <div class="row left-align">
+                                                <div class="col s12">
+                                                    <label for="card-title-sm" class="label">
+                                                        Task-Title:
+                                                    </label>
+                                                </div>
+                                                <div class="col s12">
+                                                    <input type="text" name="title" id="card-title-sm" data-length="50"
+                                                        placeholder="Task Title" autofocus required>
+                                                </div>
                                             </div>
-                                            <div class="col s12">
-                                                <input type="text" name="title" id="card-title-sm" data-length="50"
-                                                    placeholder="Task Title" autofocus required>
+                                            <div class="row left-align">
+                                                <div class="col s12">
+                                                    <label for="card-body" class="label">
+                                                        Task-Details:
+                                                    </label>
+                                                </div>
+                                                <div class="col s12 flow-text">
+                                                    <textarea name="tasks" id="card-body"
+                                                        placeholder="Your Tasks goes here...."
+                                                        style="max-width:100%;height:200px;resize:none;padding: 14px;"
+                                                        required></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="row left-align">
+                                                <div class="col s12">
+                                                    <label for="status" class="label">
+                                                        Task-Status:
+                                                    </label>
+                                                </div>
+                                                <div class="col s12">
+                                                    <select name="status" style="display: block;" id="status">
+                                                        <option value="Ongoing">Ongoing</option>
+                                                        <option value="Pause">Pause</option>
+                                                        <option value="Delayed">Delayed</option>
+                                                        <option value="Stopped">Stopped</option>
+                                                        <option value="Completed">Completed</option>
+                                                        <option value="Not Started Yet">Not Started Yet</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row left-align">
+                                                <div class="col s12">
+                                                    <label for="card-assigned" class="label">
+                                                        Assigned-By:
+                                                    </label>
+                                                </div>
+                                                <div class="col s12">
+                                                    <input type="text" name="assignedby" id="card-assigned"
+                                                        placeholder="Assigned By" required>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="row left-align">
-                                            <div class="col s12">
-                                                <label for="card-body" class="label">
-                                                    Task-Details:
-                                                </label>
-                                            </div>
-                                            <div class="col s12 flow-text">
-                                                <textarea name="tasks" id="card-body"
-                                                    placeholder="Your Tasks goes here...."
-                                                    style="max-width:100%;height:200px;resize:none;padding: 14px;"
-                                                    required></textarea>
-                                            </div>
+                                        <div class="modal-footer" style="text-align: center">
+                                            <button type="submit" name="createCard"
+                                                class="btn btn-large blue darken-1">Create
+                                                Card</button>
+                                            <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
                                         </div>
-                                        <div class="row left-align">
-                                            <div class="col s12">
-                                                <label for="status" class="label">
-                                                    Task-Status:
-                                                </label>
-                                            </div>
-                                            <div class="col s12">
-                                                <select name="status" style="display: block;" id="status">
-                                                    <option value="Ongoing">Ongoing</option>
-                                                    <option value="Pause">Pause</option>
-                                                    <option value="Delayed">Delayed</option>
-                                                    <option value="Stopped">Stopped</option>
-                                                    <option value="Completed">Completed</option>
-                                                    <option value="Not Started Yet">Not Started Yet</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="row left-align">
-                                            <div class="col s12">
-                                                <label for="card-assigned" class="label">
-                                                    Assigned-By:
-                                                </label>
-                                            </div>
-                                            <div class="col s12">
-                                                <input type="text" name="assignedby" id="card-assigned"
-                                                    placeholder="Assigned By" required>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer" style="text-align: center">
-                                        <button type="submit" name="createCard"
-                                            class="btn btn-large blue darken-1">Create
-                                            Card</button>
-                                        <!-- <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a> -->
-                                    </div>
-                                </form>
+                                    </form>
+                                </div>
                             </div>
                         </div>
+
                         <!-- add a task bar goes here -->
                     </div>
                 </div>
