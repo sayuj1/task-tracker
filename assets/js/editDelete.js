@@ -180,9 +180,22 @@ function deleteCard(card_id) {
         },
         beforeSend: function () {
             // add the loader later
+            $("#" + card_id + "").prepend(`
+            <div id="delete-card-loader" style="margin-left: 30%;
+                      position: sticky;
+                      top: 50%;
+                      z-index: 99999;
+                      font-size: x-large;
+                      font-weight: 700;"><div class="ui active inline loader"></div> Deleting Tasks....</div> 
+                      `);
+            let cardContent = document.getElementById("" + card_id + "").getElementsByClassName("card")[0];
+            cardContent.style.visibility = "hidden";
+
         },
         complete: function () {
             // add the loader later
+            $("#delete-card-loader").remove();
+
         },
         success: function (data) {
             // console.log('it is working');
@@ -201,12 +214,20 @@ function deleteCard(card_id) {
                 // updating the total count value
                 updateTotalCardValues();
             } else if (data == "failed") {
+
                 // add a modal to show the message
+                alert('failed to delete the tasks! Please Try Again :(');
+                let cardContent = document.getElementById("" + card_id + "").getElementsByClassName("card")[0];
+                cardContent.style.visibility = "visible";
                 console.log("fail to delete the card! Please try again");
             }
         },
         error: function (err) {
+
             console.log("Not successful");
+            alert('failed to delete the tasks! Please Try Again :(');
+            let cardContent = document.getElementById("" + card_id + "").getElementsByClassName("card")[0];
+            cardContent.style.visibility = "visible";
         }
     });
 }
