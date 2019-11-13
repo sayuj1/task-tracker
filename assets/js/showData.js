@@ -72,7 +72,7 @@ function loadUserData() {
         type: "get",
         url: "../getUserData/getTaskData.php",
         dataType: "json",
-        beforeSend: function () {
+        beforeSend: function() {
             $("#task-loading").html(`
             <div class="ui fluid placeholder">
             <div class="image header">
@@ -103,11 +103,12 @@ function loadUserData() {
             </div>
             `);
         },
-        complete: function () {
+        k
+        complete: function() {
             $("#task-loading").hide();
             document.querySelector(".card-tasks").style.display = "block";
         },
-        success: function (data) {
+        success: function(data) {
             // console.log("data received");
             // console.log(data);
             $(".total-card-value-holder").html(
@@ -119,7 +120,7 @@ function loadUserData() {
             let container = "all-cards";
             loadCards(data, data.length, container);
         },
-        error: function (err) {
+        error: function(err) {
             // console.log(err);
             let count = 0;
             $(".total-card-value-holder").html(

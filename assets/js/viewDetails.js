@@ -15,7 +15,7 @@ function loadDetails() {
         type: "get",
         url: "../viewDetails/viewDetails.php",
         dataType: "json",
-        beforeSend: function () {
+        beforeSend: function() {
             // loader goes here
             // console.log('reach here1');
 
@@ -26,11 +26,11 @@ function loadDetails() {
             </div>
             `);
         },
-        complete: function () {
+        complete: function() {
             // loader goes here
             $(".view-profile-loader").hide();
         },
-        success: function (dataResponse) {
+        success: function(dataResponse) {
             // alert('hello');
             // console.log(dataResponse);
 
@@ -86,7 +86,7 @@ function loadDetails() {
                 chart.draw(view, options);
 
                 // just to make chart responsive
-                $(window).resize(function () {
+                $(window).resize(function() {
                     // console.log('event triggered');
                     drawChart();
                 });
@@ -101,7 +101,7 @@ function loadDetails() {
                 );
             }
         },
-        error: function (err) {
+        error: function(err) {
             console.log(err);
         }
     });
