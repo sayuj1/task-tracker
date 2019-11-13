@@ -28,9 +28,10 @@ function loadDetails() {
         },
         complete: function() {
             // loader goes here
-            $(".view-profile-loader").hide();
+            // $(".view-profile-loader").hide();
         },
         success: function(dataResponse) {
+
             // alert('hello');
             // console.log(dataResponse);
 
@@ -83,7 +84,9 @@ function loadDetails() {
                 let chart = new google.visualization.ColumnChart(
                     document.querySelector(".view-profile")
                 );
+
                 chart.draw(view, options);
+                $(".view-profile-loader").hide();
 
                 // just to make chart responsive
                 $(window).resize(function() {
