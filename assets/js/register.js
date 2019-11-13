@@ -12,25 +12,100 @@ $("form").on("submit", function (e) {
             $('#Register-btn').html('Register');
         },
         success: function (data) {
-            // console.log(data);
-            console.log('data received');
-            if (data == "emptyFields") {
-                console.log("Empty Field are not allowed");
-                // window.location.href = "./views/MainPage.php";
-            } else if (data == "nameIncorrect") {
-                console.log("Special Characters are not allowed in names");
-            } else if (data == "passwordLessThan8") {
-                console.log("Password length cannot be less than 8");
-            } else if (data == "userExists") {
-                console.log("This username already exists, please use another one");
-            } else if (data == "tryAgain") {
-                console.log("Something went wrong!");
-            } else if (data == "successful") {
-                console.log("User Registered Successfully!");
+            let parseData = JSON.parse(data);
+            // console.log(parseData);
+            //removing errors if exists
+            if ($("#first-name-error").length) {
+                $("#first-name-error").remove();
+                $("#firstname")[0].style.setProperty("border", "none");
             }
+            if ($("#last-name-error").length) {
+                $("#last-name-error").remove();
+                $("#lastname")[0].style.setProperty("border", "none");
+            }
+            if ($("#user-name-error").length) {
+                $("#user-name-error").remove();
+                $("#username")[0].style.setProperty("border", "none");
+            }
+            if ($("#pass-error").length) {
+                $("#pass-error").remove();
+                $("#password")[0].style.setProperty("border", "none");
+            }
+
+            // checking for errors
+            for (let i = 0; i < parseData.length; i++) {
+
+                if (parseData[i] == "emptyFields") {
+                    if ($("#firstname").val() == "") {
+                        $("#firstname")[0].style.setProperty("border", "5px solid red");
+                        $("<div id='first-name-error' style='color: white;text-align:center;'> Empty! </div>").insertAfter("#firstname");
+                    }
+                    if ($("#lastname").val() == "") {
+                        $("#lastname")[0].style.setProperty("border", "5px solid red");
+                        $("<div id='last-name-error' style='color: white;text-align:center;'> Empty! </div>").insertAfter("#lastname");
+                    }
+                    if ($("#username").val() == "") {
+                        $("#username")[0].style.setProperty("border", "5px solid red");
+                        $("<div id='user-name-error' style='color: white;text-align:center;'> Empty! </div>").insertAfter("#username");
+                    }
+                    if ($("#password").val() == "") {
+                        $("#password")[0].style.setProperty("border", "5px solid red");
+                        $("<div id='pass-error' style='color: white;text-align:center;'> Empty! </div>").insertAfter("#password");
+                    }
+                    // console.log("Empty Field are not allowed");
+                    // window.location.href = "./views/MainPage.php";
+                } else if (parseData[i] == "nameIncorrect") {
+
+                    let firstname = $("#firstname").val();
+                    let lastname = $("#lastname").val();
+                    let validLetters = /^[A-Za-z]+$/;
+
+                    if (firstname.match(validLetters)) {
+                        $("#first-name-error").remove();
+                        $("#firstname")[0].style.setProperty("border", "none");
+                        // alert('firname correct');
+                    } else {
+                        $("#firstname")[0].style.setProperty("border", "5px solid red");
+                        $("<div id='first-name-error' style='color: white;text-align:center;'> Special Characters or numbers are not allowed in names </div>").insertAfter("#firstname");
+                        // alert('firname incorrect');
+                    }
+                    if (lastname.match(validLetters)) {
+                        // alert('lastname correct');
+                        $("#last-name-error").remove();
+                        $("#lastname")[0].style.setProperty("border", "none");
+                    } else {
+                        $("#lastname")[0].style.setProperty("border", "5px solid red");
+                        $("<div id='last-name-error' style='color: white;text-align:center;'> Special Characters or numbers are not allowed in names </div>").insertAfter("#lastname");
+                        // alert('lastname incorrect');
+                    }
+                    // console.log("Special Characters are not allowed in names");
+
+                } else if (parseData[i] == "userExists") {
+                    $("#username")[0].style.setProperty("border", "5px solid red");
+                    $("<div id='user-name-error' style='color: white;text-align:center;'> This username already exists, please use another one </div>").insertAfter("#username");
+                    // console.log("This username already exists, please use another one");
+                } else if (parseData[i] == "passwordLessThan8") {
+                    $("#password")[0].style.setProperty("border", "5px solid red");
+                    $("<div id='pass-error' style='color: white;text-align:center;'> Password length cannot be less than 8 </div>").insertAfter("#password");
+                    // console.log("Password length cannot be less than 8");
+                } else if (parseData[i] == "tryAgain") {
+                    alert("Something went wrong!");
+                } else if (parseData[i] == "successful") {
+                    // add a modal
+                    $("#firstname").val("");
+                    $("#lastname").val("");
+                    $("#username").val("");
+                    $("#password").val("");
+                    alert("User Registered Successfully!");
+                    // clearing fields
+
+                    // console.log("User Registered Successfully!");
+                }
+            }
+
         },
-        error: function () {
-            console.log("Something went wrong! Sorry :(");
+        error: function (err) {
+            alert("Something went wrong! Sorry :(");
         }
     });
 });
