@@ -87,6 +87,10 @@ $con = openConn();
             font-size: 35px;
             padding-left: 30%;
         }
+
+        #user-error, #pass-error{
+            font-size: 16px;
+        }
     }
     </style>
 

@@ -23,6 +23,12 @@ function loadValues(card_id) {
         data: {
             cardID: card_id
         },
+        beforeSend: function () {
+
+        },
+        complete: function () {
+
+        },
         success: function (data) {
             // console.log(data);
             if (data == "zeroRow") {
