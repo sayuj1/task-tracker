@@ -23,13 +23,13 @@ function loadValues(card_id) {
         data: {
             cardID: card_id
         },
-        beforeSend: function () {
+        beforeSend: function() {
 
         },
-        complete: function () {
+        complete: function() {
 
         },
-        success: function (data) {
+        success: function(data) {
             // console.log(data);
             if (data == "zeroRow") {
                 console.log("Invalid card");
@@ -45,7 +45,7 @@ function loadValues(card_id) {
                 $("#card-title-edit").characterCounter();
             }
         },
-        error: function (err) {
+        error: function(err) {
             console.log(err);
         }
     });
@@ -112,7 +112,7 @@ function updateCard(updatedData) {
 }
 
 // edit card submission
-$(".edit-form").on("submit", function (e) {
+$(".edit-form").on("submit", function(e) {
     e.preventDefault();
     let editDataArray = $(".edit-form").serializeArray();
     // console.log(editDataArray);
@@ -120,7 +120,7 @@ $(".edit-form").on("submit", function (e) {
         type: "post",
         url: "../editDelete/editCard.php",
         data: $(".edit-form").serialize(),
-        beforeSend: function () {
+        beforeSend: function() {
             // show the loader
             $("#modal5").prepend(`
             <div id="edit-card-loader" style="margin-left: 30%;
@@ -133,13 +133,13 @@ $(".edit-form").on("submit", function (e) {
             let editCardContainer = document.querySelector(".edit-modal-container");
             editCardContainer.style.setProperty("filter", "blur(3px)");
         },
-        complete: function () {
+        complete: function() {
             // hide the loader
             $("#edit-card-loader").remove();
             let editCardContainer = document.querySelector(".edit-modal-container");
             editCardContainer.style.setProperty("filter", "blur(0px)");
         },
-        success: function (data) {
+        success: function(data) {
             // console.log(data);
             if (data == "updationSuccessful") {
                 // add a toast message later
@@ -157,7 +157,7 @@ $(".edit-form").on("submit", function (e) {
                 // update the real time card
                 updateCard(editDataArray);
 
-                $(".editOk").on("click", function () {
+                $(".editOk").on("click", function() {
                     // alert("button is pressed");
 
                     clearEditFormFields();
@@ -169,7 +169,7 @@ $(".edit-form").on("submit", function (e) {
                 console.log("error from server side!");
             }
         },
-        error: function (err) {
+        error: function(err) {
             console.log(err);
         }
     });
@@ -184,7 +184,7 @@ function deleteCard(card_id) {
         data: {
             cardID: card_id
         },
-        beforeSend: function () {
+        beforeSend: function() {
             // add the loader later
             $("#" + card_id + "").prepend(`
             <div id="delete-card-loader" style="margin-left: 30%;
@@ -198,19 +198,20 @@ function deleteCard(card_id) {
             cardContent.style.visibility = "hidden";
 
         },
-        complete: function () {
+        complete: function() {
             // add the loader later
             $("#delete-card-loader").remove();
 
         },
-        success: function (data) {
+        success: function(data) {
             // console.log('it is working');
             // console.log(data);
             if (data == "successful") {
-                // call a function to remove the card from the page
+
+                //* call a function to remove the card from the page
                 removeCard(card_id);
                 // console.log('deleted');
-                // call a modal to show the deletion information
+                //TODO: call a modal to show the deletion information
                 // display info message
                 var deleteModal = document.querySelector("#modal4");
                 var deleteInstance = M.Modal.getInstance(deleteModal);
@@ -228,7 +229,7 @@ function deleteCard(card_id) {
                 console.log("fail to delete the card! Please try again");
             }
         },
-        error: function (err) {
+        error: function(err) {
 
             console.log("Not successful");
             alert('failed to delete the tasks! Please Try Again :(');

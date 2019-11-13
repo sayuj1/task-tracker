@@ -1,12 +1,21 @@
-// this file can be more optimized by making function more dynamic by passing the status values
+//TODO this file can be more optimized by making function more dynamic by passing the status values
+
+// getting filter-operation div for showing current selected value of the filter button
+let filterTitle = document.querySelector('#filter-operation');
 
 // shows all the tasks
-$('.all-tasks-btn').on('click', function () {
+$('.all-tasks-btn').on('click', function() {
 
     $("#filter-cards").html("");
+
+    // clearing old data
+    $('#no-card-found').html('');
+
+    // setting up the title
+    filterTitle.innerHTML = "All Tasks";
+
     $(".filter-card-tasks").hide();
     let allTasks = document.querySelectorAll('.card_status');
-
     for (i = 0; i < allTasks.length; i++) {
         allTasks[i].parentNode.parentNode.parentNode.parentNode.style.display = "block";
         // fix the bug if no tasks is found display message 'no ongoing tasks'
@@ -15,84 +24,158 @@ $('.all-tasks-btn').on('click', function () {
 });
 
 // shows the ongoing tasks
-$('.ongoing-tasks-btn').on('click', function () {
+$('.ongoing-tasks-btn').on('click', function() {
+
+    // clearing old data
+    $('#no-card-found').html('');
+
+    // setting up the title
+    filterTitle.innerHTML = "Ongoing Tasks";
+
     let allTasks = document.querySelectorAll('.card_status');
+    let countStatus = 0;
+
     for (i = 0; i < allTasks.length; i++) {
         if (allTasks[i].innerText.trim() == "Ongoing") {
+            countStatus += 1;
             allTasks[i].parentNode.parentNode.parentNode.parentNode.style.display = "block";
         } else {
             allTasks[i].parentNode.parentNode.parentNode.parentNode.style.display = "none";
         }
-        // fix the bug if no tasks is found display message 'no ongoing tasks'
+        //TODO: fix the bug if no tasks is found display message 'no ongoing tasks'
+    }
+    if (countStatus == 0) {
+        $('#no-card-found').html("<h3>No Ongoing Tasks Found!</h3>");
     }
 });
 
 // shows the pause tasks
-$('.pause-tasks-btn').on('click', function () {
+$('.pause-tasks-btn').on('click', function() {
+
+    // clearing old data
+    $('#no-card-found').html('');
+
+    filterTitle.innerHTML = "Paused Tasks";
+
     let allTasks = document.querySelectorAll('.card_status');
+    let countStatus = 0;
+
     for (i = 0; i < allTasks.length; i++) {
         if (allTasks[i].innerText.trim() == "Pause") {
+            countStatus += 1;
             allTasks[i].parentNode.parentNode.parentNode.parentNode.style.display = "block";
         } else {
             allTasks[i].parentNode.parentNode.parentNode.parentNode.style.display = "none";
         }
         // fix the bug if no tasks is found display message 'no ongoing tasks'
+    }
+    if (countStatus == 0) {
+        $('#no-card-found').html("<h3>No Paused Tasks Found!</h3>");
     }
 });
 
 // shows the delayed tasks
-$('.delayed-tasks-btn').on('click', function () {
+$('.delayed-tasks-btn').on('click', function() {
+
+    // clearing old data
+    $('#no-card-found').html('');
+
+    filterTitle.innerHTML = "Delayed Tasks";
+
     let allTasks = document.querySelectorAll('.card_status');
+    let countStatus = 0;
+
     for (i = 0; i < allTasks.length; i++) {
         if (allTasks[i].innerText.trim() == "Delayed") {
+            countStatus += 1;
             allTasks[i].parentNode.parentNode.parentNode.parentNode.style.display = "block";
         } else {
             allTasks[i].parentNode.parentNode.parentNode.parentNode.style.display = "none";
         }
         // fix the bug if no tasks is found display message 'no ongoing tasks'
+    }
+
+    if (countStatus == 0) {
+        $('#no-card-found').html("<h3>No Delayed Tasks Found!</h3>");
     }
 });
 
 // shows the stopped tasks
-$('.stopped-tasks-btn').on('click', function () {
+$('.stopped-tasks-btn').on('click', function() {
+
+    // clearing old data
+    $('#no-card-found').html('');
+
+    filterTitle.innerHTML = "Stopped Tasks";
+
     let allTasks = document.querySelectorAll('.card_status');
+    let countStatus = 0;
+
     for (i = 0; i < allTasks.length; i++) {
         if (allTasks[i].innerText.trim() == "Stopped") {
+            countStatus += 1;
             allTasks[i].parentNode.parentNode.parentNode.parentNode.style.display = "block";
         } else {
             allTasks[i].parentNode.parentNode.parentNode.parentNode.style.display = "none";
         }
         // fix the bug if no tasks is found display message 'no ongoing tasks'
+    }
+    if (countStatus == 0) {
+        $('#no-card-found').html("<h3>No Stopped Tasks Found!</h3>");
     }
 });
 
 // shows the completed tasks
-$('.completed-tasks-btn').on('click', function () {
+$('.completed-tasks-btn').on('click', function() {
+
+    // clearing old data
+    $('#no-card-found').html('');
+
+    filterTitle.innerHTML = "Completed Tasks";
+
     let allTasks = document.querySelectorAll('.card_status');
+    let countStatus = 0;
+
     for (i = 0; i < allTasks.length; i++) {
         if (allTasks[i].innerText.trim() == "Completed") {
+            countStatus += 1;
             allTasks[i].parentNode.parentNode.parentNode.parentNode.style.display = "block";
         } else {
             allTasks[i].parentNode.parentNode.parentNode.parentNode.style.display = "none";
         }
         // fix the bug if no tasks is found display message 'no ongoing tasks'
+    }
+    if (countStatus == 0) {
+        $('#no-card-found').html("<h3>No Completed Tasks Found!</h3>");
     }
 });
 
 // shows the not started yet tasks
-$('.notstartedyet-tasks-btn').on('click', function () {
+$('.notstartedyet-tasks-btn').on('click', function() {
+
+    // clearing old data
+    $('#no-card-found').html('');
+
+    filterTitle.innerHTML = "Not Started Yet Tasks";
+
     let allTasks = document.querySelectorAll('.card_status');
+    let countStatus = 0;
+
     for (i = 0; i < allTasks.length; i++) {
         if (allTasks[i].innerText.trim() == "Not Started Yet") {
+            countStatus += 1;
             allTasks[i].parentNode.parentNode.parentNode.parentNode.style.display = "block";
         } else {
             allTasks[i].parentNode.parentNode.parentNode.parentNode.style.display = "none";
         }
         // fix the bug if no tasks is found display message 'no ongoing tasks'
     }
+    if (countStatus == 0) {
+        $('#no-card-found').html("<h3>No Not Started Tasks Found!</h3>");
+    }
 });
 
-$('.latest-tasks').on('click', function () {
+$('.latest-tasks').on('click', function() {
     // console.log('clicked');
 
     $.ajax({
@@ -102,7 +185,7 @@ $('.latest-tasks').on('click', function () {
             tasks: "latestTasks"
         },
         dataType: "json",
-        success: function (data) {
+        success: function(data) {
             // console.log(data);
 
             $(".card-tasks").hide();
@@ -114,13 +197,13 @@ $('.latest-tasks').on('click', function () {
             loadCards(data, data.length, container);
 
         },
-        error: function (err) {
+        error: function(err) {
             console.log(err);
         }
     });
 });
 
-$('.oldest-tasks').on('click', function () {
+$('.oldest-tasks').on('click', function() {
     // console.log('clicked');
 
     $.ajax({
@@ -130,7 +213,7 @@ $('.oldest-tasks').on('click', function () {
             tasks: "oldestTasks"
         },
         dataType: "json",
-        success: function (data) {
+        success: function(data) {
             // console.log(data);
 
             $(".card-tasks").hide();
@@ -141,7 +224,7 @@ $('.oldest-tasks').on('click', function () {
             let container = "filter-cards";
             loadCards(data, data.length, container);
         },
-        error: function (err) {
+        error: function(err) {
             console.log(err);
         }
     });

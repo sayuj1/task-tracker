@@ -103,7 +103,6 @@ function loadUserData() {
             </div>
             `);
         },
-        k
         complete: function() {
             $("#task-loading").hide();
             document.querySelector(".card-tasks").style.display = "block";
