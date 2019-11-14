@@ -1,17 +1,17 @@
-$("form").on("submit", function (e) {
+$("form").on("submit", function(e) {
     e.preventDefault();
 
     $.ajax({
         type: "POST",
         url: "./loginRegister/login.php",
         data: $('form').serialize(),
-        beforeSend: function () {
+        beforeSend: function() {
             $('#login-btn').html(`Logging In <div class="ui active inline loader"></div>`);
         },
-        complete: function () {
+        complete: function() {
             $('#login-btn').html('Login');
         },
-        success: function (data) {
+        success: function(data) {
             // console.log(data);
             console.log('data received');
             if (data == "ValidCredentials") {
@@ -40,7 +40,7 @@ $("form").on("submit", function (e) {
                 } else {
                     $("#pass-error").remove();
                     $("#password")[0].style.setProperty("border", "none");
-                    $("<div id='user-error' style='color: white;text-align:center;'> Username Does not Exists </div>").insertAfter("#username");
+                    $("<div id='user-error' style='color: white;text-align:center;'> Username Does not Exists! </div>").insertAfter("#username");
                     $("#username")[0].style.setProperty("border", "5px solid red");
                     $("#password").val('');
                 }
@@ -52,11 +52,12 @@ $("form").on("submit", function (e) {
                 if ($("#pass-error").length) {
                     // console.log('present already');
                     // add a toast message
+                    $("#password").val('');
                 } else {
                     $("#user-error").remove();
                     $("#username")[0].style.setProperty("border", "none");
 
-                    $("<div id='pass-error' style='color: white;text-align:center;'> Your password is not valid </div>").insertAfter("#password");
+                    $("<div id='pass-error' style='color: white;text-align:center;'> Your password is incorrect! </div>").insertAfter("#password");
                     $("#password")[0].style.setProperty("border", "5px solid red");
                     $("#password").val('');
                 }
@@ -65,32 +66,32 @@ $("form").on("submit", function (e) {
                 console.log("Something went wrong! Sorry :(");
             }
         },
-        error: function () {
+        error: function() {
             console.log("Something went wrong! Sorry :(");
         }
     });
 });
 
-$('#new-account').on('click', function () {
+$('#new-account').on('click', function() {
     // alert("hi");
     $.ajax({
         type: "GET",
         url: "./views/register.php",
         dataType: 'html',
-        beforeSend: function () {
+        beforeSend: function() {
             //show the loading image
             $('.login-box').html('<div class="ui active dimmer login-register-loader" ><div class = "ui huge text loader" > Loading</div></div>');
         },
-        complete: function () {
+        complete: function() {
             //hide the loading image
             $('.login-register-loader').hide();
         },
-        success: function (data) {
+        success: function(data) {
             // $('#login-box').load('./views/register.php');
             $('.login-box').html(data);
             $.getScript("./assets/js/register.js");
         },
-        error: function (err) {
+        error: function(err) {
             console.log(err);
         }
     });
