@@ -14,7 +14,7 @@ function goToViewProfile() {
 // adding event listeners after loading the dom elements
 function submitForm() {
     // updating user profile by sending data to server
-    $(".update-profile").on("submit", function (e) {
+    $(".update-profile").on("submit", function(e) {
         // alert('clickced');
         // console.log('here');
         e.preventDefault();
@@ -23,7 +23,7 @@ function submitForm() {
             type: "post",
             url: "../viewProfile/updateProfile.php",
             data: $(".update-profile").serialize(),
-            beforeSend: function () {
+            beforeSend: function() {
                 // loader goes here
 
                 $(".view-profile").prepend(`
@@ -39,7 +39,7 @@ function submitForm() {
                 );
                 updateCardContainer.style.setProperty("filter", "blur(3px)");
             },
-            complete: function () {
+            complete: function() {
                 // loader goes here
 
                 $("#update-profile-loader").remove();
@@ -48,12 +48,69 @@ function submitForm() {
                 );
                 updateCardContainer.style.setProperty("filter", "blur(0px)");
             },
-            success: function (data) {
+            success: function(data) {
                 // console.log(data);
                 var jsonData = JSON.parse(data);
                 // console.log(data.status);
+                // clearing previous errors
+                if ($("#first-name-error").length) {
+                    $("#first-name-error").remove();
+                    $("#firstname")[0].style.setProperty("border", "none");
+                    $("#firstname")[0].style.setProperty("border-bottom", "2px solid");
+                    $("#firstname")[0].style.setProperty("border-bottom-color", "teal");
+                }
+                if ($("#last-name-error").length) {
+                    $("#last-name-error").remove();
+                    $("#lastname")[0].style.setProperty("border", "none");
+                    $("#lastname")[0].style.setProperty("border-bottom", "2px solid");
+                    $("#lastname")[0].style.setProperty("border-bottom-color", "teal");
+
+                }
+
+                if (jsonData.status == "notSuccessful") {
+                    // displaying errors
+
+                    // displaying errors
+                    if (jsonData.status1 == "emptyFields") {
+                        if ($("#firstname").val() == "") {
+                            $("#firstname")[0].style.setProperty("border", "5px solid red");
+                            $("<div id='first-name-error' style='color: white;text-align:center;'> Empty! </div>").insertAfter("#firstname");
+                        }
+                        if ($("#lastname").val() == "") {
+                            $("#lastname")[0].style.setProperty("border", "5px solid red");
+                            $("<div id='last-name-error' style='color: white;text-align:center;'> Empty! </div>").insertAfter("#lastname");
+                        }
+                    }
+                    if (jsonData.status2 == "nameIncorrect") {
+                        let firstname = $("#firstname").val();
+                        let lastname = $("#lastname").val();
+                        let validLetters = /^[A-Za-z]+$/;
+
+                        if (firstname.match(validLetters)) {
+                            $("#first-name-error").remove();
+                            $("#firstname")[0].style.setProperty("border-bottom", "2px solid");
+                            $("#firstname")[0].style.setProperty("border-bottom-color", "teal");
+                            // alert('firname correct');
+                        } else {
+                            $("#firstname")[0].style.setProperty("border", "5px solid red");
+                            $("<div id='first-name-error' style='color: black;text-align:center;'> Special Characters or numbers are not allowed in names </div>").insertAfter("#firstname");
+                            // alert('firname incorrect');
+                        }
+                        if (lastname.match(validLetters)) {
+                            // alert('lastname correct');
+                            $("#last-name-error").remove();
+                            $("#lastname")[0].style.setProperty("border-bottom", "2px solid");
+                            $("#lastname")[0].style.setProperty("border-bottom-color", "teal");
+                        } else {
+                            $("#lastname")[0].style.setProperty("border", "5px solid red");
+                            $("<div id='last-name-error' style='color: black;text-align:center;'> Special Characters or numbers are not allowed in names </div>").insertAfter("#lastname");
+                            // alert('lastname incorrect');
+                        }
+                    }
+                }
                 if (jsonData.status == "updationSuccessful") {
-                    // need to add a toast message at the top
+
+                    //TODO: need to add a toast message at the top
                     alert("Profile Updated");
 
                     // need to update title bar value
@@ -63,7 +120,7 @@ function submitForm() {
                     alert("sorry could not update your profile! Please try again");
                 }
             },
-            error: function (err) {
+            error: function(err) {
                 console.log(err);
             }
         });
@@ -76,7 +133,7 @@ function updateProfile() {
         type: "get",
         url: "../viewProfile/viewProfile.php",
         dataType: "json",
-        beforeSend: function () {
+        beforeSend: function() {
             // loader goes here
             $(".view-profile").hide();
             $(".view-profile-loader").show();
@@ -90,11 +147,11 @@ function updateProfile() {
             </div>
             `);
         },
-        complete: function () {
+        complete: function() {
             // loader goes here
             $(".view-profile-loader").hide();
         },
-        success: function (data) {
+        success: function(data) {
             // console.log(data);
             $(".view-profile").show();
             $(".view-profile").html(
@@ -124,7 +181,7 @@ function updateProfile() {
                                     <span>Firstname</span>
                                 </div>
                                 <div class='col s6 m6'>
-                                    <input type='text' name='firstname' placeholder='Enter your firstname' value=` +
+                                    <input type='text' name='firstname' id='firstname' placeholder='Enter your firstname' value=` +
                 data[0]["firstname"] +
                 ` required>
                                 </div>
@@ -133,7 +190,7 @@ function updateProfile() {
                                     <span>Lastname</span>
                                 </div>
                                 <div class='col s6 m6'>
-                                    <input type='text' name='lastname' placeholder='Enter your lastname' value = ` +
+                                    <input type='text' name='lastname' id='lastname' placeholder='Enter your lastname' value = ` +
                 data[0]["lastname"] +
                 ` required>
                                 </div>
@@ -151,7 +208,7 @@ function updateProfile() {
             );
             submitForm();
         },
-        error: function (err) {
+        error: function(err) {
             console.log("Error from server side " + err);
         }
     });
@@ -162,7 +219,7 @@ function loadProfile() {
         type: "get",
         url: "../viewProfile/viewProfile.php",
         dataType: "json",
-        beforeSend: function () {
+        beforeSend: function() {
             // loader goes here
             $(".view-profile-loader").show();
 
@@ -199,11 +256,11 @@ function loadProfile() {
             </div>
             </div>`);
         },
-        complete: function () {
+        complete: function() {
             // loader goes here
             $(".view-profile-loader").hide();
         },
-        success: function (data) {
+        success: function(data) {
             // console.log(data);
             $(".view-profile").html(
                 `
@@ -255,7 +312,7 @@ function loadProfile() {
                 `
             );
         },
-        error: function (err) {
+        error: function(err) {
             console.log(err);
         }
     });
