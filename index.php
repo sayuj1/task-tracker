@@ -56,13 +56,13 @@ $con = openConn();
     label {
         color: #66fcf1;
         font-weight: 700;
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .new-user {
         color: #66fcf1;
         font-weight: 700;
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     @media screen and (max-width: 400px) {
