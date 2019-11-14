@@ -49,9 +49,9 @@ function submitForm() {
                 updateCardContainer.style.setProperty("filter", "blur(0px)");
             },
             success: function(data) {
-                // console.log(data);
-                var jsonData = JSON.parse(data);
-                // console.log(data.status);
+
+                let jsonData = JSON.parse(data);
+
                 // clearing previous errors
                 if ($("#first-name-error").length) {
                     $("#first-name-error").remove();
@@ -67,10 +67,9 @@ function submitForm() {
 
                 }
 
+                // checking for errors
                 if (jsonData.status == "notSuccessful") {
-                    // displaying errors
-
-                    // displaying errors
+                    // displaying errors if field is empty
                     if (jsonData.status1 == "emptyFields") {
                         if ($("#firstname").val() == "") {
                             $("#firstname")[0].style.setProperty("border", "5px solid red");
@@ -81,6 +80,7 @@ function submitForm() {
                             $("<div id='last-name-error' style='color: white;text-align:center;'> Empty! </div>").insertAfter("#lastname");
                         }
                     }
+                    // displaying errors if name is incorrect 
                     if (jsonData.status2 == "nameIncorrect") {
                         let firstname = $("#firstname").val();
                         let lastname = $("#lastname").val();
@@ -108,6 +108,8 @@ function submitForm() {
                         }
                     }
                 }
+
+                // showing success message if no error received
                 if (jsonData.status == "updationSuccessful") {
 
                     //TODO: need to add a toast message at the top
@@ -127,7 +129,7 @@ function submitForm() {
     });
 }
 
-// for updating the user profile
+// loading update profile page
 function updateProfile() {
     $.ajax({
         type: "get",
