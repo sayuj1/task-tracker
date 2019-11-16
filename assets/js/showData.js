@@ -111,8 +111,8 @@ function loadUserData() {
             // console.log("data received");
             // console.log(data);
             $(".total-card-value-holder").html(
-                data.length +
-                `<input type="hidden" value=` +
+                `<input type="visible" value=` + data.length + ` id="total-cards-value-holder">
+                <input type="hidden" value=` +
                 data.length +
                 ` id="total-cards-value">`
             );
@@ -123,7 +123,7 @@ function loadUserData() {
             // console.log(err);
             let count = 0;
             $(".total-card-value-holder").html(
-                count +
+                `<input type="visible" value=` + count + ` id="total-cards-value-holder">`
                 `<input type="hidden" value=` +
                 count +
                 ` id="total-cards-value">`

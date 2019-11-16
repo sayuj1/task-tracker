@@ -5,13 +5,19 @@ function removeCard(card_id) {
 
 // for updating the total card values
 function updateTotalCardValues() {
-    let count = $("#total-cards-value").val();
-    count = Number(count) - 1;
+    let visibleCount = $("#total-cards-value-holder").val();
+    let hiddenCount = $("#total-cards-value").val();
+    hiddenCount = Number(hiddenCount) - 1;
+    visibleCount = Number(visibleCount) - 1;
     // alert(count);
-    $(".total-card-value-holder").html(count);
-    $(".total-card-value-holder").append(
-        `<input type="hidden" value=` + count + ` id="total-cards-value">`
+    // $(".total-card-value-holder").html(visibleCount);
+    $(".total-card-value-holder").html(
+        `<input type="visible" value=` + visibleCount + ` id="total-cards-value-holder">
+        <input type="hidden" value=` + hiddenCount + ` id="total-cards-value">`
     );
+    if (visibleCount == 0) {
+        $('#no-card-found').html("<h3>No Tasks Found!</h3>");
+    }
 }
 
 // for loading the card values for updation

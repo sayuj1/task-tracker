@@ -3,6 +3,26 @@
 // getting filter-operation div for showing current selected value of the filter button
 let filterTitle = document.querySelector('#filter-operation');
 
+function updateFilterCount(countStatus) {
+    if (countStatus == 0) {
+        $('#no-card-found').html("<h3>No Tasks Found!</h3>");
+        let count = $("#total-cards-value").val();
+        // $(".total-card-value-holder").html(countStatus);
+        $(".total-card-value-holder").html(
+            `<input type="visible" value=` + countStatus + ` id="total-cards-value-holder">
+            <input type="hidden" value=` + count + ` id="total-cards-value">`
+        );
+    } else {
+        let count = $("#total-cards-value").val();
+        // $(".total-card-value-holder").html(countStatus);
+        $(".total-card-value-holder").html(
+            `<input type="visible" value=` + countStatus + ` id="total-cards-value-holder">
+            <input type="hidden" value=` + count + ` id="total-cards-value">`
+        );
+    }
+}
+
+
 // shows all the tasks
 $('.all-tasks-btn').on('click', function() {
 
@@ -15,12 +35,15 @@ $('.all-tasks-btn').on('click', function() {
     filterTitle.innerHTML = "All Tasks";
 
     $(".filter-card-tasks").hide();
+
     let allTasks = document.querySelectorAll('.card_status');
     for (i = 0; i < allTasks.length; i++) {
         allTasks[i].parentNode.parentNode.parentNode.parentNode.style.display = "block";
         // fix the bug if no tasks is found display message 'no ongoing tasks'
     }
+    let countStatus = allTasks.length;
     $(".card-tasks").show();
+    updateFilterCount(countStatus);
 });
 
 // shows the ongoing tasks
@@ -42,11 +65,10 @@ $('.ongoing-tasks-btn').on('click', function() {
         } else {
             allTasks[i].parentNode.parentNode.parentNode.parentNode.style.display = "none";
         }
+    }
 
-    }
-    if (countStatus == 0) {
-        $('#no-card-found').html("<h3>No Ongoing Tasks Found!</h3>");
-    }
+    updateFilterCount(countStatus);
+
 });
 
 // shows the pause tasks
@@ -70,9 +92,7 @@ $('.pause-tasks-btn').on('click', function() {
         }
         // fix the bug if no tasks is found display message 'no ongoing tasks'
     }
-    if (countStatus == 0) {
-        $('#no-card-found').html("<h3>No Paused Tasks Found!</h3>");
-    }
+    updateFilterCount(countStatus);
 });
 
 // shows the delayed tasks
@@ -97,9 +117,7 @@ $('.delayed-tasks-btn').on('click', function() {
         // fix the bug if no tasks is found display message 'no ongoing tasks'
     }
 
-    if (countStatus == 0) {
-        $('#no-card-found').html("<h3>No Delayed Tasks Found!</h3>");
-    }
+    updateFilterCount(countStatus);
 });
 
 // shows the stopped tasks
@@ -123,9 +141,7 @@ $('.stopped-tasks-btn').on('click', function() {
         }
         // fix the bug if no tasks is found display message 'no ongoing tasks'
     }
-    if (countStatus == 0) {
-        $('#no-card-found').html("<h3>No Stopped Tasks Found!</h3>");
-    }
+    updateFilterCount(countStatus);
 });
 
 // shows the completed tasks
@@ -149,9 +165,7 @@ $('.completed-tasks-btn').on('click', function() {
         }
         // fix the bug if no tasks is found display message 'no ongoing tasks'
     }
-    if (countStatus == 0) {
-        $('#no-card-found').html("<h3>No Completed Tasks Found!</h3>");
-    }
+    updateFilterCount(countStatus);
 });
 
 // shows the not started yet tasks
@@ -175,9 +189,7 @@ $('.notstartedyet-tasks-btn').on('click', function() {
         }
         // fix the bug if no tasks is found display message 'no ongoing tasks'
     }
-    if (countStatus == 0) {
-        $('#no-card-found').html("<h3>No Not Started Tasks Found!</h3>");
-    }
+    updateFilterCount(countStatus);
 });
 
 $('.latest-tasks').on('click', function() {
