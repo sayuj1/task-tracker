@@ -39,6 +39,7 @@ $('.all-tasks-btn').on('click', function() {
     filterTaskStatusTitle.innerHTML = "All Tasks";
 
     $(".filter-card-tasks").hide();
+    $(".card-tasks").hide();
 
     $.ajax({
         async: true,
@@ -46,6 +47,7 @@ $('.all-tasks-btn').on('click', function() {
         url: "../getUserData/getTaskData.php",
         dataType: "json",
         beforeSend: function() {
+            $("#task-loading").show();
             $("#task-loading").html(`
             <div class="ui fluid placeholder">
             <div class="image header">
@@ -82,6 +84,7 @@ $('.all-tasks-btn').on('click', function() {
         },
         success: function(data) {
             $("#all-cards").empty();
+            $(".card-tasks").show();
             let container = "all-cards";
             loadCards(container, data, data.length);
             let countStatus = data.length;
@@ -257,6 +260,12 @@ $('.notstartedyet-tasks-btn').on('click', function() {
 
 $('.latest-tasks').on('click', function() {
     // console.log('clicked');
+    $(".card-tasks").hide();
+    $("#all-cards").empty();
+
+    $('.filter-card-tasks').hide();
+    $('#no-filter-card-found').empty();
+    $("#filter-cards").empty();
 
     $.ajax({
         type: "get",
@@ -264,14 +273,47 @@ $('.latest-tasks').on('click', function() {
         data: {
             tasks: "latestTasks"
         },
+        beforeSend: function() {
+            $("#task-loading").show();
+            $("#task-loading").html(`
+            <div class="ui fluid placeholder">
+            <div class="image header">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            </div>
+            `);
+        },
+        complete: function() {
+            $("#task-loading").hide();
+            // document.querySelector(".card-tasks").style.display = "block";
+        },
         dataType: "json",
         success: function(data) {
             // console.log(data);
 
-            $('#no-filter-card-found').empty();
-            $(".card-tasks").hide();
-            $("#all-cards").empty();
-            $("#filter-cards").empty();
+
             $(".filter-card-tasks").show();
 
             $("#filter-title").html(`Latest Tasks`);
@@ -290,6 +332,13 @@ $('.latest-tasks').on('click', function() {
 
 $('.oldest-tasks').on('click', function() {
     // console.log('clicked');
+    $(".card-tasks").hide();
+    $("#all-cards").empty();
+
+    $('.filter-card-tasks').hide();
+
+    $('#no-filter-card-found').empty();
+    $("#filter-cards").empty();
 
     $.ajax({
         type: "get",
@@ -298,13 +347,46 @@ $('.oldest-tasks').on('click', function() {
             tasks: "oldestTasks"
         },
         dataType: "json",
+        beforeSend: function() {
+            $("#task-loading").show();
+            $("#task-loading").html(`
+            <div class="ui fluid placeholder">
+            <div class="image header">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            </div>
+            `);
+        },
+        complete: function() {
+            $("#task-loading").hide();
+            // document.querySelector(".card-tasks").style.display = "block";
+        },
         success: function(data) {
             // console.log(data);
 
-            $('#no-filter-card-found').empty();
-            $(".card-tasks").hide();
-            $("#all-cards").empty();
-            $("#filter-cards").empty();
+
             $(".filter-card-tasks").show();
 
             $("#filter-title").html(`Oldest Tasks`);

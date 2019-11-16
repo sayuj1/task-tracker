@@ -83,7 +83,8 @@ function loadTheLatestCard() {
         url: "../getUserData/getLastTaskData.php",
         dataType: "json",
         beforeSend: function() {
-            $("#all-cards").prepend(`
+            if ($('.card-tasks')[0].style.display == "block") {
+                $("#all-cards").prepend(`
       <div class="row" id="latest-card-loader">
       <div class="col s12 m6">
             <div class="ui fluid placeholder" >
@@ -116,7 +117,43 @@ function loadTheLatestCard() {
             </div>
             </div>
             `)
-                // $("#task-loading").html('<img src="../assets/imgs/tasks-loading.gif" width="100%" height="100%"></img>');
+            } else {
+                $("#filter-cards").prepend(`
+      <div class="row" id="latest-card-loader">
+      <div class="col s12 m6">
+            <div class="ui fluid placeholder" >
+            <div class="image header">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            </div>
+            </div>
+            </div>
+            `)
+            }
+
+            // $("#task-loading").html('<img src="../assets/imgs/tasks-loading.gif" width="100%" height="100%"></img>');
         },
         complete: function() {
             $('#latest-card-loader').remove();
