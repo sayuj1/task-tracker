@@ -451,7 +451,7 @@ $conn = openConn();
 
                 <!-- contain all tasks -->
                 <div class="card-tasks" style="display: none;">
-                    <span id="total-cards">Total Cards: <span class="total-card-value-holder"></span></span>
+                    <span class="total-cards">Total Cards: <span class="total-card-value-holder"></span></span>
                     <div id="filter-operation" style="text-align: center;font-size: 2rem;"> <!-- Filter Selected -->
                     All Tasks
                     </div>
@@ -464,6 +464,14 @@ $conn = openConn();
 
                 <!-- contains tasks latest and oldest -->
                 <div class="filter-card-tasks" style="display: none;">
+                <span class="total-cards">Total Cards: <span class="total-card-value-holder"></span></span>
+                <div id="filter-title" style="text-align: center;font-size: 2rem;"> <!-- Filter Selected -->
+                    
+                    </div>
+                    <div id="filter-task-status-title" style="text-align: center;font-size: 2rem;"> <!-- Filter Selected -->
+                    All Tasks
+                    </div>
+                    <div class="row" id="no-filter-card-found" style="text-align: center;"></div>
                     <div class="row" id="filter-cards">
                         <!-- below cards will be displayed -->
                     </div>

@@ -2,22 +2,24 @@
 
 // getting filter-operation div for showing current selected value of the filter button
 let filterTitle = document.querySelector('#filter-operation');
+let filterTaskStatusTitle = document.querySelector('#filter-task-status-title');
 
 function updateFilterCount(countStatus) {
     if (countStatus == 0) {
         $('#no-card-found').html("<h3>No Tasks Found!</h3>");
+        $('#no-filter-card-found').html("<h3>No Tasks Found!</h3>");
         let count = $("#total-cards-value").val();
         // $(".total-card-value-holder").html(countStatus);
         $(".total-card-value-holder").html(
-            `<input type="visible" value=` + countStatus + ` id="total-cards-value-holder">
-            <input type="hidden" value=` + count + ` id="total-cards-value">`
+            `<input type="visible" value=` + countStatus + ` class="total-cards-value-holder">
+            <input type="hidden" value=` + count + ` class="total-cards-value">`
         );
     } else {
-        let count = $("#total-cards-value").val();
+        let count = $(".total-cards-value").val();
         // $(".total-card-value-holder").html(countStatus);
         $(".total-card-value-holder").html(
-            `<input type="visible" value=` + countStatus + ` id="total-cards-value-holder">
-            <input type="hidden" value=` + count + ` id="total-cards-value">`
+            `<input type="visible" value=` + countStatus + ` class="total-cards-value-holder" readonly disabled>
+            <input type="hidden" value=` + count + ` class="total-cards-value">`
         );
     }
 }
@@ -26,34 +28,85 @@ function updateFilterCount(countStatus) {
 // shows all the tasks
 $('.all-tasks-btn').on('click', function() {
 
-    $("#filter-cards").html("");
+    $("#filter-cards").empty();
 
     // clearing old data
-    $('#no-card-found').html('');
+    $('#no-card-found').empty();
+    $('#no-filter-card-found').empty();
 
     // setting up the title
     filterTitle.innerHTML = "All Tasks";
+    filterTaskStatusTitle.innerHTML = "All Tasks";
 
     $(".filter-card-tasks").hide();
 
-    let allTasks = document.querySelectorAll('.card_status');
-    for (i = 0; i < allTasks.length; i++) {
-        allTasks[i].parentNode.parentNode.parentNode.parentNode.style.display = "block";
-        // fix the bug if no tasks is found display message 'no ongoing tasks'
-    }
-    let countStatus = allTasks.length;
-    $(".card-tasks").show();
-    updateFilterCount(countStatus);
+    $.ajax({
+        async: true,
+        type: "get",
+        url: "../getUserData/getTaskData.php",
+        dataType: "json",
+        beforeSend: function() {
+            $("#task-loading").html(`
+            <div class="ui fluid placeholder">
+            <div class="image header">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <div class="paragraph">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            </div>
+            `);
+        },
+        complete: function() {
+            $("#task-loading").hide();
+            document.querySelector(".card-tasks").style.display = "block";
+        },
+        success: function(data) {
+            $("#all-cards").empty();
+            let container = "all-cards";
+            loadCards(container, data, data.length);
+            let countStatus = data.length;
+            $(".card-tasks").show();
+            updateFilterCount(countStatus);
+        },
+        error: function(err) {
+
+        },
+    });
+
+
+
 });
 
 // shows the ongoing tasks
 $('.ongoing-tasks-btn').on('click', function() {
 
     // clearing old data
-    $('#no-card-found').html('');
+    $('#no-card-found').empty();
+    $('#no-filter-card-found').empty();
 
     // setting up the title
     filterTitle.innerHTML = "Ongoing Tasks";
+    filterTaskStatusTitle.innerHTML = "Ongoing Tasks"
 
     let allTasks = document.querySelectorAll('.card_status');
     let countStatus = 0;
@@ -75,10 +128,12 @@ $('.ongoing-tasks-btn').on('click', function() {
 $('.pause-tasks-btn').on('click', function() {
 
     // clearing old data
-    $('#no-card-found').html('');
+    $('#no-card-found').empty();
+    $('#no-filter-card-found').empty();
 
     // setting up the title
     filterTitle.innerHTML = "Paused Tasks";
+    filterTaskStatusTitle.innerHTML = "Paused Tasks";
 
     let allTasks = document.querySelectorAll('.card_status');
     let countStatus = 0;
@@ -99,10 +154,12 @@ $('.pause-tasks-btn').on('click', function() {
 $('.delayed-tasks-btn').on('click', function() {
 
     // clearing old data
-    $('#no-card-found').html('');
+    $('#no-card-found').empty();
+    $('#no-filter-card-found').empty();
 
     // setting up the title
     filterTitle.innerHTML = "Delayed Tasks";
+    filterTaskStatusTitle.innerHTML = "Delayed Tasks";
 
     let allTasks = document.querySelectorAll('.card_status');
     let countStatus = 0;
@@ -124,10 +181,12 @@ $('.delayed-tasks-btn').on('click', function() {
 $('.stopped-tasks-btn').on('click', function() {
 
     // clearing old data
-    $('#no-card-found').html('');
+    $('#no-card-found').empty();
+    $('#no-filter-card-found').empty();
 
     // setting up the title
     filterTitle.innerHTML = "Stopped Tasks";
+    filterTaskStatusTitle.innerHTML = "Stopped Tasks";
 
     let allTasks = document.querySelectorAll('.card_status');
     let countStatus = 0;
@@ -148,10 +207,12 @@ $('.stopped-tasks-btn').on('click', function() {
 $('.completed-tasks-btn').on('click', function() {
 
     // clearing old data
-    $('#no-card-found').html('');
+    $('#no-card-found').empty();
+    $('#no-filter-card-found').empty();
 
     // setting up the title
     filterTitle.innerHTML = "Completed Tasks";
+    filterTaskStatusTitle.innerHTML = "Completed Tasks";
 
     let allTasks = document.querySelectorAll('.card_status');
     let countStatus = 0;
@@ -172,10 +233,12 @@ $('.completed-tasks-btn').on('click', function() {
 $('.notstartedyet-tasks-btn').on('click', function() {
 
     // clearing old data
-    $('#no-card-found').html('');
+    $('#no-card-found').empty();
+    $('#no-filter-card-found').empty();
 
     // setting up the title
     filterTitle.innerHTML = "Not Started Yet Tasks";
+    filterTaskStatusTitle.innerHTML = "Not Started Yet Tasks";
 
     let allTasks = document.querySelectorAll('.card_status');
     let countStatus = 0;
@@ -205,13 +268,18 @@ $('.latest-tasks').on('click', function() {
         success: function(data) {
             // console.log(data);
 
+            $('#no-filter-card-found').empty();
             $(".card-tasks").hide();
-            $("#filter-cards").html("");
+            $("#all-cards").empty();
+            $("#filter-cards").empty();
             $(".filter-card-tasks").show();
+
+            $("#filter-title").html(`Latest Tasks`);
+            filterTaskStatusTitle.innerHTML = "All Tasks";
 
             // this function is in showData.js file
             let container = "filter-cards";
-            loadCards(data, data.length, container);
+            loadCards(container, data, data.length);
 
         },
         error: function(err) {
@@ -233,13 +301,18 @@ $('.oldest-tasks').on('click', function() {
         success: function(data) {
             // console.log(data);
 
+            $('#no-filter-card-found').empty();
             $(".card-tasks").hide();
-            $("#filter-cards").html("");
+            $("#all-cards").empty();
+            $("#filter-cards").empty();
             $(".filter-card-tasks").show();
+
+            $("#filter-title").html(`Oldest Tasks`);
+            filterTaskStatusTitle.innerHTML = "All Tasks";
 
             // this function is in showData.js file
             let container = "filter-cards";
-            loadCards(data, data.length, container);
+            loadCards(container, data, data.length);
         },
         error: function(err) {
             console.log(err);

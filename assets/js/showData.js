@@ -1,6 +1,6 @@
 // display all the cards of the user received from the server
 
-function loadCards(data, totalCards, container) {
+function loadCards(container, data, totalCards) {
     for (var i = 0; i < totalCards; i++) {
         // For status color
         let statusArr = {
@@ -111,19 +111,19 @@ function loadUserData() {
             // console.log("data received");
             // console.log(data);
             $(".total-card-value-holder").html(
-                `<input type="visible" value=` + data.length + ` id="total-cards-value-holder">
+                `<input type="visible" value=` + data.length + ` class="total-cards-value-holder" readonly disabled>
                 <input type="hidden" value=` +
                 data.length +
-                ` id="total-cards-value">`
+                ` class="total-cards-value">`
             );
             let container = "all-cards";
-            loadCards(data, data.length, container);
+            loadCards(container, data, data.length);
         },
         error: function(err) {
             // console.log(err);
             let count = 0;
             $(".total-card-value-holder").html(
-                `<input type="visible" value=` + count + ` id="total-cards-value-holder">`
+                `<input type="visible" value=` + count + ` class="total-cards-value-holder" readonly disabled>`
                 `<input type="hidden" value=` +
                 count +
                 ` id="total-cards-value">`

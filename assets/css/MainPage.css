@@ -1,149 +1,155 @@
 .middle-container {
-  margin-top: 2%;
+    margin-top: 2%;
 }
 
 .label {
-  font-size: 30px;
-  font-weight: 700;
-  color: black;
+    font-size: 30px;
+    font-weight: 700;
+    color: black;
 }
 
 ::-webkit-input-placeholder {
-  /* Chrome/Opera/Safari */
-  font-size: 20px;
-  font-weight: 600;
+    /* Chrome/Opera/Safari */
+    font-size: 20px;
+    font-weight: 600;
 }
 
 textarea:focus {
-  border: 2px solid teal;
+    border: 2px solid teal;
 }
 
 #modal3,
 #modal4,
 #modal6 {
-  top: 30% !important;
+    top: 30% !important;
 }
 
 .card-title {
-  padding: 24px !important;
-  font-weight: 800 !important;
-  text-transform: capitalize !important;
+    padding: 24px !important;
+    font-weight: 800 !important;
+    text-transform: capitalize !important;
 }
 
 .chip {
-  min-height: 32px !important;
-  height: auto !important;
-  float: right;
-  font-size: 15px !important;
-  font-weight: lighter !important;
-  color: rgba(0, 0, 0, 0.7) !important;
+    min-height: 32px !important;
+    height: auto !important;
+    float: right;
+    font-size: 15px !important;
+    font-weight: lighter !important;
+    color: rgba(0, 0, 0, 0.7) !important;
 }
 
 .card-content {
-  height: 250px !important;
-  max-height: 250px !important;
-  overflow-y: auto;
-  text-align: justify;
+    height: 250px !important;
+    max-height: 250px !important;
+    overflow-y: auto;
+    text-align: justify;
 }
 
 #dropdown1[style] {
-  width: 165.031px !important;
+    width: 165.031px !important;
 }
 
 #dropdown2[style],
 #dropdown3[style] {
-  width: 228px !important;
+    width: 228px !important;
 }
 
 @media screen and (max-width: 400px) {
-  .login-box {
-    height: 70vh;
-    margin-top: 10%;
-    margin-left: 5%;
-  }
-
-  .top-bar {
-    height: 50px;
-    font-size: 25px;
-  }
+    .login-box {
+        height: 70vh;
+        margin-top: 10%;
+        margin-left: 5%;
+    }
+    .top-bar {
+        height: 50px;
+        font-size: 25px;
+    }
 }
 
 .card-main-row {
-  margin-left: 0px !important;
-  margin-right: 0px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
 }
 
 .card-content-data {
-  padding: 24px !important;
-  border: 1px solid darkgrey;
-  border-left: 0px;
-  border-right: 0px;
-  font-size: 28px;
-  font-weight: 400;
-  text-transform: capitalize !important;
-}
-
-@media screen and (min-width: 360px) and (max-width: 650px) {
-  #edit-card-loader {
-    /* left: 30% !important; */
-    margin-left: 15% !important;
-    position: sticky !important;
-    z-index: 99999 !important;
-    top: 40% !important;
-    font-size: large !important;
-    font-weight: 700 !important;
-  }
-}
-
-/* For small devices */
-@media screen and (max-width: 640px) {
-  .label {
-    font-size: 20px;
-  }
-
-  .chip {
-    min-height: 32px !important;
-    height: auto !important;
-    float: left;
-    margin-top: 10px;
-  }
-
-  .card-content-data {
     padding: 24px !important;
     border: 1px solid darkgrey;
     border-left: 0px;
     border-right: 0px;
-    font-size: 20px;
+    font-size: 28px;
     font-weight: 400;
-  }
+    text-transform: capitalize !important;
 }
+
+.total-cards-value-holder {
+    border: none;
+    background-color: white;
+}
+
+@media screen and (min-width: 360px) and (max-width: 650px) {
+    #edit-card-loader {
+        /* left: 30% !important; */
+        margin-left: 15% !important;
+        position: sticky !important;
+        z-index: 99999 !important;
+        top: 40% !important;
+        font-size: large !important;
+        font-weight: 700 !important;
+    }
+}
+
+
+/* For small devices */
+
+@media screen and (max-width: 640px) {
+    .label {
+        font-size: 20px;
+    }
+    .chip {
+        min-height: 32px !important;
+        height: auto !important;
+        float: left;
+        margin-top: 10px;
+    }
+    .card-content-data {
+        padding: 24px !important;
+        border: 1px solid darkgrey;
+        border-left: 0px;
+        border-right: 0px;
+        font-size: 20px;
+        font-weight: 400;
+    }
+}
+
 
 /* For medium and large devices */
+
 @media screen and (min-width: 640px) {
-  ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
-    background: lightgrey;
-    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
-  }
+     ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+    /* Track */
+     ::-webkit-scrollbar-track {
+        /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+    }
+    /* Handle */
+     ::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        background: lightgrey;
+        -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+    }
 }
 
+
 /* for mobile devices with varying size*/
+
 @media screen and (min-width: 601px) and (max-width: 750px) {
-  .view-profile-card-footer {
-    padding: 5px !important;
-  }
+    .view-profile-card-footer {
+        padding: 5px !important;
+    }
 }
