@@ -19,7 +19,6 @@ $conn = openConn();
     <title>
         <?php 
      echo $_SESSION['firstname'];
-    
     ?>
     </title>
     <!--Import Semantic-UI Loader -->

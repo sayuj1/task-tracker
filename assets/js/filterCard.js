@@ -8,7 +8,7 @@ function updateFilterCount(countStatus) {
     if (countStatus == 0) {
         $('#no-card-found').html("<h3>No Tasks Found!</h3>");
         $('#no-filter-card-found').html("<h3>No Tasks Found!</h3>");
-        let count = $("#total-cards-value").val();
+        let count = $(".total-cards-value").val();
         // $(".total-card-value-holder").html(countStatus);
         $(".total-card-value-holder").html(
             `<input type="visible" value=` + countStatus + ` class="total-cards-value-holder">
@@ -92,7 +92,25 @@ $('.all-tasks-btn').on('click', function() {
             updateFilterCount(countStatus);
         },
         error: function(err) {
-
+            let count = 0;
+            if (count == 0) {
+                console.log('reach here');
+                $('#no-card-found').html("<h3>No Tasks Found!</h3>");
+                $('#no-filter-card-found').html("<h3>No Tasks Found!</h3>");
+                // let count = $(".total-cards-value").val();
+                // $(".total-card-value-holder").html(countStatus);
+                $(".total-card-value-holder").html(
+                    `<input type="visible" value=` + count + ` class="total-cards-value-holder">
+                    <input type="hidden" value=` + count + ` class="total-cards-value">`
+                );
+            } else {
+                // let count = $(".total-cards-value").val();
+                // $(".total-card-value-holder").html(count);
+                $(".total-card-value-holder").html(
+                    `<input type="visible" value=` + count + ` class="total-cards-value-holder" readonly disabled>
+                    <input type="hidden" value=` + count + ` class="total-cards-value">`
+                );
+            }
         },
     });
 
@@ -322,10 +340,38 @@ $('.latest-tasks').on('click', function() {
             // this function is in showData.js file
             let container = "filter-cards";
             loadCards(container, data, data.length);
+            // console.log(typeof(data.length));
+            updateFilterCount(data.length);
 
         },
         error: function(err) {
-            console.log(err);
+            // console.log(err);
+            // console.log('here');
+            $(".filter-card-tasks").show();
+
+            $("#filter-title").html(`Latest Tasks`);
+            filterTaskStatusTitle.innerHTML = "All Tasks";
+
+
+            let count = 0
+            if (count == 0) {
+                // console.log('reach here');
+                $('#no-card-found').html("<h3>No Tasks Found!</h3>");
+                $('#no-filter-card-found').html("<h3>No Tasks Found!</h3>");
+                // let count = $(".total-cards-value").val();
+                // $(".total-card-value-holder").html(countStatus);
+                $(".total-card-value-holder").html(
+                    `<input type="visible" value=` + count + ` class="total-cards-value-holder">
+                    <input type="hidden" value=` + count + ` class="total-cards-value">`
+                );
+            } else {
+                // let count = $(".total-cards-value").val();
+                // $(".total-card-value-holder").html(count);
+                $(".total-card-value-holder").html(
+                    `<input type="visible" value=` + count + ` class="total-cards-value-holder" readonly disabled>
+                    <input type="hidden" value=` + count + ` class="total-cards-value">`
+                );
+            }
         }
     });
 });
@@ -395,9 +441,34 @@ $('.oldest-tasks').on('click', function() {
             // this function is in showData.js file
             let container = "filter-cards";
             loadCards(container, data, data.length);
+            updateFilterCount(data.length);
         },
         error: function(err) {
-            console.log(err);
+            // console.log(err);
+            $(".filter-card-tasks").show();
+
+            $("#filter-title").html(`Oldest Tasks`);
+            filterTaskStatusTitle.innerHTML = "All Tasks";
+
+            let count = 0
+            if (count == 0) {
+                // console.log('reach here');
+                $('#no-card-found').html("<h3>No Tasks Found!</h3>");
+                $('#no-filter-card-found').html("<h3>No Tasks Found!</h3>");
+                // let count = $(".total-cards-value").val();
+                // $(".total-card-value-holder").html(countStatus);
+                $(".total-card-value-holder").html(
+                    `<input type="visible" value=` + count + ` class="total-cards-value-holder">
+                    <input type="hidden" value=` + count + ` class="total-cards-value">`
+                );
+            } else {
+                // let count = $(".total-cards-value").val();
+                // $(".total-card-value-holder").html(count);
+                $(".total-card-value-holder").html(
+                    `<input type="visible" value=` + count + ` class="total-cards-value-holder" readonly disabled>
+                    <input type="hidden" value=` + count + ` class="total-cards-value">`
+                );
+            }
         }
     });
 });

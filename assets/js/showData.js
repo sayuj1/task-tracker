@@ -1,7 +1,7 @@
 // display all the cards of the user received from the server
 
 function loadCards(container, data, totalCards) {
-    for (var i = 0; i < totalCards; i++) {
+    for (let i = 0; i < totalCards; i++) {
         // For status color
         let statusArr = {
             Ongoing: "light-blue accent-2",
@@ -62,6 +62,7 @@ function loadCards(container, data, totalCards) {
             </div>
             `
         );
+
     }
 }
 
@@ -122,13 +123,31 @@ function loadUserData() {
         error: function(err) {
             // console.log(err);
             let count = 0;
-            $(".total-card-value-holder").html(
-                `<input type="visible" value=` + count + ` class="total-cards-value-holder" readonly disabled>`
-                `<input type="hidden" value=` +
-                count +
-                ` id="total-cards-value">`
-            );
+            // $(".total-card-value-holder").html(
+            //     `<input type="visible" value=` + count + ` class="total-cards-value-holder" readonly disabled>
+            //     <input type="hidden" value=` +
+            //     count +
+            //     ` class="total-cards-value">`
+            // );
             // console.log("something went wrong :(");
+            if (count == 0) {
+                console.log('reach here');
+                $('#no-card-found').html("<h3>No Tasks Found!</h3>");
+                $('#no-filter-card-found').html("<h3>No Tasks Found!</h3>");
+                // let count = $(".total-cards-value").val();
+                // $(".total-card-value-holder").html(countStatus);
+                $(".total-card-value-holder").html(
+                    `<input type="visible" value=` + count + ` class="total-cards-value-holder">
+                    <input type="hidden" value=` + count + ` class="total-cards-value">`
+                );
+            } else {
+                // let count = $(".total-cards-value").val();
+                // $(".total-card-value-holder").html(count);
+                $(".total-card-value-holder").html(
+                    `<input type="visible" value=` + count + ` class="total-cards-value-holder" readonly disabled>
+                    <input type="hidden" value=` + count + ` class="total-cards-value">`
+                );
+            }
         }
     });
 }

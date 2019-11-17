@@ -12,7 +12,7 @@ function updateTotalCardValues() {
     // alert(count);
     // $(".total-card-value-holder").html(visibleCount);
     $(".total-card-value-holder").html(
-        `<input type="visible" value=` + visibleCount + ` class="total-cards-value-holder"  readonly disabled>
+        `<input type="visible" value=` + visibleCount + ` class="total-cards-value-holder" readonly disabled>
         <input type="hidden" value=` + hiddenCount + ` class="total-cards-value">`
     );
     if (visibleCount == 0) {
@@ -31,9 +31,22 @@ function loadValues(card_id) {
             cardID: card_id
         },
         beforeSend: function() {
+            $("#modal5").prepend(`
+            <div id="edit-card-loader" style="margin-left: 30%;
+                      position: sticky;
+                      top: 50%;
+                      z-index: 99999;
+                      font-size: x-large;
+                      font-weight: 700;"><div class="ui active inline loader"></div> Loading Tasks....</div> 
+                      `);
+            let editCardContainer = document.querySelector(".edit-modal-container");
+            editCardContainer.style.setProperty("filter", "blur(3px)");
 
         },
         complete: function() {
+            $("#edit-card-loader").remove();
+            let editCardContainer = document.querySelector(".edit-modal-container");
+            editCardContainer.style.setProperty("filter", "blur(0px)");
 
         },
         success: function(data) {
