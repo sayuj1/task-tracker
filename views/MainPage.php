@@ -41,6 +41,15 @@ $conn = openConn();
         box-sizing: border-box;
     }
 
+    #loader {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        margin-top: 25%;
+        z-index: 99999;
+    }
+
     .top-bar {
         background-color: #1a1a1d;
         height: 50px;
@@ -56,8 +65,9 @@ $conn = openConn();
 
 <body>
     <!-- preloader image -->
-    <img src="../assets/imgs/preloader.gif" id="preloader" alt="your browser does not support gifs!" width="100%"
-        height="auto" style="display: block; margin: 0 auto;">
+    <div id="loader">
+        <img src="../assets/imgs/preloader1.gif" id="preloader" alt="your browser does not support gifs!">
+    </div>
 
     <div class="main-container" style="display: none;">
 
@@ -516,13 +526,16 @@ $conn = openConn();
 
 <!-- This script is for preloading the page -->
 <script>
+    // makes sure the whole site is loaded 
+    $(window).on('load', function() { 
+     $('#loader').fadeOut('slow');;
+     $('.main-container').fadeIn(1000);
+});
+
 $(document).ready(function() {
     // loading the content of the page
     function pageLoaded() {
-        $('#preloader').hide();
-        let showPage = document.querySelector(".main-container");
-        showPage.style.display = "block";
-
+       
         // initializing dropdown
         $('.dropdown-trigger').dropdown();
 
@@ -581,6 +594,8 @@ $(document).ready(function() {
         $('.view-profile').show();
         loadDetails();
     });
+
+    
 
 });
 </script>

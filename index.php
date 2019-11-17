@@ -23,7 +23,7 @@ $con = openConn();
     <!--Import Bootstrap CSS-->
     <link rel='stylesheet' href='./assets/css/bootstrap.min.css'>
     <!-- /* critical css */ -->
-    <style>       
+    <style>
     * {
         margin: 0;
         padding: 0;
@@ -32,6 +32,15 @@ $con = openConn();
 
     body {
         background-color: whitesmoke;
+    }
+
+    #loader {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        text-align: center;
+        margin-top: 25%;
+        z-index: 99999;
     }
 
     .top-bar {
@@ -88,7 +97,8 @@ $con = openConn();
             padding-left: 30%;
         }
 
-        #user-error, #pass-error{
+        #user-error,
+        #pass-error {
             font-size: 16px;
         }
     }
@@ -98,9 +108,10 @@ $con = openConn();
 
 <body>
     <!-- preloader image -->
-    <img src="./assets/imgs/preloader.gif" id="preloader" alt="your browser does not support gifs!" width="100%"
-        height="auto" style="display: block; margin: 0 auto;">
+    <div id="loader">
+        <img src="./assets/imgs/preloader1.gif" id="preloader" alt="your browser does not support gifs!">
     </div>
+
     <div class="main-container" style="display: none;">
         <div class='top-bar row justify-content-md-center'>
 
@@ -118,7 +129,7 @@ $con = openConn();
             </div>
         </div>
     </div>
-</body>
+
 
 <!-- Required JS files -->
 <script src="./assets/js/jquery3.3.1.min.js"></script>
@@ -130,8 +141,14 @@ $con = openConn();
 
 <!-- This script is for preloading the page -->
 <script>
+    // makes sure the whole site is loaded 
+    $(window).on('load', function() { 
+     $('#loader').fadeOut('slow');;
+     $('.main-container').fadeIn(1000);
+});
+  
 $(document).ready(function() {
-
+    
     // loading login page
     $.ajax({
         async: true,
@@ -142,7 +159,7 @@ $(document).ready(function() {
             //show the loading image
             $('.login-box').html(
                 '<div class="ui active dimmer login-register-loader" ><div class = "ui huge text loader" > Loading</div></div>'
-                );
+            );
         },
         complete: function() {
             //hide the loading image
@@ -161,18 +178,10 @@ $(document).ready(function() {
         }
     });
 
-    function pageLoaded() {
-        $('#preloader').hide();
-
-        let showPage = document.querySelector(".main-container");
-        showPage.style.display = "block";
-
-    }
-    pageLoaded();
-
 });
-</script>
 
+</script>
+</body>
 </html>
 
 <?php

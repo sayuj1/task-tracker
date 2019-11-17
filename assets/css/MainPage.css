@@ -44,6 +44,7 @@ textarea:focus {
     max-height: 250px !important;
     overflow-y: auto;
     text-align: justify;
+    /* white-space: pre-wrap !important; */
 }
 
 #dropdown1[style] {
