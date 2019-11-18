@@ -30,9 +30,16 @@ textarea:focus {
     text-transform: capitalize !important;
 }
 
+.card_title {
+    height: 37px !important;
+    overflow-y: scroll !important;
+}
+
 .chip {
-    min-height: 32px !important;
-    height: auto !important;
+    /* max-height: 37px !important; */
+    /* height: auto !important; */
+    height: 37px !important;
+    overflow-y: scroll !important;
     float: right;
     font-size: 15px !important;
     font-weight: lighter !important;
