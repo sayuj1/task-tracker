@@ -1,13 +1,13 @@
 <?php
 
 session_start();
-include_once '../dbconfig/dbconfig.php';
+include_once '../dbconfig/todoDBconfig.php';
 
-$conn = openConn();
+$conn = todoOpenConn();
 
 $username = $_SESSION['username'];
 
-$q = "SELECT * FROM `cardtask` WHERE username = '".$username."' ORDER BY datestarted DESC";
+$q = "SELECT * FROM `todotask` WHERE username = '".$username."' ORDER BY datecreated DESC";
 $r = mysqli_query( $conn, $q );
 if ( mysqli_num_rows( $r ) === 0 ) {
     echo 'zeroRow';
@@ -22,7 +22,7 @@ if ( mysqli_num_rows( $r ) === 0 ) {
     echo 'something wrong';
 }
 
-closeConn( $conn );
+todoCloseConn( $conn );
 
 // Note --> Don't know why for zero rows the result gets into error option in AJAX
 ?>

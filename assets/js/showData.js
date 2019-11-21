@@ -1,5 +1,4 @@
 // display all the cards of the user received from the server
-
 function loadCards(container, data, totalCards) {
     for (let i = 0; i < totalCards; i++) {
         // For status color
@@ -119,17 +118,12 @@ function loadUserData() {
             );
             let container = "all-cards";
             loadCards(container, data, data.length);
+
         },
         error: function(err) {
             // console.log(err);
             let count = 0;
-            // $(".total-card-value-holder").html(
-            //     `<input type="visible" value=` + count + ` class="total-cards-value-holder" readonly disabled>
-            //     <input type="hidden" value=` +
-            //     count +
-            //     ` class="total-cards-value">`
-            // );
-            // console.log("something went wrong :(");
+
             if (count == 0) {
                 console.log('reach here');
                 $('#no-card-found').html("<h3>No Tasks Found!</h3>");

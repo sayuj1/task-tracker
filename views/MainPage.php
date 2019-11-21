@@ -545,6 +545,7 @@ $(document).ready(function() {
             hover: false,
             inDuration: 300,
             outDuration: 225,
+            
         });
 
         // initializing modal 

@@ -76,11 +76,11 @@ function prependTheLatestCard(container, data) {
 
 
 // display the last inserted card of the user
-function loadTheLatestCard() {
+function loadTheLatestCard(loadLocation) {
     // alert('reach here');
     $.ajax({
         type: "get",
-        url: "../getUserData/getLastTaskData.php",
+        url: loadLocation,
         dataType: "json",
         beforeSend: function() {
             if ($('.card-tasks')[0].style.display == "block") {
@@ -233,7 +233,8 @@ $(".large-device").on("submit", function(e) {
                 var elem3 = document.querySelector("#modal3");
                 var instance3 = M.Modal.getInstance(elem3);
 
-                loadTheLatestCard();
+                let loadLocation = "../getUserData/getLastTaskData.php";
+                loadTheLatestCard(loadLocation);
                 instance3.open();
 
                 $(".ok").on("click", function() {
@@ -293,7 +294,8 @@ $(".small-device").on("submit", function(e) {
                 var elem3 = document.querySelector("#modal3");
                 var instance3 = M.Modal.getInstance(elem3);
 
-                loadTheLatestCard();
+                let loadLocation = "../getUserData/getLastTaskData.php";
+                loadTheLatestCard(loadLocation);
                 instance3.open();
 
                 $(".ok").on("click", function() {
