@@ -78,6 +78,7 @@ $conn = todoOpenConn();
 <!-- for functionality of the app -->
 <script src="../assets/js/submitTodo.js"></script>
 <script src="../assets/js/showTodo.js"></script>
+<script src="../assets/js/editTodo.js"></script>
 <script src="../assets/js/deleteTodo.js"></script>
 <script src="../assets/js/statusUpdateTodo.js"></script>
 <script type='text/javascript' src='../assets/js/materialize.min.js'></script>

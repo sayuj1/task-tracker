@@ -42,7 +42,7 @@ function loadTodos(container, data, totalCards) {
                     <ul id='todo-setting` + data[i]["todoId"] + `' class='dropdown-content'>
                         <li><a style="color: #2196f3;" id=` +
             data[i]["todoId"] +
-            `><i class='material-icons left blue-text'>mode_edit</i>Edit</a>
+            ` onclick=todoEdit(this.id)><i class='material-icons left blue-text'>mode_edit</i>Edit</a>
                         </li>
                         <li><a style="color: red;" id=` +
             data[i]["todoId"] +
