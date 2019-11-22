@@ -6,6 +6,20 @@ function loadTodos(container, data, totalCards) {
             Pending: "yellow-text ",
             Complete: "green-text text-accent-2 "
         };
+        let todoContent;
+        if (data[i]["status"] == "Complete") {
+            todoContent = `<div class='white-text card-content' style='text-align: justify;text-decoration: line-through'>
+            ` +
+                data[i]["todo"] +
+                `
+            </div>`;
+        } else {
+            todoContent = `<div class='white-text card-content' style='text-align: justify;'>
+            ` +
+                data[i]["todo"] +
+                `
+            </div>`;
+        }
 
         $("." + container + "").append(
             `<div class='col s12 m8' id=` +
@@ -36,27 +50,22 @@ function loadTodos(container, data, totalCards) {
                         </li>
                         <li><a style="color: green;" id=` +
             data[i]["todoId"] +
-            `><i class='material-icons left green-text'>check</i>Completed</a>
+            ` onclick=todoComplete(this.id)><i class='material-icons left green-text'>check</i>Completed</a>
                         </li>
                         <li><a style="color: #ff9800;" id=` +
             data[i]["todoId"] +
-            `><i class='material-icons left orange-text'>close</i>Pending</a>
+            ` onclick=todoPending(this.id)><i class='material-icons left orange-text'>close</i>Pending</a>
                         </li>
                     </ul>
 
                 </div>
             </div>
-
-            <div class='white-text card-content' style='text-align: justify'>
-            ` +
-            data[i]["todo"] +
-            `
-            </div>
+            ${todoContent}
             <br>
                     <div class="divider"></div>
-                    <div class=" ` +
+                    <div class="` +
             statusArr[data[i]["status"]] +
-            `right-align" style="margin-top: 10px;font-weight: 700;">
+            `right-align todoStatus" style="margin-top: 10px;font-weight: 700;">
                     Status: ` + data[i]["status"] + `
                     </div>
         </div>

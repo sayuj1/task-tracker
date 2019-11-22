@@ -87,6 +87,7 @@ function loadTheLatestTodo(loadLocation) {
                 outDuration: 225,
             });
 
+            // adding spinning animation
             $('.todo-setting-trigger').on('click', function() {
                 $('.todo-setting-trigger > i').addClass('setting-spin');
                 setTimeout(() => {
@@ -103,7 +104,7 @@ function loadTheLatestTodo(loadLocation) {
 
 $("#todo-btn").on("click", function() {
     let todo = $("#todo-box").val();
-    console.log(todo);
+    // console.log(todo);
     if (todo) {
         //send the data
         $.ajax({
