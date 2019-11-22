@@ -74,7 +74,7 @@ $conn = openConn();
         <!-- top bar -->
         <div class='top-bar'>
             <div class="valign-wrapper">
-                <div class="left-align" style="width:50%;margin-left: 5px;">Task Tracker</div>
+                <div class="left-align" style="width:50%;margin-left: 5px;">Task-Tracker</div>
                 <div class="right-align" style="width:50%;margin-right: 5px;">
 
                     <!-- Dropdown Trigger -->

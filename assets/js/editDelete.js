@@ -232,7 +232,7 @@ function deleteCard(card_id) {
                 removeCard(card_id);
                 // console.log('deleted');
                 //TODO: call a modal to show the deletion information
-                // display info message
+                // display delete message
                 var deleteModal = document.querySelector("#modal4");
                 var deleteInstance = M.Modal.getInstance(deleteModal);
 

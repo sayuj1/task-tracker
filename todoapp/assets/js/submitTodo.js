@@ -10,7 +10,7 @@ function prependTheLatestTodo(container, data) {
         `<div class='col s12 m8' id=` +
         data[0]["todoId"] +
         `>
-        <div class='card-panel pink flow-text'>
+        <div class='card-panel red accent-3 flow-text'>
             <div class="row">
                 <div class="left-align col s6 white-text flow-text">
                 ` +

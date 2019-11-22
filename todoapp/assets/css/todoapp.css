@@ -1,0 +1,93 @@
+.todo-setting-trigger {
+    cursor: pointer;
+}
+
+.edit-todo:hover {
+    background-color: red;
+}
+
+[id*="todo-setting"] {
+    width: 178px !important;
+}
+
+.setting-spin {
+    -webkit-animation-name: spin;
+    -webkit-animation-duration: 300ms;
+    -webkit-animation-iteration-count: finite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: spin;
+    -moz-animation-duration: 300ms;
+    -moz-animation-iteration-count: finite;
+    -moz-animation-timing-function: linear;
+    -ms-animation-name: spin;
+    -ms-animation-duration: 300ms;
+    -ms-animation-iteration-count: finite;
+    -ms-animation-timing-function: linear;
+    animation-name: spin;
+    animation-duration: 300ms;
+    animation-iteration-count: finite;
+    animation-timing-function: linear;
+}
+
+@-ms-keyframes spin {
+    from {
+        -ms-transform: rotate(0deg);
+    }
+    to {
+        -ms-transform: rotate(360deg);
+    }
+}
+
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+    to {
+        -moz-transform: rotate(45deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(45deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(45deg);
+    }
+}
+
+.card-content {
+    max-height: 180px !important;
+    overflow-y: auto !important;
+    text-align: justify;
+    /* white-space: pre-wrap !important; */
+}
+
+@media screen and (min-width: 640px) {
+     ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+    /* Track */
+     ::-webkit-scrollbar-track {
+        /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3); */
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+    }
+    /* Handle */
+     ::-webkit-scrollbar-thumb {
+        -webkit-border-radius: 50px;
+        border-radius: 50px;
+        background: lightgrey;
+        -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+    }
+}

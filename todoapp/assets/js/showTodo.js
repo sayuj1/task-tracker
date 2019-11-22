@@ -11,7 +11,7 @@ function loadTodos(container, data, totalCards) {
             `<div class='col s12 m8' id=` +
             data[i]["todoId"] +
             `>
-        <div class='card-panel pink flow-text'>
+        <div class='card-panel red accent-3 flow-text'>
             <div class="row">
                 <div class="left-align col s6 white-text flow-text">
                 ` +
@@ -32,7 +32,7 @@ function loadTodos(container, data, totalCards) {
                         </li>
                         <li><a style="color: red;" id=` +
             data[i]["todoId"] +
-            `><i class='material-icons left red-text'>delete</i>Delete</a>
+            ` onclick=todoDelete(this.id)><i class='material-icons left red-text'>delete</i>Delete</a>
                         </li>
                         <li><a style="color: green;" id=` +
             data[i]["todoId"] +
@@ -44,7 +44,7 @@ function loadTodos(container, data, totalCards) {
                 </div>
             </div>
 
-            <div class='white-text' style='text-align: justify'>
+            <div class='white-text card-content' style='text-align: justify'>
             ` +
             data[i]["todo"] +
             `

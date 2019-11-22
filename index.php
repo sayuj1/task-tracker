@@ -116,7 +116,7 @@ $con = openConn();
         <div class='top-bar row justify-content-md-center'>
 
             <div class="col align-self-center">
-                My Notebook
+                Task-Tracker
             </div>
 
         </div>
