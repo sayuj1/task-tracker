@@ -27,7 +27,18 @@ $conn = todoOpenConn();
 <body>
     <div class='container' style='margin-top: 20px;'>
 
-        <!-- Showing the confirmation of card deletion -->
+        <!-- Showing the confirmation of todo creation -->
+        <div id="createTodoModal" class="modal">
+            <div class="modal-content center-align">
+                <h4>Todo Created Successfully!</h4>
+            </div>
+
+            <div class="modal-footer" style="text-align: center">
+                <button type="button" class="modal-close waves-effect waves-teal btn blue darken-1">OK</button>
+            </div>
+        </div>
+
+        <!-- Showing the confirmation of todo deletion -->
         <div id="deleteTodoModal" class="modal">
             <div class="modal-content center-align">
                 <h4>Todo Deleted Successfully!</h4>

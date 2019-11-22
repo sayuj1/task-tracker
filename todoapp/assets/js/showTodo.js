@@ -38,7 +38,10 @@ function loadTodos(container, data, totalCards) {
             data[i]["todoId"] +
             `><i class='material-icons left green-text'>check</i>Completed</a>
                         </li>
-
+                        <li><a style="color: #ff9800;" id=` +
+            data[i]["todoId"] +
+            `><i class='material-icons left orange-text'>close</i>Pending</a>
+                        </li>
                     </ul>
 
                 </div>

@@ -31,13 +31,16 @@ function prependTheLatestTodo(container, data) {
                         </li>
                         <li><a style="color: red;" id=` +
         data[0]["todoId"] +
-        `><i class='material-icons left red-text'>delete</i>Delete</a>
+        ` onclick=todoDelete(this.id)><i class='material-icons left red-text'>delete</i>Delete</a>
                         </li>
                         <li><a style="color: green;" id=` +
         data[0]["todoId"] +
         `><i class='material-icons left green-text'>check</i>Completed</a>
                         </li>
-
+                        <li><a style="color: #ff9800;" id=` +
+        data[0]["todoId"] +
+        `><i class='material-icons left orange-text'>close</i>Pending</a>
+                        </li>
                     </ul>
 
                 </div>
@@ -66,9 +69,14 @@ function loadTheLatestTodo(loadLocation) {
         url: loadLocation,
         dataType: "json",
         success: function(data) {
-            console.log(data[0]);
+            // console.log(data[0]);
             prependTheLatestTodo("display-todo", data);
 
+            // showing creation message
+            let createModal = document.querySelector("#createTodoModal");
+            let createInstance = M.Modal.getInstance(createModal);
+
+            createInstance.open();
             // initializing dropdown
             $('.todo-setting-trigger').dropdown();
 
