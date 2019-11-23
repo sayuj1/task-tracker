@@ -25,7 +25,7 @@ function loadTodos(container, data, totalCards) {
             `<div class='col s12 m8' id=` +
             data[i]["todoId"] +
             `>
-        <div class='card-panel red accent-3 flow-text'>
+        <div class='card-panel flow-text'>
             <div class="row">
                 <div class="left-align col s6 white-text flow-text">
                 ` +
