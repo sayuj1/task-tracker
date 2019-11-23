@@ -112,13 +112,6 @@ function loadTodoData() {
                 constrainWidth: "false"
             });
 
-            // $('.todo-setting-trigger').on('click', function() {
-            //     $('.todo-setting-trigger > i').addClass('setting-spin');
-            //     setTimeout(() => {
-            //         $('.todo-setting-trigger > i').removeClass('setting-spin');
-            //     }, 500);
-            // });
-
         },
         error: function(err) {
             console.log(err);

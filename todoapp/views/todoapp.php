@@ -21,10 +21,51 @@ $conn = todoOpenConn();
     <link rel="stylesheet" href="../assets/css/todoapp.css">
     <!--Import materialize.css-->
     <link type='text/css' rel='stylesheet' href='../assets/css/materialize.min.css' media='screen,projection' />
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
+    .top-bar {
+        background-color: #1a1a1d;
+        height: 50px;
+        color: white;
+        font-size: 2rem;
+    }
+    .todo-setting-btn{
+        cursor: pointer;
+    }
+    </style>
 </head>
 
 <body>
+
+    <!-- top bar -->
+    <div class='top-bar'>
+        <div class="valign-wrapper">
+            <div class="left-align" style="width:50%;margin-left: 5px;">My-Todo</div>
+            <div class="right-align" style="width:50%;margin-right: 5px;">
+
+                <!-- Dropdown Trigger -->
+                <a class='dropdown-trigger btn' href='#' data-target='dropdown1'>Howdy,
+                    <?php echo $_SESSION['username'] ?>
+                    <i class="material-icons right">arrow_drop_down</i>
+                </a>
+
+                <!-- Dropdown Structure -->
+                <ul id='dropdown1' class='dropdown-content'>
+                    <li><a id="task-tracker-btn"><i class="material-icons left">person</i>Task-Tracker</a>
+                    </li>
+                    <li class="divider" tabindex="-1"></li>
+                    <li><a href="../../logout/logout.php"><i class="material-icons left">account_circle</i>Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
     <div class='container' style='margin-top: 20px;'>
 
         <!-- Showing the confirmation of todo creation -->
@@ -85,12 +126,17 @@ $conn = todoOpenConn();
 
 <script>
 $(document).ready(function() {
-
+    // initializing dropdown
+    $('.dropdown-trigger').dropdown();
     //loading todos
     loadTodoData();
 
     // initializing modal 
     $('.modal').modal();
+
+    $('#task-tracker-btn').on('click', function(){
+        window.location.href = "../../views/mainPage.php";
+    });
 
 
 });
