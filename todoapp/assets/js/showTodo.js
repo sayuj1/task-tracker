@@ -34,7 +34,7 @@ function loadTodos(container, data, totalCards) {
                 </div>
                 <div class='right-align col s6'>
                     <!-- Dropdown Trigger -->
-                    <a class='todo-setting-trigger' data-target='todo-setting` + data[i]["todoId"] + `'>
+                    <a class='todo-setting-btn todo-setting-trigger` + data[i]["todoId"] + `' data-target='todo-setting` + data[i]["todoId"] + `'>
                         <i class='material-icons white-text'>settings</i>
                     </a>
 
@@ -71,6 +71,12 @@ function loadTodos(container, data, totalCards) {
         </div>
     </div>`
         );
+        $('.todo-setting-trigger' + data[i]["todoId"] + '').on('click', function() {
+            $('.todo-setting-trigger' + data[i]["todoId"] + ' > i').addClass('setting-spin');
+            setTimeout(() => {
+                $('.todo-setting-trigger' + data[i]["todoId"] + ' > i').removeClass('setting-spin');
+            }, 500);
+        });
 
     }
 }
@@ -96,22 +102,22 @@ function loadTodoData() {
             loadTodos(container, data, data.length);
 
             // initializing dropdown
-            $('.todo-setting-trigger').dropdown();
+            $('.todo-setting-btn').dropdown();
 
             // setting up the dropdown menu
-            let todoSettingTrigger = document.querySelectorAll('.todo-setting-trigger');
+            let todoSettingTrigger = document.querySelectorAll('.todo-setting-btn');
             let todoSettingInstance = M.Dropdown.init(todoSettingTrigger, {
                 inDuration: 700,
                 outDuration: 225,
                 constrainWidth: "false"
             });
 
-            $('.todo-setting-trigger').on('click', function() {
-                $('.todo-setting-trigger > i').addClass('setting-spin');
-                setTimeout(() => {
-                    $('.todo-setting-trigger > i').removeClass('setting-spin');
-                }, 500);
-            });
+            // $('.todo-setting-trigger').on('click', function() {
+            //     $('.todo-setting-trigger > i').addClass('setting-spin');
+            //     setTimeout(() => {
+            //         $('.todo-setting-trigger > i').removeClass('setting-spin');
+            //     }, 500);
+            // });
 
         },
         error: function(err) {

@@ -19,7 +19,7 @@ function prependTheLatestTodo(container, data) {
             </div>
             <div class='right-align col s6'>
                 <!-- Dropdown Trigger -->
-                <a class='todo-setting-trigger' data-target='todo-setting` + data[0]["todoId"] + `'>
+                <a class='todo-setting-btn todo-setting-trigger` + data[0]["todoId"] + `' data-target='todo-setting` + data[0]["todoId"] + `'>
                     <i class='material-icons white-text'>settings</i>
                 </a>
 
@@ -57,6 +57,12 @@ function prependTheLatestTodo(container, data) {
     </div>
 </div>`
     );
+    $('.todo-setting-trigger' + data[0]["todoId"] + '').on('click', function() {
+        $('.todo-setting-trigger' + data[0]["todoId"] + ' > i').addClass('setting-spin');
+        setTimeout(() => {
+            $('.todo-setting-trigger' + data[0]["todoId"] + ' > i').removeClass('setting-spin');
+        }, 500);
+    });
 }
 
 function loadTheLatestTodo(loadLocation) {
@@ -77,19 +83,12 @@ function loadTheLatestTodo(loadLocation) {
             $('.todo-setting-trigger').dropdown();
 
             // setting up the dropdown menu
-            let todoSettingTrigger = document.querySelectorAll('.todo-setting-trigger');
+            let todoSettingTrigger = document.querySelectorAll('.todo-setting-btn');
             let todoSettingInstance = M.Dropdown.init(todoSettingTrigger, {
                 inDuration: 700,
                 outDuration: 225,
             });
 
-            // adding spinning animation
-            $('.todo-setting-trigger').on('click', function() {
-                $('.todo-setting-trigger > i').addClass('setting-spin');
-                setTimeout(() => {
-                    $('.todo-setting-trigger > i').removeClass('setting-spin');
-                }, 500);
-            });
         },
         error: function(err) {
             // console.log(err);
