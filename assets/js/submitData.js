@@ -86,69 +86,91 @@ function loadTheLatestCard(loadLocation) {
             if ($('.card-tasks')[0].style.display == "block") {
                 $("#all-cards").prepend(`
       <div class="row" id="latest-card-loader">
-      <div class="col s12 m6">
-            <div class="ui fluid placeholder" >
-            <div class="image header">
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            <div class="paragraph">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            <div class="paragraph">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            <div class="paragraph">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            </div>
-            </div>
+                <div class="col s12 m6">
+                    <div class="ui raised segment">
+                        <div class="ui fluid placeholder">
+                            <div class="image header">
+                                <div class="line"></div>
+                                <div class="line"></div>
+                            </div>
+                            <div class="paragraph">
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                            </div>
+                            <div class="paragraph">
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                            </div>
+                            <div class="paragraph">
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                            </div>
+                            <div class="paragraph">
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                            </div>
+                            <div class="paragraph">
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             `)
             } else {
                 $("#filter-cards").prepend(`
-      <div class="row" id="latest-card-loader">
-      <div class="col s12 m6">
-            <div class="ui fluid placeholder" >
-            <div class="image header">
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            <div class="paragraph">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            <div class="paragraph">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            <div class="paragraph">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            </div>
-            </div>
+                <div class="row" id="latest-card-loader">
+                <div class="col s12 m6">
+                    <div class="ui raised segment">
+                        <div class="ui fluid placeholder">
+                            <div class="image header">
+                                <div class="line"></div>
+                                <div class="line"></div>
+                            </div>
+                            <div class="paragraph">
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                            </div>
+                            <div class="paragraph">
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                            </div>
+                            <div class="paragraph">
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                            </div>
+                            <div class="paragraph">
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                            </div>
+                            <div class="paragraph">
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             `)
             }

@@ -195,27 +195,27 @@ $conn = todoOpenConn();
 
             <!-- todo preloader -->
             <div class="row todo-loader" style="display: none;">
-            <div class="col s12 m8">
-                <div class="ui raised segment">
-                    <div class="ui fluid placeholder">
-                        <div class="image header">
-                            <div class="line"></div>
-                            <div class="line"></div>
-                        </div>
-                        <div class="paragraph">
-                        <div class="full line"></div>
-                        <div class="full line"></div>
-                        <div class="full line"></div>
-                        <div class="full line"></div>
+                <div class="col s12 m8">
+                    <div class="ui raised segment">
+                        <div class="ui fluid placeholder">
+                            <div class="image header">
+                                <div class="line"></div>
+                                <div class="line"></div>
+                            </div>
+                            <div class="paragraph">
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                                <div class="full line"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            </div>
             <br>
             <!-- contain all tasks -->
             <div class='row display-todo' style="display: none;">
-            
+
             </div> <!-- row -->
 
 

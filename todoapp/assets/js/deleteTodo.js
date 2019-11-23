@@ -13,12 +13,13 @@ function todoDelete(todoID) {
         beforeSend: function() {
             $("#" + todoID + "").eq(0).prepend(`
             <span id="edit-todo-loader" style="
-            left: 25%;
+            left: 20%;
             position: absolute;
             margin-top: 50px;
             z-index: 99999;
-            font-size: 2rem;
-            font-weight: 700;"><div class="ui active inline loader"></div> Deleting Todo...</span>`);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;"><div class="ui active inline loader"></div> Deleting Todo...</span>`);
             $("div[id=" + todoID + "] > .card-panel")[0].style.setProperty("filter", "blur(3px)");
         },
         complete: function() {

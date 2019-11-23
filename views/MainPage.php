@@ -24,6 +24,7 @@ $conn = openConn();
     <!--Import Semantic-UI Loader -->
     <link rel="stylesheet" href="../assets/css/loader.min.css">
     <link rel="stylesheet" href="../assets/css/placeholder.min.css">
+    <link rel="stylesheet" href="../assets/css/segment.min.css">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Import Customize CSS -->
