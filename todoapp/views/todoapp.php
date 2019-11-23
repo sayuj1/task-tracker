@@ -57,7 +57,7 @@ $conn = todoOpenConn();
 
                 <!-- Dropdown Structure -->
                 <ul id='dropdown1' class='dropdown-content'>
-                    <li><a id="task-tracker-btn"><i class="material-icons left">person</i>Task-Tracker</a>
+                    <li><a id="task-tracker-btn"><i class="material-icons left">event_note</i>Task-Tracker</a>
                     </li>
                     <li class="divider" tabindex="-1"></li>
                     <li><a href="../../logout/logout.php"><i class="material-icons left">account_circle</i>Logout</a>
