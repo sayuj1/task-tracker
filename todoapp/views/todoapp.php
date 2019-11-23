@@ -18,6 +18,8 @@ $conn = todoOpenConn();
     <title>TodoApp</title>
     <!--Import Semantic-UI Loader -->
     <link rel="stylesheet" href="../assets/css/loader.min.css">
+    <link rel="stylesheet" href="../assets/css/placeholder.min.css">
+    <link rel="stylesheet" href="../assets/css/segment.min.css">
     <!--Import Google Icon Font-->
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
     <!-- Import Customize CSS -->
@@ -50,17 +52,18 @@ $conn = todoOpenConn();
     .todo-setting-btn {
         cursor: pointer;
     }
-    .preloader-wrapper.big {
-    width: 100px;
-    height: 100px;
-}
 
-@media screen and (min-width: 640px) {
     .preloader-wrapper.big {
-    width: 250px;
-    height: 250px;
+        width: 100px;
+        height: 100px;
     }
-}
+
+    @media screen and (min-width: 640px) {
+        .preloader-wrapper.big {
+            width: 250px;
+            height: 250px;
+        }
+    }
     </style>
 </head>
 
@@ -190,9 +193,29 @@ $conn = todoOpenConn();
                 <h1> Loading Todos... </h1>
             </div>
 
+            <!-- todo preloader -->
+            <div class="row todo-loader" style="display: none;">
+            <div class="col s12 m8">
+                <div class="ui raised segment">
+                    <div class="ui fluid placeholder">
+                        <div class="image header">
+                            <div class="line"></div>
+                            <div class="line"></div>
+                        </div>
+                        <div class="paragraph">
+                        <div class="full line"></div>
+                        <div class="full line"></div>
+                        <div class="full line"></div>
+                        <div class="full line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <br>
             <!-- contain all tasks -->
             <div class='row display-todo' style="display: none;">
-
+            
             </div> <!-- row -->
 
 
