@@ -104,6 +104,8 @@ $conn = todoOpenConn();
             </form>
         </div>
 
+        <div class="row no-todo-found"></div>
+         
         <div class='row display-todo'>
 
         </div> <!-- row -->

@@ -72,6 +72,8 @@ function loadTheLatestTodo(loadLocation) {
         dataType: "json",
         success: function(data) {
             // console.log(data[0]);
+            $('.no-todo-found').empty();
+
             prependTheLatestTodo("display-todo", data);
 
             // showing creation message

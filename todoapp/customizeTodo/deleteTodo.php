@@ -11,7 +11,12 @@ $todoID = $_GET['todoID'];
 $q = "DELETE FROM `todoTask` WHERE username='".$username."' AND todoid='".$todoID."'";
 $r = mysqli_query( $conn, $q );
 if ( $r ) {
-    echo 'successful';
+    $q1 = "SELECT * FROM `todotask` WHERE username = '".$username."'";
+    $r1 = mysqli_query( $conn, $q1 );
+    $count = mysqli_num_rows( $r1 );
+    echo 'successful::'.$count;
+    ;
+
 } else {
     echo 'failed';
 }
