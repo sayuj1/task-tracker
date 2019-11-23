@@ -1,9 +1,25 @@
+// setting status complete
 function todoComplete(todoID) {
     // alert(todoID);
     $.ajax({
         type: "post",
         url: "../customizeTodo/statusUpdateTodo.php",
         data: { todoStatus: "Complete", todoID: todoID },
+        beforeSend: function() {
+            $("#" + todoID + "").eq(0).prepend(`
+            <span id="edit-todo-loader" style="
+            left: 25%;
+            position: absolute;
+            margin-top: 50px;
+            z-index: 99999;
+            font-size: 2rem;
+            font-weight: 700;"><div class="ui active inline loader"></div> Updating Status...</span>`);
+            $("div[id=" + todoID + "] > .card-panel")[0].style.setProperty("filter", "blur(3px)");
+        },
+        complete: function() {
+            $("#edit-todo-loader").remove();
+            $("div[id=" + todoID + "] > .card-panel")[0].style.setProperty("filter", "blur(0px)");
+        },
         success: function(data) {
             if (data == "updationSuccessful") {
                 // $("div[id=" + todoID + "]")[0].style.setProperty("text-decoration", "line-through");
@@ -25,11 +41,27 @@ function todoComplete(todoID) {
     });
 }
 
+// setting status pending
 function todoPending(todoID) {
     $.ajax({
         type: "post",
         url: "../customizeTodo/statusUpdateTodo.php",
         data: { todoStatus: "Pending", todoID: todoID },
+        beforeSend: function() {
+            $("#" + todoID + "").eq(0).prepend(`
+            <span id="edit-todo-loader" style="
+            left: 25%;
+            position: absolute;
+            margin-top: 50px;
+            z-index: 99999;
+            font-size: 2rem;
+            font-weight: 700;"><div class="ui active inline loader"></div> Updating Status...</span>`);
+            $("div[id=" + todoID + "] > .card-panel")[0].style.setProperty("filter", "blur(3px)");
+        },
+        complete: function() {
+            $("#edit-todo-loader").remove();
+            $("div[id=" + todoID + "] > .card-panel")[0].style.setProperty("filter", "blur(0px)");
+        },
         success: function(data) {
             if (data == "updationSuccessful") {
                 // $("div[id=" + todoID + "]")[0].style.setProperty("text-decoration", "line-through");

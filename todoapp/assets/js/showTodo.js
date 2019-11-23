@@ -89,10 +89,11 @@ function loadTodoData() {
         url: "../getTodoData/getTodoData.php",
         dataType: "json",
         beforeSend: function() {
-
+            $("#todo-loading").show();
         },
         complete: function() {
-
+            $("#todo-loading").hide();
+            $('.display-todo').show();
         },
         success: function(data) {
             // console.log("data received");
@@ -115,7 +116,6 @@ function loadTodoData() {
         },
         error: function(err) {
             // console.log(err);
-
             // if no todo found
             $('.no-todo-found').html("<h3 class='col push-m2'> No Todo Found!</h3>");
 

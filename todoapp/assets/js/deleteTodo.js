@@ -10,6 +10,20 @@ function todoDelete(todoID) {
         type: "get",
         url: "../customizeTodo/deleteTodo.php   ",
         data: { todoID: todoID },
+        beforeSend: function() {
+            $("#" + todoID + "").eq(0).prepend(`
+            <span id="edit-todo-loader" style="
+            left: 25%;
+            position: absolute;
+            margin-top: 50px;
+            z-index: 99999;
+            font-size: 2rem;
+            font-weight: 700;"><div class="ui active inline loader"></div> Deleting Todo...</span>`);
+            $("div[id=" + todoID + "] > .card-panel")[0].style.setProperty("filter", "blur(3px)");
+        },
+        complete: function() {
+            $("#edit-todo-loader").remove();
+        },
         success: function(data) {
             if (data.split("::")[0] == "successful") {
                 // showing deletion message

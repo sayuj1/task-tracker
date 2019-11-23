@@ -11,8 +11,23 @@ function submitTodoEdit(todoID) {
         type: "post",
         url: "../customizeTodo/editTodo.php",
         data: { todoID: todoID, todoContent: todoContent },
+        beforeSend: function() {
+            $("#" + todoID + "").eq(0).prepend(`
+            <span id="edit-todo-loader" style="
+            left: 25%;
+            position: absolute;
+            margin-top: 50px;
+            z-index: 99999;
+            font-size: 2rem;
+            font-weight: 700;"><div class="ui active inline loader"></div> Updating Todo...</span>`);
+            $("div[id=" + todoID + "] > .card-panel")[0].style.setProperty("filter", "blur(3px)");
+        },
+        complete: function() {
+            $("#edit-todo-loader").remove();
+            $("div[id=" + todoID + "] > .card-panel")[0].style.setProperty("filter", "blur(0px)");
+        },
         success: function(data) {
-            console.log(data);
+            // console.log(data);
             if (data == "updationSuccessful") {
 
                 updateEditTodo(todoID);
@@ -44,14 +59,29 @@ function loadEditTodo(todoID) {
         type: "get",
         url: "../getTodoData/getTodoDataByID.php",
         data: { todoID: todoID },
+        beforeSend: function() {
+            $("#" + todoID + "").eq(0).prepend(`
+            <span id="edit-todo-loader" style="
+            left: 25%;
+            position: absolute;
+            margin-top: 50px;
+            z-index: 99999;
+            font-size: 2rem;
+            font-weight: 700;"><div class="ui active inline loader"></div> Loading Todo...</span>`);
+            $("div[id=" + todoID + "] > .card-panel")[0].style.setProperty("filter", "blur(3px)");
+        },
+        complete: function() {
+            $("#edit-todo-loader").remove();
+            $("div[id=" + todoID + "] > .card-panel")[0].style.setProperty("filter", "blur(0px)");
+        },
         success: function(data) {
-            console.log(data)
+            // console.log(data);
             let parsedData = JSON.parse(data);
 
             let todoContentBox = $("div[id=" + todoID + "] > .card-panel > .card-content")[0];
             todoContentBox.innerText = parsedData[0].todo;
 
-            console.log(data);
+            // console.log(data);
         },
         error: function(err) {
             console.error(err);
