@@ -2,6 +2,7 @@
 
 session_start();
 include_once '../dbconfig/todoDBconfig.php';
+include_once '../loginCheck.php';
 
 $conn = todoOpenConn();
 

@@ -4,6 +4,7 @@
 
 session_start();
 include_once '../dbconfig/dbconfig.php';
+include_once '../loginRegister/loginCheck.php';
 
 $conn = openConn();
 

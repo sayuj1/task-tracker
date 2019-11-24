@@ -1,6 +1,8 @@
 <?php
+
 session_start();
 include_once '../dbconfig/dbconfig.php';
+include_once '../loginRegister/loginCheck.php';
 
 // opening database connection
 $conn = openConn();
