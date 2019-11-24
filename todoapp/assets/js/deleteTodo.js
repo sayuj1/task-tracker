@@ -8,7 +8,7 @@ function todoDelete(todoID) {
     // alert("rech" + todoID);
     $.ajax({
         type: "get",
-        url: "../customizeTodo/deleteTodo.php   ",
+        url: "../customizeTodo/deleteTodo.php",
         data: { todoID: todoID },
         beforeSend: function() {
             $("#" + todoID + "").eq(0).prepend(`

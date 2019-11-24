@@ -31,7 +31,8 @@ $("form").on("submit", function(e) {
                     $("#password")[0].style.setProperty("border", "none");
                 }
 
-                window.location.href = "./views/MainPage.php";
+                window.location.href = "./views/mainPage.php";
+
             } else if (data == "InvalidUsername") {
                 // showing error
                 if ($("#user-error").length) {
