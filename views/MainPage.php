@@ -420,31 +420,31 @@ $conn = openConn();
 
                         <!-- Dropdown Structure -->
                         <ul id='dropdown3' class='dropdown-content'>
-                            <li><a class="all-tasks-btn"><i class="material-icons left">person</i>All Tasks</a>
+                        <li><a class="all-tasks-btn"><i class="material-icons">
+                                        assignment
+                                    </i>All Tasks</a>
                             </li>
                             <!-- <li><a id="view-profile-btn"><i class="material-icons left">person</i>Today Tasks</a>
                         </li>
                         <li><a id="view-detail-btn"><i class="material-icons left">dashboard</i>Yesterday Tasks</a></li> -->
                             <li class="divider" tabindex="-1"></li>
-                            <li><a class="latest-tasks"><i class="material-icons left">account_circle</i>Latest
+                            <li><a class="latest-tasks"><i class="sort amount down icon"></i>Latest Tasks</a>
+                            </li>
+                            <li><a class="oldest-tasks"><i class="vertically flipped sort amount up icon"></i>Oldest
                                     Tasks</a>
                             </li>
-                            <li><a class="oldest-tasks"><i class="material-icons left">account_circle</i>Oldest
+                            <li><a class="ongoing-tasks-btn"><i class="play circle icon"></i>Ongoing Tasks</a>
+                            </li>
+                            <li><a class="pause-tasks-btn"><i class="pause icon"></i>Pause Tasks</a>
+                            </li>
+                            <li><a class="delayed-tasks-btn"><i class="ban icon"></i>Delayed Tasks</a>
+                            </li>
+                            <li><a class="stopped-tasks-btn"><i class="stop icon"></i>Stopped Tasks</a>
+                            </li>
+                            <li><a class="completed-tasks-btn"><i class="check circle icon"></i>Completed
                                     Tasks</a>
                             </li>
-                            <li><a class="ongoing-tasks-btn"><i class="material-icons left">person</i>Ongoing Tasks</a>
-                            </li>
-                            <li><a class="pause-tasks-btn"><i class="material-icons left">person</i>Pause Tasks</a>
-                            </li>
-                            <li><a class="delayed-tasks-btn"><i class="material-icons left">person</i>Delayed Tasks</a>
-                            </li>
-                            <li><a class="stopped-tasks-btn"><i class="material-icons left">person</i>Stopped Tasks</a>
-                            </li>
-                            <li><a class="completed-tasks-btn"><i class="material-icons left">person</i>Completed
-                                    Tasks</a>
-                            </li>
-                            <li><a class="notstartedyet-tasks-btn"><i class="material-icons left">person</i>Not Started
-                                    Yet
+                            <li><a class="notstartedyet-tasks-btn"><i class="close icon"></i>Not Started Yet
                                     Tasks</a>
                             </li>
                         </ul>
