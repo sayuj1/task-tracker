@@ -27,10 +27,10 @@ function todoComplete(todoID) {
                 $("div[id=" + todoID + "] > .card-panel > .card-content")[0].style.setProperty("text-decoration", "line-through");
 
                 // updating status text
-                $("div[id=" + todoID + "] > .card-panel > .todoStatus")[0].textContent = "Status: Complete";
+                $("div[id=" + todoID + "] > .card-panel > .todoStatus > .status")[0].textContent = "Status: Complete";
 
                 // updating status color
-                $("div[id=" + todoID + "] > .card-panel > .todoStatus").addClass('green-text text-accent-2').removeClass('yellow-text');
+                $("div[id=" + todoID + "] > .card-panel > .todoStatus > .status").addClass('green-text text-accent-2').removeClass('yellow-text');
             } else {
                 console.log(data);
                 alert('something went wrong!');
@@ -70,10 +70,10 @@ function todoPending(todoID) {
                 $("div[id=" + todoID + "] > .card-panel > .card-content")[0].style.setProperty("text-decoration", "none");
 
                 // updating status text
-                $("div[id=" + todoID + "] > .card-panel > .todoStatus")[0].textContent = "Status: Pending";
+                $("div[id=" + todoID + "] > .card-panel > .todoStatus > .status")[0].textContent = "Status: Pending";
 
                 // updating status color
-                $("div[id=" + todoID + "] > .card-panel > .todoStatus").addClass('yellow-text').removeClass('green-text text-accent-2');
+                $("div[id=" + todoID + "] > .card-panel > .todoStatus > .status").addClass('yellow-text').removeClass('green-text text-accent-2');
             } else {
                 console.log(data);
                 alert('something went wrong!');

@@ -1,6 +1,21 @@
+// updating image path
+function updateImagePath(image) {
+    //* before displaying image setting img path from absolute to relative
+    // console.log(image);
+    let img = image;
+    let imgSplit = [];
+    imgSplit = img.split("/");
+    let imgSplitLen = imgSplit.length;
+    let imgRelativePath = ["..", "..", imgSplit[imgSplitLen - 2], imgSplit[imgSplitLen - 1]];
+    return imgRelativePath.join("/");
+}
+
 // display all the cards of the user received from the server
 function loadTodos(container, data, totalCards) {
-    for (let i = 0; i < totalCards; i++) {
+    let profileImg = data.pop();
+
+    let finalImgPath = updateImagePath(profileImg["profileImg"]);
+    for (let i = 0; i < totalCards - 1; i++) {
         // For status color
         let statusArr = {
             Pending: "yellow-text ",
@@ -63,11 +78,14 @@ function loadTodos(container, data, totalCards) {
             ${todoContent}
             <br>
                     <div class="divider"></div>
+                    <div class="center-align">
+                                
+                            </div>
                     <div class="` +
             statusArr[data[i]["status"]] +
-            `right-align todoStatus" style="margin-top: 10px;font-weight: 700;">
-                    Status: ` + data[i]["status"] + `
-                    </div>
+            `todoStatus valign-wrapper" style="margin-top: 10px;font-weight: 700;">
+            <img src=` + finalImgPath + ` alt="img not supported!" class="profile-img"><span class="status">Status: ` + data[i]["status"] + `
+                    </span></div>
         </div>
     </div>`
         );
@@ -115,7 +133,7 @@ function loadTodoData() {
 
         },
         error: function(err) {
-            // console.log(err);
+            console.log(err);
             // if no todo found
             $('.no-todo-found').html("<h3 class='col push-m2'> No Todo Found!</h3>");
 

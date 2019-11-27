@@ -1,5 +1,21 @@
+// updating image path
+function updateImagePath(image) {
+    //* before displaying image setting img path from absolute to relative
+    console.log(image);
+    let img = image;
+    let imgSplit = [];
+    imgSplit = img.split("/");
+    let imgSplitLen = imgSplit.length;
+    let imgRelativePath = ["..", "..", imgSplit[imgSplitLen - 2], imgSplit[imgSplitLen - 1]];
+    return imgRelativePath.join("/");
+}
+
 // function to prepend the latest card
 function prependTheLatestTodo(container, data) {
+    let profileImg = data.pop();
+
+    let finalImgPath = updateImagePath(profileImg["profileImg"]);
+
     // For status color
     let statusArr = {
         Pending: "yellow-text ",
@@ -59,10 +75,9 @@ function prependTheLatestTodo(container, data) {
             <br>
         <div class = "divider" > </div> <div class = "` +
         statusArr[data[0]["status"]] +
-        `right-align todoStatus" style="margin-top: 10px;font-weight: 700;">
-                Status: ` +
-        data[0]["status"] +
-        `
+        `right-align todoStatus valign-wrapper" style="margin-top: 10px;font-weight: 700;">
+        <img src=` + finalImgPath + ` alt="img not supported!" class="profile-img"><span class="status">Status: ` + data[0]["status"] + `
+                </span>
                 </div>
     </div>
 </div>`
