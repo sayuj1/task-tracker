@@ -38,7 +38,7 @@ if ( $img_size>5097152 )  //this size in bytes which is equivalent to 2MB
         array_push( $errors, 'InvalidImg' );
     }
 } else {
-    $path = 'assets/imgs/male1.png';
+    $path = $_SERVER['DOCUMENT_ROOT'].'/tasktracker/uploads/male1.png';
 }
 
 if ( empty( $firstname ) || empty( $lastname ) || empty( $username ) || empty( $password ) ) {
