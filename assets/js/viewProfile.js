@@ -11,6 +11,18 @@ function goToViewProfile() {
     loadProfile();
 }
 
+// updating image path
+function updateImagePath(data) {
+    //* before displaying image setting img path from absolute to relative
+    let img = data[0]["profileImg"];
+    let imgSplit = []
+    imgSplit = img.split("/");
+    let imgSplitLen = imgSplit.length;
+    let imgRelativePath = ["..", imgSplit[imgSplitLen - 2], imgSplit[imgSplitLen - 1]];
+    return imgRelativePath.join("/");
+}
+
+
 // adding event listeners after loading the dom elements
 function submitForm() {
     // updating user profile by sending data to server
@@ -155,6 +167,7 @@ function updateProfile() {
         },
         success: function(data) {
             // console.log(data);
+            let finalImgPath = updateImagePath(data);
             $(".view-profile").show();
             $(".view-profile").html(
                 `<div class='row update-card-container'>
@@ -167,7 +180,10 @@ function updateProfile() {
                             <div class='row'>
                                 <div class='card-title center-align' style='font-size: 32px;'>Update User's Profile</div>
                             </div>
-            
+                            <div class="center-align">
+                            <img src=` + finalImgPath +
+                ` alt="img not supported!" class="profile-img">
+                </div><br>
                             <div class='row flow-text black-text center-align card-main-row'>
             
                                 <div class='col s6 m6'>
@@ -263,7 +279,9 @@ function loadProfile() {
             $(".view-profile-loader").hide();
         },
         success: function(data) {
-            // console.log(data);
+            console.log(data);
+
+            let finalImgPath = updateImagePath(data);
             $(".view-profile").html(
                 `
                 <div class="row">
@@ -271,8 +289,12 @@ function loadProfile() {
                     <div class="card z-depth-3">
                         <div class="row">
                             <div class="card-title center-align" style="font-size: 32px;">User Profile</div>
+                            <div class="center-align">
+                            <img src=` + finalImgPath +
+                ` alt="img not supported!" class="profile-img">
+                </div>
                         </div>
-
+                        
                         <div class="row flow-text black-text center-align card-main-row z-depth-1">
                             <div class="col s6 m6 card-content-data">
                                 <span>Username</span>
