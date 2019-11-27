@@ -20,7 +20,7 @@ function submitTodoEdit(todoID) {
             z-index: 99999;
             font-size: 1.5rem;
             font-weight: 700;
-            color: white;"><div class="ui active inline loader"></div> Updating Todo...</span>`);
+            color: white;"><div class="ui active inline loader"></div> Updating Your Note...</span>`);
             $("div[id=" + todoID + "] > .card-panel")[0].style.setProperty("filter", "blur(3px)");
         },
         complete: function() {
@@ -40,7 +40,7 @@ function submitTodoEdit(todoID) {
 
                 $('.todoEditButton').remove();
 
-                alert("todo updated");
+                alert("Your Note updated");
 
             } else if (data == "failed") {
                 console.log(data);

@@ -91,7 +91,7 @@ $conn = openConn();
                         <li><a id="view-profile-btn"><i class="material-icons left">person</i>View Profile</a>
                         </li>
                         <li><a id="view-detail-btn"><i class="material-icons left">dashboard</i>Task Details</a></li>
-                        <li><a class="todo-btn" href="../todoapp/views/todoapp.php"><i class="large tasks icon"></i>My Todo</a></li>
+                        <li><a class="todo-btn" href="../todoapp/views/todoapp.php"><i class="large tasks icon"></i>Quick Note</a></li>
                         <li class="divider" tabindex="-1"></li>
                         <li><a href="../logout/logout.php"><i class="material-icons left">account_circle</i>Logout</a>
                         </li>

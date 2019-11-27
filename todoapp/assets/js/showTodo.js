@@ -135,7 +135,7 @@ function loadTodoData() {
         error: function(err) {
             console.log(err);
             // if no todo found
-            $('.no-todo-found').html("<h3 class='col push-m2'> No Todo Found!</h3>");
+            $('.no-todo-found').html("<h3 class='col push-m2'> No Notes Found!</h3>");
 
         }
     });

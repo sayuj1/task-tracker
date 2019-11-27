@@ -17,7 +17,7 @@ $conn = todoOpenConn();
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
     <meta charset="utf-8">
-    <title>TodoApp</title>
+    <title>Quick Note</title>
     <!--Import Semantic-UI Loader -->
     <link rel="stylesheet" href="../assets/css/loader.min.css">
     <link rel="stylesheet" href="../assets/css/placeholder.min.css">
@@ -79,7 +79,7 @@ $conn = todoOpenConn();
         <!-- top bar -->
         <div class='top-bar'>
             <div class="valign-wrapper">
-                <div class="left-align" style="width:50%;margin-left: 5px;">My-Todo</div>
+                <div class="left-align" style="width:50%;margin-left: 5px;">Quick Note</div>
                 <div class="right-align" style="width:50%;margin-right: 5px;">
 
                     <!-- Dropdown Trigger -->
@@ -106,7 +106,7 @@ $conn = todoOpenConn();
             <!-- Showing the confirmation of todo creation -->
             <div id="createTodoModal" class="modal">
                 <div class="modal-content center-align">
-                    <h4>Todo Created Successfully!</h4>
+                    <h4>Your Note Created Successfully!</h4>
                 </div>
 
                 <div class="modal-footer" style="text-align: center">
@@ -117,7 +117,7 @@ $conn = todoOpenConn();
             <!-- Showing the confirmation of todo deletion -->
             <div id="deleteTodoModal" class="modal">
                 <div class="modal-content center-align">
-                    <h4>Todo Deleted Successfully!</h4>
+                    <h4>Your Note Deleted Successfully!</h4>
                 </div>
 
                 <div class="modal-footer" style="text-align: center">
@@ -128,7 +128,7 @@ $conn = todoOpenConn();
             <div class='row'>
                 <form method='post' class="todo-form">
                     <div class='col s10 m8 flow-text'>
-                        <textarea name='todoBox' id='todo-box' cols='30' rows='30' placeholder='Add A Quick TODO...'
+                        <textarea name='todoBox' id='todo-box' cols='30' rows='30' placeholder='Add A Quick Note...'
                             style='max-width:100%;height:100px;resize:none;padding: 14px'></textarea>
 
                     </div>
@@ -192,7 +192,7 @@ $conn = todoOpenConn();
                         </div>
                     </div>
                 </div>
-                <h1> Loading Todos... </h1>
+                <h1> Loading Your Notes... </h1>
             </div>
 
             <!-- todo preloader -->

@@ -19,7 +19,7 @@ function todoDelete(todoID) {
             z-index: 99999;
             font-size: 1.5rem;
             font-weight: 700;
-            color: white;"><div class="ui active inline loader"></div> Deleting Todo...</span>`);
+            color: white;"><div class="ui active inline loader"></div> Deleting Your Note...</span>`);
             $("div[id=" + todoID + "] > .card-panel")[0].style.setProperty("filter", "blur(3px)");
         },
         complete: function() {
@@ -36,11 +36,11 @@ function todoDelete(todoID) {
 
                 if (data.split("::")[1] == 0) {
                     // if no todo found
-                    $('.no-todo-found').html("<h3 class='col push-m2'> No Todo Found!</h3>");
+                    $('.no-todo-found').html("<h3 class='col push-m2'> No Notes Found!</h3>");
                 }
 
             } else if (data.split("::")[0] == "failed") {
-                alert('failed to delete todo!');
+                alert('failed to delete your note! Try again :(');
             }
 
 
