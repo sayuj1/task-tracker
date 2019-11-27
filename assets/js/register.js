@@ -1,20 +1,32 @@
-$("form").on("submit", function (e) {
+$("form").on("submit", function(e) {
     e.preventDefault();
 
     $.ajax({
         type: "POST",
         url: "./loginRegister/register.php",
-        data: $('form').serialize(),
-        beforeSend: function () {
+        data: new FormData(this),
+        contentType: false,
+        processData: false,
+        cache: false,
+        beforeSend: function() {
             $('#Register-btn').html(`Registering User <div class="ui active inline loader"></div>`);
         },
-        complete: function () {
+        complete: function() {
             $('#Register-btn').html('Register');
         },
-        success: function (data) {
+        success: function(data) {
+            console.log(data);
             let parseData = JSON.parse(data);
             // console.log(parseData);
             //removing errors if exists
+            if ($("#img-size-error").length) {
+                $("#img-size-error").remove();
+                $("#uploadPreview")[0].style.setProperty("border", "none");
+            }
+            if ($("#img-type-error").length) {
+                $("#img-type-error").remove();
+                $("#uploadPreview")[0].style.setProperty("border", "none");
+            }
             if ($("#first-name-error").length) {
                 $("#first-name-error").remove();
                 $("#firstname")[0].style.setProperty("border", "none");
@@ -34,7 +46,13 @@ $("form").on("submit", function (e) {
 
             // checking for errors
             for (let i = 0; i < parseData.length; i++) {
-
+                if (parseData[i] == "ImgSize") {
+                    $("#uploadPreview")[0].style.setProperty("border", "5px solid red");
+                    $("<div id='img-size-error' style='color: white;text-align:center;'> Imgage Size can't be more than 5MB! </div>").insertAfter("#imglink");
+                } else if (parseData[i] == "InvalidImg") {
+                    $("#uploadPreview")[0].style.setProperty("border", "5px solid red");
+                    $("<div id='img-type-error' style='color: white;text-align:center;'> Invalid Imgage Type </div>").insertAfter("#imglink");
+                }
                 if (parseData[i] == "emptyFields") {
                     if ($("#firstname").val() == "") {
                         $("#firstname")[0].style.setProperty("border", "5px solid red");
@@ -92,10 +110,13 @@ $("form").on("submit", function (e) {
                     alert("Something went wrong!");
                 } else if (parseData[i] == "successful") {
                     // add a modal
+                    $("#imglink").val("");
+                    $("#uploadPreview")[0].src = "./assets/imgs/login.png";
                     $("#firstname").val("");
                     $("#lastname").val("");
                     $("#username").val("");
                     $("#password").val("");
+
                     alert("User Registered Successfully!");
                     // clearing fields
 
@@ -104,31 +125,31 @@ $("form").on("submit", function (e) {
             }
 
         },
-        error: function (err) {
+        error: function(err) {
             alert("Something went wrong! Sorry :(");
         }
     });
 });
 
-$('#old-account').on('click', function () {
+$('#old-account').on('click', function() {
     // alert("hi");
     $.ajax({
         type: "GET",
         url: "./views/login.php",
         dataType: "html",
-        beforeSend: function () {
+        beforeSend: function() {
             //show the loading image
             $('.login-box').html('<div class="ui active dimmer login-register-loader" ><div class = "ui huge text loader" > Loading</div></div>');
         },
-        complete: function () {
+        complete: function() {
             //hide the loading image
             $('.login-register-loader').hide();
         },
-        success: function (data) {
+        success: function(data) {
             $('.login-box').html(data);
             $.getScript("./assets/js/login.js");
         },
-        error: function (err) {
+        error: function(err) {
             console.log(err);
         }
     });

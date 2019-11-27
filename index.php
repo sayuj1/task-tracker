@@ -73,6 +73,11 @@ $con = openConn();
         font-weight: 700;
         font-size: 1.5rem;
     }
+    .login-img{
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
 
     @media screen and (max-width: 400px) {
         .login-box {
@@ -101,6 +106,12 @@ $con = openConn();
         #pass-error {
             font-size: 16px;
         }
+
+        .login-img{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
     }
     </style>
 
@@ -131,57 +142,66 @@ $con = openConn();
     </div>
 
 
-<!-- Required JS files -->
-<script src="./assets/js/jquery3.3.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
-    integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
-</script>
-<script src='./assets/js/bootstrap.min.js'></script>
-<script src='./assets/js/jquery.min.js'></script>
+    <!-- Required JS files -->
+    <script src="./assets/js/jquery3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"
+        integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous">
+    </script>
+    <script src='./assets/js/bootstrap.min.js'></script>
+    <script src='./assets/js/jquery.min.js'></script>
 
-<!-- This script is for preloading the page -->
-<script>
+    <!-- This script is for preloading the page -->
+    <script>
     // makes sure the whole site is loaded 
-    $(window).on('load', function() { 
-     $('#loader').fadeOut('slow');;
-     $('.main-container').fadeIn(1000);
-});
-  
-$(document).ready(function() {
-    
-    // loading login page
-    $.ajax({
-        async: true,
-        type: "GET",
-        url: "./views/login.php",
-        dataType: 'html',
-        beforeSend: function() {
-            //show the loading image
-            $('.login-box').html(
-                '<div class="ui active dimmer login-register-loader" ><div class = "ui huge text loader" > Loading</div></div>'
-            );
-        },
-        complete: function() {
-            //hide the loading image
-            $('.login-register-loader').hide();
-        },
-        success: function(data) {
-            // console.log(data);
-
-            $('.login-box').html(data);
-            $.getScript("./assets/js/login.js");
-            // console.log(document.querySelector('#new-account'));
-
-        },
-        error: function(err) {
-            console.log(err);
-        }
+    $(window).on('load', function() {
+        $('#loader').fadeOut('slow');;
+        $('.main-container').fadeIn(1000);
     });
 
-});
+    $(document).ready(function() {
 
-</script>
+        // loading login page
+        $.ajax({
+            async: true,
+            type: "GET",
+            url: "./views/login.php",
+            dataType: 'html',
+            beforeSend: function() {
+                //show the loading image
+                $('.login-box').html(
+                    '<div class="ui active dimmer login-register-loader" ><div class = "ui huge text loader" > Loading</div></div>'
+                );
+            },
+            complete: function() {
+                //hide the loading image
+                $('.login-register-loader').hide();
+            },
+            success: function(data) {
+                // console.log(data);
+
+                $('.login-box').html(data);
+                $.getScript("./assets/js/login.js");
+                // console.log(document.querySelector('#new-account'));
+
+            },
+            error: function(err) {
+                console.log(err);
+            }
+        });
+
+    });
+    </script>
+    <script type="text/javascript">
+    function PreviewImage() {
+        var freader = new FileReader();
+        freader.readAsDataURL(document.getElementById("imglink").files[0]);
+        freader.onload = function(frevent) {
+            document.getElementById("uploadPreview").src = frevent.target.result;
+        };
+    };
+    </script>
 </body>
+
 </html>
 
 <?php

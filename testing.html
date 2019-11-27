@@ -1,18 +1,10 @@
-<?php
-
-session_start();
-include_once '../dbconfig/dbconfig.php';
-
-$conn = openConn();
-
-echo '
-<form method="POST" enctype="multipart/form-data" action="./loginRegister/register.php" id="registerForm">
+<form method="POST">
     <div class="row">
         <div class="form-group col-sm-12" style="text-align: center;">
             <img id="uploadPreview" src="./assets/imgs/login.png" class="login-img">
             <div class="row justify-content-md-center">
                 <div class="col-sm-12 col-md-8">
-                    <input type="file" id="imglink" name="imglink" accept=".jpg, .jpeg, .png" onchange="PreviewImage()" class="form-control" style="margin-top: 10px;font-size: small;">
+                    <input type="file" id="imglink" name="imglink" accept=".jpg, .jpeg, .png" onchange="PreviewImage()" class="form-control" style="margin-top: 10px;">
                 </div>
             </div>
         </div>
@@ -55,7 +47,3 @@ echo '
         <button type="button" class="btn btn-secondary btn-lg btn-block" id="old-account">Back To Login</button>
     </div>
 </div>
-';
-
-closeConn( $conn );
-?>
