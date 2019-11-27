@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2019 at 12:43 PM
+-- Generation Time: Nov 27, 2019 at 02:27 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -74,8 +74,7 @@ INSERT INTO `cardtask` (`id`, `username`, `title`, `task`, `datestarted`, `datec
 (404, 'sayuj', 'fd', 'sadf\r\nasdf\r\n<br>\r\nva', '17 November 2019 :: 12:08:58', '0000-00-00 00:00:00', 'Ongoing', 'sdf'),
 (406, 'sayuj', 'sdf', 'sdf<br>\r\nsdf\r\nsdf\r\nsdaf\r\nsdf\r\nasdf<br>\r\nssdf<br>\r\nsdf', '17 November 2019 :: 12:11:12', '0000-00-00 00:00:00', 'Ongoing', 'df'),
 (407, 'sayuj', 'df', 'bye <br/>\r\nthere!', '17 November 2019 :: 12:35:33', '0000-00-00 00:00:00', 'Completed', 'sdf'),
-(422, 'sayuj', 'gg', 'ggsdf', '23 November 2019 :: 23:35:43', '0000-00-00 00:00:00', 'Ongoing', 'gg'),
-(424, 'sayuj', 'Sleeping', 'Good night! All work done for today ;)', '23 November 2019 :: 23:37:32', '0000-00-00 00:00:00', 'Completed', 'Sayuj');
+(422, 'sayuj', 'gg', 'ggsdf', '23 November 2019 :: 23:35:43', '0000-00-00 00:00:00', 'Ongoing', 'gg');
 
 -- --------------------------------------------------------
 
@@ -89,16 +88,17 @@ CREATE TABLE `user` (
   `password` varchar(70) NOT NULL,
   `firstname` char(12) NOT NULL,
   `lastname` char(12) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `profileImg` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `firstname`, `lastname`, `date`) VALUES
-(23, 'varun', '$2y$10$UowbYe58khG8ofkiTQaks.HuQsG5YvBniFBLEj7y9WJMk46VMnTdW', 'varun', 'sehgal', '2019-11-17 17:56:20'),
-(24, 'sayuj', '$2y$10$vmtPU.vHkACxCwa703CzreYqtaSrhopbmq9/VOkfBZky4Digbbva.', 'Sayuj', 'Sehgal', '2019-11-23 15:43:09');
+INSERT INTO `user` (`id`, `username`, `password`, `firstname`, `lastname`, `date`, `profileImg`) VALUES
+(23, 'varun', '$2y$10$UowbYe58khG8ofkiTQaks.HuQsG5YvBniFBLEj7y9WJMk46VMnTdW', 'varun', 'sehgal', '2019-11-17 17:56:20', ''),
+(24, 'sayuj', '$2y$10$vmtPU.vHkACxCwa703CzreYqtaSrhopbmq9/VOkfBZky4Digbbva.', 'Sayuj', 'Sehgal', '2019-11-27 11:29:08', 'C:/xampp/htdocs/tasktracker/uploads/male1.png');
 
 --
 -- Indexes for dumped tables
@@ -125,13 +125,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `cardtask`
 --
 ALTER TABLE `cardtask`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=425;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=426;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2019 at 12:44 PM
+-- Generation Time: Nov 27, 2019 at 02:27 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -46,11 +46,10 @@ INSERT INTO `todotask` (`todoId`, `username`, `todo`, `datecreated`, `status`) V
 (4, 'sayuj', 'ff', '21 November 2019 :: 22:00:02', 'Pending'),
 (5, 'sayuj', 'gqewr', '21 November 2019 :: 22:00:30', 'Pending'),
 (7, 'sayuj', 'a', '21 November 2019 :: 22:01', 'Pending'),
-(8, 'sayuj', 'fg', '21 November 2019 :: 23:00', 'Pending'),
 (13, 'sayuj', 'ffdf<br>\nhiÂ ', '21 November 2019 :: 23:08', 'Pending'),
 (16, 'sayuj', 'hey there i am<br>\nusing this todo<br>\nand its really awesome!', '21 November 2019 :: 23:10', 'Complete'),
 (49, 'sayuj', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.', '23 November 2019 :: 00:37:58', 'Pending'),
-(114, 'sayuj', 'Good Night :)', '23 November 2019 :: 23:21:34', 'Pending');
+(115, 'varun', 'asdf', '27 November 2019 :: 17:22:09', 'Pending');
 
 --
 -- Indexes for dumped tables
@@ -70,7 +69,7 @@ ALTER TABLE `todotask`
 -- AUTO_INCREMENT for table `todotask`
 --
 ALTER TABLE `todotask`
-  MODIFY `todoId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `todoId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
