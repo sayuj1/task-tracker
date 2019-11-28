@@ -36,7 +36,7 @@ function prependTheLatestCard(container, data) {
                     <div class="col s12 m7 card_title">` + data[0]["title"] + `
                     </div>
                     <div class="col s12 m5">
-                        <div class="chip card_status ` + statusArr[data[0][" status "]] + `">` + data[0]["status"] + `
+                        <div class="chip card_status ` + statusArr[data[0]["status"]] + `">` + data[0]["status"] + `
                         </div>
                     </div>
                     <p class="col s12 valign-wrapper" style="font-size: medium;font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;">date_range</i>` + data[0]["datestarted"].split("::")[0] + `<i class="material-icons small" style="margin-right: 0px;margin-left: 5px;">access_time</i>` + data[0]["datestarted"].split("::")[1] +

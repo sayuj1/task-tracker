@@ -21,7 +21,7 @@ function loadCards(container, data, totalCards) {
                     </div>
                     <div class="col s12 m5">
                         <div class="chip card_status ` +
-            statusArr[data[i][" status "]] + `">` + data[i]["status"] + `
+            statusArr[data[i]["status"]] + `">` + data[i]["status"] + `
                         </div>
                     </div>
                     <p class="col s12 valign-wrapper" style="font-size: medium;font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;">date_range</i>` + data[i]["datestarted"].split("::")[0] + `
