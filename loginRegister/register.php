@@ -34,11 +34,13 @@ if ( $img_size>5097152 )  //this size in bytes which is equivalent to 2MB
     if ( in_array( $extension, $allowed_type ) ) {
         $new_name = rand().'.'.$extension;
         $path = $_SERVER['DOCUMENT_ROOT']."/tasktracker/uploads/".$new_name;
+        //$path = $_SERVER['DOCUMENT_ROOT']."/uploads/".$new_name;
     } else {
         array_push( $errors, 'InvalidImg' );
     }
 } else {
     $path = $_SERVER['DOCUMENT_ROOT'].'/tasktracker/uploads/male1.png';
+    //$_SERVER['DOCUMENT_ROOT'].'/uploads/male1.png';
 }
 
 if ( empty( $firstname ) || empty( $lastname ) || empty( $username ) || empty( $password ) ) {
