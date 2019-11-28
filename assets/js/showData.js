@@ -14,51 +14,34 @@ function loadCards(container, data, totalCards) {
         // if (i % 2 == 0) {
         $("#" + container + "").append(
             `
-                <div class="col s12 m6" id=` +
-            data[i]["id"] +
-            `>
-                <div class="card yellow accent-1">
+            <div class="col s12 m6" id=` + data[i]["id"] + `>
+            <div class="card yellow accent-1">
                 <div class="card-title row">
-                <div class="col s12 m7 card_title">` +
-            data[i]["title"] +
-            `
+                    <div class="col s12 m7 card_title">` + data[i]["title"] + `
+                    </div>
+                    <div class="col s12 m5">
+                        <div class="chip card_status ` +
+            statusArr[data[i][" status "]] + `">` + data[i]["status"] + `
+                        </div>
+                    </div>
+                    <p class="col s12 valign-wrapper" style="font-size: medium;font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;">date_range</i>` + data[i]["datestarted"].split("::")[0] + `
+                        <i class="material-icons small" style="margin-right: 0px;margin-left: 5px;">access_time</i>` + data[i]["datestarted"].split("::")[1] + `
+                    </p>
+                    <p class="col s12 card_assignedBy" style="font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned By: ` + data[i]["assignedby"] + `
+                    </p>
                 </div>
-                <div class="col s12 m5">
-                <div class="chip card_status ` +
-            statusArr[data[i]["status"]] +
-            `">` +
-            data[i]["status"] +
-            `
-              </div>
-              </div>
-              <p class="col s12 valign-wrapper" style="font-size: medium;font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;">date_range</i>` +
-            data[i]["datestarted"].split("::")[0] +
-            `<i class="material-icons small" style="margin-right: 0px;margin-left: 5px;">access_time</i>` +
-            data[i]["datestarted"].split("::")[1] +
-            `</p>
-                <p class="col s12 card_assignedBy" style="font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned By: ` +
-            data[i]["assignedby"] +
-            `</p>
-              </div>
                 <div class="divider pink darken-4" style="height: 2px;"></div>
-                    <div class="card-content black-text flow-text">
-                    <input type="hidden" value=` +
-            data[i]["id"] +
-            `>
-                   <p class="card_task">` +
-            data[i]["task"] +
-            `</p>
-                    </div>
-                    <div class="card-footer" style="border-top: 2px solid #880e4f;padding: 16px;">
-                    <a class="waves-effect waves-light btn modal-trigger blue darken-1" href="#modal5" id=` +
-            data[i]["id"] +
-            ` onclick="editCard(this.id)"><i class="material-icons right">edit</i>Edit</a>
-                    <a class="waves-effect waves-light btn red darken-1" id=` +
-            data[i]["id"] +
-            ` onclick="deleteCard(this.id)" style="float: right;"><i class="material-icons right">delete_forever</i>Delete</a>
-                    </div>
-                    </div>
+                <div class="card-content black-text flow-text">
+                    <input type="hidden" value=` + data[i]["id"] + `>
+                    <p class="card_task">` + data[i]["task"] + `
+                    </p>
+                </div>
+                <div class="card-footer" style="border-top: 2px solid #880e4f;padding: 16px;">
+                    <a class="waves-effect waves-light btn modal-trigger blue darken-1" href="#modal5" id=` + data[i]["id"] + ` onclick="editCard(this.id)"><i class="material-icons right">edit</i>Edit</a>
+                    <a class="waves-effect waves-light btn red darken-1" id=` + data[i]["id"] + ` onclick="deleteCard(this.id)" style="float: right;"><i class="material-icons right">delete_forever</i>Delete</a>
+                </div>
             </div>
+        </div>
             `
         );
 
@@ -75,31 +58,31 @@ function loadUserData() {
         beforeSend: function() {
             $("#task-loading").html(`
             <div class="ui fluid placeholder">
-            <div class="image header">
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            <div class="paragraph">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            <div class="paragraph">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
-            <div class="paragraph">
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
-            </div>
+                <div class="image header">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <div class="paragraph">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <div class="paragraph">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+                <div class="paragraph">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
             </div>
             `);
         },

@@ -97,8 +97,9 @@ function loadDetails() {
                 $(".view-profile").append(
                     `
                     <div class="row center-align">
-                    <a onclick=goBack() class="waves-effect waves-light btn blue darken-1 btn-large hide-on-small-only">Go To Mainpage</a>
-                    <a onclick=goBack() class="waves-effect waves-light btn blue darken-1 hide-on-med-and-up">Go To Mainpage</a>
+                        <a onclick=goBack() class="waves-effect waves-light btn blue darken-1 btn-large hide-on-small-only">Go To
+                            Mainpage</a>
+                        <a onclick=goBack() class="waves-effect waves-light btn blue darken-1 hide-on-med-and-up">Go To Mainpage</a>
                     </div>
                     `
                 );

@@ -29,47 +29,35 @@ function prependTheLatestCard(container, data) {
     };
 
     $("#" + container + "").prepend(
-        `<div class="col s12 m6" id=` +
-        data[0]["id"] +
-        `>
-<div class="card yellow accent-1">
-<div class="card-title row">
-            <div class="col s12 m7 card_title">` +
-        data[0]["title"] +
         `
+        <div class="col s12 m6" id=` + data[0]["id"] + `>
+            <div class="card yellow accent-1">
+                <div class="card-title row">
+                    <div class="col s12 m7 card_title">` + data[0]["title"] + `
+                    </div>
+                    <div class="col s12 m5">
+                        <div class="chip card_status ` + statusArr[data[0][" status "]] + `">` + data[0]["status"] + `
+                        </div>
+                    </div>
+                    <p class="col s12 valign-wrapper" style="font-size: medium;font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;">date_range</i>` + data[0]["datestarted"].split("::")[0] + `<i class="material-icons small" style="margin-right: 0px;margin-left: 5px;">access_time</i>` + data[0]["datestarted"].split("::")[1] +
+        `
+                    </p>
+                    <p class="col s12 card_assignedBy" style="font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned By: ` + data[0]["assignedby"] + `
+                    </p>
+                </div>
+                <div class="divider pink darken-4" style="height: 2px;"></div>
+                <div class="card-content black-text flow-text">
+                    <input type="hidden" value=` + data[0]["id"] + `>
+                    <p class="card_task">` + data[0]["task"] + `
+                    </p>
+                </div>
+                <div class="card-footer" style="border-top: 2px solid #880e4f; padding: 16px;">
+                    <a class="waves-effect waves-light btn modal-trigger blue darken-1" href="#modal5" id=` + data[0]["id"] + ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
+                    <a class="waves-effect waves-light btn red darken-1" id=` + data[0]["id"] + ` onclick=deleteCard(this.id) style="float: right;"><i class="material-icons right">delete_forever</i>Delete</a>
+                </div>
             </div>
-            <div class="col s12 m5">
-            <div class="chip card_status ` + statusArr[data[0]["status"]] + `">` +
-        data[0]["status"] +
+        </div>
         `
-          </div>
-          </div>
-          <p class="col s12 valign-wrapper" style="font-size: medium;font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;">date_range</i>` +
-        data[0]["datestarted"].split("::")[0] + `<i class="material-icons small" style="margin-right: 0px;margin-left: 5px;">access_time</i>` + data[0]["datestarted"].split("::")[1] +
-        `</p>
-            <p class="col s12 card_assignedBy" style="font-weight: 400;margin-top: 5px;"><i class="material-icons left small" style="margin-right: 0px;margin-top: 3px;">assignment_ind</i>Assigned By: ` +
-        data[0]["assignedby"] +
-        `</p>
-          </div>
-            <div class="divider pink darken-4" style="height: 2px;"></div>
-<div class="card-content black-text flow-text">
-<input type="hidden" value=` +
-        data[0]["id"] +
-        `>
-    <p class="card_task">` +
-        data[0]["task"] +
-        `</p>
-</div>
-<div class="card-footer" style="border-top: 2px solid #880e4f; padding: 16px;">
-<a class="waves-effect waves-light btn modal-trigger blue darken-1" href="#modal5" id=` +
-        data[0]["id"] +
-        ` onclick=editCard(this.id)><i class="material-icons right">edit</i>Edit</a>
-<a class="waves-effect waves-light btn red darken-1" id=` +
-        data[0]["id"] +
-        ` onclick=deleteCard(this.id) style="float: right;"><i class="material-icons right">delete_forever</i>Delete</a>
-</div>
-</div>
-</div>`
     );
 }
 
@@ -85,93 +73,93 @@ function loadTheLatestCard(loadLocation) {
         beforeSend: function() {
             if ($('.card-tasks')[0].style.display == "block") {
                 $("#all-cards").prepend(`
-      <div class="row" id="latest-card-loader">
-                <div class="col s12 m6">
-                    <div class="ui raised segment">
-                        <div class="ui fluid placeholder">
-                            <div class="image header">
-                                <div class="line"></div>
-                                <div class="line"></div>
-                            </div>
-                            <div class="paragraph">
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                            </div>
-                            <div class="paragraph">
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                            </div>
-                            <div class="paragraph">
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                            </div>
-                            <div class="paragraph">
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                            </div>
-                            <div class="paragraph">
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
+                <div class="row" id="latest-card-loader">
+                    <div class="col s12 m6">
+                        <div class="ui raised segment">
+                            <div class="ui fluid placeholder">
+                                <div class="image header">
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                </div>
+                                <div class="paragraph">
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                </div>
+                                <div class="paragraph">
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                </div>
+                                <div class="paragraph">
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                </div>
+                                <div class="paragraph">
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                </div>
+                                <div class="paragraph">
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             `)
             } else {
                 $("#filter-cards").prepend(`
                 <div class="row" id="latest-card-loader">
-                <div class="col s12 m6">
-                    <div class="ui raised segment">
-                        <div class="ui fluid placeholder">
-                            <div class="image header">
-                                <div class="line"></div>
-                                <div class="line"></div>
-                            </div>
-                            <div class="paragraph">
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                            </div>
-                            <div class="paragraph">
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                            </div>
-                            <div class="paragraph">
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                            </div>
-                            <div class="paragraph">
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                            </div>
-                            <div class="paragraph">
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
-                                <div class="full line"></div>
+                    <div class="col s12 m6">
+                        <div class="ui raised segment">
+                            <div class="ui fluid placeholder">
+                                <div class="image header">
+                                    <div class="line"></div>
+                                    <div class="line"></div>
+                                </div>
+                                <div class="paragraph">
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                </div>
+                                <div class="paragraph">
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                </div>
+                                <div class="paragraph">
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                </div>
+                                <div class="paragraph">
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                </div>
+                                <div class="paragraph">
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                    <div class="full line"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
             `)
             }
 
@@ -203,7 +191,7 @@ function loadTheLatestCard(loadLocation) {
             // $(".total-card-value-holder").html(visibleCount);
             $(".total-card-value-holder").html(
                 `<input type="visible" value=` + visibleCount + ` class="total-cards-value-holder" readonly disabled>
-        <input type="hidden" value=` + hiddenCount + ` class="total-cards-value">`
+                <input type="hidden" value=` + hiddenCount + ` class="total-cards-value">`
             );
             // removing the "no task found" message
             $('#no-card-found').empty();
@@ -227,12 +215,9 @@ $(".large-device").on("submit", function(e) {
         beforeSend: function() {
             // show the loader
             $(".modal-container-large").prepend(`
-      <span id="create-card-loader-lg" style="left: 42%;
-                position: absolute;
-                z-index: 99999;
-                top: 300px;
-                font-size: x-large;
-                font-weight: 700;"><div class="ui active inline loader"></div> Creating Tasks....</span> 
+            <span id="create-card-loader-lg" style="left: 42%;position: absolute;z-index: 99999;top: 300px;font-size: x-large;font-weight: 700;">
+                <div class="ui active inline loader"></div> Creating Tasks....
+            </span> 
                 `);
             let createCardContainer = document.querySelector("#modal1");
             createCardContainer.style.setProperty("filter", "blur(3px)");
@@ -288,12 +273,9 @@ $(".small-device").on("submit", function(e) {
         beforeSend: function() {
             // show the loader
             $(".modal-container-small").prepend(`
-      <span id="create-card-loader-sm" style="left: 20%;
-                position: absolute;
-                z-index: 99999;
-                top: 300px;
-                font-size: large;
-                font-weight: 700;"><div class="ui active inline loader"></div> Creating Tasks....</span> 
+            <span id="create-card-loader-sm" style="left: 20%;position: absolute;z-index: 99999;top: 300px;font-size: large;font-weight: 700;">
+                <div class="ui active inline loader"></div> Creating Tasks....
+            </span> 
                 `);
             let createCardContainer = document.querySelector("#modal2");
             createCardContainer.style.setProperty("filter", "blur(3px)");

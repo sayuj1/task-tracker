@@ -32,12 +32,9 @@ function loadValues(card_id) {
         },
         beforeSend: function() {
             $("#modal5").prepend(`
-            <div id="edit-card-loader" style="margin-left: 30%;
-                      position: sticky;
-                      top: 50%;
-                      z-index: 99999;
-                      font-size: x-large;
-                      font-weight: 700;"><div class="ui active inline loader"></div> Loading Tasks....</div> 
+            <div id="edit-card-loader" style="margin-left: 30%;position: sticky;top: 50%;z-index: 99999;font-size: x-large;font-weight: 700;">
+                <div class="ui active inline loader"></div> Loading Tasks....
+            </div> 
                       `);
             let editCardContainer = document.querySelector(".edit-modal-container");
             editCardContainer.style.setProperty("filter", "blur(3px)");
@@ -143,12 +140,9 @@ $(".edit-form").on("submit", function(e) {
         beforeSend: function() {
             // show the loader
             $("#modal5").prepend(`
-            <div id="edit-card-loader" style="margin-left: 30%;
-                      position: sticky;
-                      top: 50%;
-                      z-index: 99999;
-                      font-size: x-large;
-                      font-weight: 700;"><div class="ui active inline loader"></div> Updating Tasks....</div> 
+            <div id="edit-card-loader" style="margin-left: 30%;position: sticky;top: 50%;z-index: 99999;font-size: x-large;font-weight: 700;">
+                <div class="ui active inline loader"></div> Updating Tasks....
+            </div> 
                       `);
             let editCardContainer = document.querySelector(".edit-modal-container");
             editCardContainer.style.setProperty("filter", "blur(3px)");
@@ -207,12 +201,9 @@ function deleteCard(card_id) {
         beforeSend: function() {
             // add the loader later
             $("#" + card_id + "").prepend(`
-            <div id="delete-card-loader" style="margin-left: 30%;
-                      position: sticky;
-                      top: 50%;
-                      z-index: 99999;
-                      font-size: x-large;
-                      font-weight: 700;"><div class="ui active inline loader"></div> Deleting Tasks....</div> 
+            <div id="delete-card-loader" style="margin-left: 30%;position: sticky;top: 50%;z-index: 99999;font-size: x-large;font-weight: 700;">
+                <div class="ui active inline loader"></div> Deleting Tasks....
+            </div> 
                       `);
             let cardContent = document.getElementById("" + card_id + "").getElementsByClassName("card")[0];
             cardContent.style.visibility = "hidden";
